@@ -1,0 +1,407 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  border: 0px;
+  outline: 0;
+  background-repeat: no-repeat;
+  appearance: none;
+  border-radius: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  text-decoration: none;
+  list-style: none;
+  user-select: text;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ufo {
+  0% {
+    transform: translateX(50vw);
+  }
+  70% {
+    transform: translateX(100vw);
+  }
+  90% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(200vw);
+  }
+}
+@keyframes rotate-z {
+  0% {
+    transform: translateX(-2.5vh);
+  }
+  100% {
+    transform: translateX(2.5vh);
+  }
+}
+@keyframes orbiting {
+  0% {
+    z-index: 3;
+    top: 0;
+    right: 100%;
+    bottom: 100%;
+    left: 0;
+    transform: scale(1);
+  }
+  25% {
+    z-index: 3;
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+    transform: scale(2);
+  }
+  50% {
+    z-index: 1;
+    top: 100%;
+    right: 0;
+    bottom: 0;
+    left: 100%;
+    transform: scale(1) translate(-100%, -100%);
+  }
+  75% {
+    z-index: 1;
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+    transform: scale(0.5);
+  }
+  100% {
+    z-index: 1;
+    top: 0;
+    right: 100%;
+    bottom: 100%;
+    left: 0;
+    transform: scale(1);
+  }
+}
+@keyframes orbiting-iss {
+  0% {
+    z-index: 3;
+    top: 0;
+    right: 0;
+    bottom: 100%;
+    left: 100%;
+    transform: scale(1);
+  }
+  25% {
+    z-index: 3;
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+    transform: scale(2);
+  }
+  50% {
+    z-index: 1;
+    top: 100%;
+    right: 100%;
+    bottom: 0;
+    left: 0;
+    transform: scale(1) translate(-100%, -100%);
+  }
+  75% {
+    z-index: 1;
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+    transform: scale(0.5);
+  }
+  100% {
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 100%;
+    left: 100%;
+    transform: scale(1);
+  }
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+#container {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #202;
+  background: radial-gradient(#002 40%, #001 100%);
+}
+
+#comet-route {
+  position: relative;
+  z-index: 100;
+  top: 25%;
+  left: -50%;
+  width: 200vh;
+  min-width: 200vw;
+  height: 1vh;
+  animation: rotate 240s linear 0s infinite;
+}
+#comet-route #comet {
+  width: 1vh;
+  height: 1vh;
+  background-color: #02bc70;
+  filter: drop-shadow(8px 0 12px #02bc70);
+  border-radius: 50%;
+}
+#comet-route #comet.fire {
+  transition: 1s ease;
+  transform: translateX(200vw);
+}
+#comet-route #comet:after {
+  content: "";
+  display: block;
+  width: 20vh;
+  height: 1vh;
+  background: linear-gradient(90deg, transparent, rgba(2, 188, 112, 0.9));
+  transform: translateX(calc(-100% + 0.5vh));
+}
+
+#ufo-route {
+  position: absolute;
+  z-index: 100;
+  top: 25%;
+  left: -50%;
+  width: 200vh;
+  min-width: 200vw;
+  height: 1vh;
+  animation: rotate 6s reverse 0s infinite;
+}
+#ufo-route #ufo {
+  position: relative;
+  font-size: 2vh;
+  width: 1vh;
+  height: 1vh;
+  filter: drop-shadow(0px -3px 12px #02bc70);
+  border-radius: 50%;
+}
+#ufo-route #ufo.fire {
+  animation: ufo 10s linear 0s infinite;
+}
+
+.backgroundstars {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 2px;
+  background-color: #eaeaea;
+  transition: 1s ease;
+  will-change: transform;
+}
+.backgroundstars.blink {
+  transform: translate(-50%, -50%) scale(2);
+  filter: drop-shadow(0 0 3px white);
+}
+
+.star, .planet, .moon {
+  border-radius: 50%;
+}
+
+#sun {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  height: 50vh;
+  max-height: 50vw;
+  width: 50vh;
+  max-width: 50vw;
+  background: radial-gradient(#ffff32, #dcb419);
+  filter: drop-shadow(0 0 10vh #ffb478) drop-shadow(0 0 2.5vh #dcb419);
+}
+
+#mercury {
+  position: absolute;
+  z-index: 10;
+  top: 20%;
+  right: 20%;
+  transform: translate(-50%, -50%);
+  height: 2vh;
+  max-height: 2vw;
+  width: 2vh;
+  max-width: 2vw;
+  background: radial-gradient(#333, #444);
+  filter: drop-shadow(0 0 2vh #fff);
+}
+
+#venus {
+  position: absolute;
+  top: 30%;
+  right: 25%;
+  transform: translate(-50%, -50%);
+  height: 6vh;
+  max-height: 6vw;
+  width: 6vh;
+  max-width: 6vw;
+  background: radial-gradient(#de8438, #8f481c);
+  filter: drop-shadow(0 0 10vh #de8438) drop-shadow(0 0 2.5vh #8f481c);
+  animation: rotate 120s linear 0s infinite;
+  overflow: hidden;
+}
+#venus .cloud {
+  position: absolute;
+  top: 20%;
+  left: -20%;
+  height: 1.25vh;
+  max-height: 1.25vw;
+  width: 5vh;
+  max-width: 5vw;
+  background: rgba(120, 20, 40, 0.2);
+  border-radius: 50%;
+}
+#venus .cloud:first-child {
+  top: 45%;
+  left: 50%;
+}
+#venus .cloud:last-child {
+  top: 70%;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  max-height: 30vw;
+  width: 30vh;
+  max-width: 30vw;
+  transition: 2.5s ease;
+}
+.orbit.fire {
+  filter: brightness(50);
+}
+.orbit.explode {
+  transition: 2.5s ease;
+  filter: brightness(100);
+}
+.orbit.done {
+  opacity: 0;
+  filter: brightness(0);
+}
+.orbit #earth {
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 66.666%;
+  width: 66.666%;
+  box-shadow: 0 0 2vh rgba(255, 255, 255, 0.2);
+  filter: drop-shadow(0 0 10vh #1180f3) drop-shadow(0 0 2.5vh #1d54e2);
+  overflow: hidden;
+  background: radial-gradient(#207AF0, #1f52e3);
+  animation: rotate 240s linear 0s infinite;
+}
+.orbit #earth .land {
+  font-size: 25vh;
+  color: rgba(80, 220, 40, 0.5);
+}
+.orbit #moon {
+  position: absolute;
+  z-index: 3;
+  height: 3vh;
+  max-height: 3vw;
+  width: 3vh;
+  max-width: 3vw;
+  background: radial-gradient(#fff, #eaeaea);
+  border: 1px solid #fff;
+  filter: drop-shadow(0 0 1vh #fff);
+  animation: orbiting 30s linear 0s infinite, rotate 10s linear 0s infinite;
+  overflow: hidden;
+}
+.orbit #moon:after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  height: 1vh;
+  max-height: 1vw;
+  width: 1vh;
+  max-width: 1vw;
+  background: radial-gradient(#333, #aaa);
+  border-radius: 50%;
+  animation: rotate-z 5s linear 0s infinite;
+}
+.orbit #moon:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  height: 0.5vh;
+  max-height: 0.5vw;
+  width: 0.5vh;
+  max-width: 0.5vw;
+  background: radial-gradient(#333, #aaa);
+  border-radius: 50%;
+  animation: rotate-z 5s linear 0s infinite;
+}
+.orbit #iss {
+  position: absolute;
+  z-index: 3;
+  height: 0.125vh;
+  max-height: 0.125vw;
+  width: 0.125vh;
+  max-width: 0.125vw;
+  background: radial-gradient(#fff, #eaeaea);
+  filter: drop-shadow(0 0 1vh #fff);
+  animation: orbiting-iss 2s linear 0s infinite;
+}
+
+#nav {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-around;
+  width: 25vh;
+  max-width: 25vw;
+  height: 5vh;
+  max-height: 5vw;
+}
+#nav button {
+  width: 5vh;
+  font-size: 2.5vh;
+  border-radius: 50%;
+  transition: 0.4s ease;
+  background-color: #ffffff;
+  filter: drop-shadow(0 0 10px #909);
+}
+#nav button:hover, #nav button:active {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.reference {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  color: #fff;
+  font-family: arial;
+  text-decoration: none;
+}

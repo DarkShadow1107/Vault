@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang = "en" style = "background-color: #a573f5; width: 1521.5px">
+    <head>
+        <title>
+            Star
+        </title>
+        <style>
+            .frac
+            {
+                display: inline-block;
+                position: relative;
+                vertical-align: middle;
+                letter-spacing: 0.001em;
+                text-align: center;
+            }
+            .frac > span
+            {
+                display: block;
+                padding: 0.1em;
+            }
+            .frac span.bottom
+            {
+                border-top: thin solid black;
+            }
+            .frac span.symbol
+            {
+                display: none;
+            }
+            .subtitle_first
+            {
+                text-decoration: none;
+                font-size: 165%;
+                font-weight: normal;
+            }
+            .subtitle_second
+            {
+                text-decoration: none;
+                font-size: 150%;
+                font-weight: normal;
+            }
+            .subtitle_third
+            {
+                text-decoration: none;
+                font-size: 135%;
+                font-weight: normal;
+            }
+            .subtitle_fourth
+            {
+                text-decoration: none;
+                font-size: 100%;
+                font-weight: normal;
+            }
+            ::-webkit-scrollbar
+            {
+                width: 15px;
+            }
+            ::-webkit-scrollbar-track
+            {
+                background: #a573f5; 
+            }
+            ::-webkit-scrollbar-corner
+            {
+                background: #a573f5; 
+            }
+            ::-webkit-scrollbar-thumb
+            {
+                background-image: linear-gradient(#400b52, #9a52cb); 
+            }
+            ::-webkit-scrollbar-thumb:hover
+            {
+                background-image: linear-gradient(120deg, #3B0078, #9C0EC9); 
+            }
+            .counter-text
+            {
+                float: right;
+                font-size: 62%;
+                color: black;
+                font-weight: normal;
+            }
+            .website-counter
+            {
+                color: black;
+                font-weight: normal;
+                font-size: 62%;
+                float: right;
+            }
+            div.thumbinner
+            {
+                border: 1px solid #202020;
+                background-color: #a573f5;
+                font-size: 94%;
+                padding: 3px;
+                text-align: left;
+                overflow: hidden;
+            }
+            .thumbinner
+            {
+                min-width: 100px;
+            }
+            div
+            {
+                display: block;
+            }
+            div.tleft
+            {
+                margin: 0.3em 0.3em 1.0em 0;
+            }
+            div.tleft, div.floatleft, table.floatleft
+            {
+                float: left;
+                clear: left;
+            }
+            div.tright
+            {
+                margin: 0.3em 0.4em 1.0em 0;
+            }
+            div.thumb
+            {
+                width: auto;
+                background-color: transparent;
+                margin-bottom: 0.5em;
+            }
+            div.tright, div.floatright, table.floatright
+            {
+                float: right;
+                clear: right;
+            }
+            .thumbcaption
+            {
+                border: 0;
+                font-size: 94%;
+                line-height: 1.4em;
+                padding: 3px;
+            }
+            .mw-content-ltr .thumbcaption
+            {
+                text-align: left;
+            }
+            .magnify
+            {
+                display: block;
+                text-indent: 15px;
+                width: 23px;
+                user-select: none;
+                margin-left: 3px;
+                margin-right: 0;
+                float: right;
+            }
+            .table_border_div
+            {
+                border: 0;
+                width: 100%;
+                font-size: 90%;
+            }
+            table
+            {
+                border: 1px solid black;
+                text-align: left;
+                padding: 8px;
+                font-family: Times New Roman;
+                width: 23%;
+            }
+            body
+            {
+                font-size: 100%;
+            }
+            div.a
+            {
+                text-align: left;
+            }
+            ul.h
+            {
+                list-style-type: none;
+                margin: -8px;
+                padding: 0;
+                overflow: hidden;
+                background-image: linear-gradient(#380a48, #a25ecf);
+                position: sticky;
+                top: 0;
+                z-index: 5;
+            }
+            li.animations
+            {
+                border-left: 2px solid rgb(95, 19, 125);
+            }
+            li
+            {
+                float: right;
+                border-left: 1px solid rgb(156, 50, 233);
+            }
+            li:last-child
+            {
+                border-left: none;
+            }
+            li a
+            {
+                display: block;
+                color: whitesmoke;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            li a:hover
+            {
+                background-image: linear-gradient(120deg, #3B0078, #9C0EC9);
+            }
+            .active3
+            {
+                background-image: linear-gradient(150deg, #54137a, #9146c1, #380a52);
+            }
+            .active2
+            {
+                background-image: linear-gradient(135deg, #792fa6, #511177);
+            }
+            .active
+            {
+                background-image: linear-gradient(250deg, #7831a3, #511177);
+            }
+            .line
+            {
+                width: 100%;
+                height: 0.65%;
+                border-bottom: 1px solid black;
+                position: static;
+            }
+            .afterdiv
+            {
+                font-family: Times New Roman;
+                font-size: 115%;
+                float: left;
+                margin-top: 0.1%;
+                line-height: 150%;
+            }
+            .afterdiv_in
+            {
+                font-family: Times New Roman;
+                font-size: 100%;
+                float: left;
+                margin-left: 2%;
+                margin-top: 0.1%;
+                line-height: 150%;
+            }
+            .unselectable
+            {
+                font-size: 0.1%;
+                margin-bottom: -1.1%;
+                color: #a573f5;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            .unselectable_2
+            {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            ol
+            {
+                font-family: Times New Roman;
+                font-size: 100%;
+                float: left;
+                margin-top: 0.1%;
+                line-height: 100%;
+                margin-left: 2%;
+            }
+            .font_color
+            {
+                color:#53d2c7;
+            }
+            .image_container
+            {
+                position: relative;
+                cursor: pointer;
+            }
+            img
+            {
+                width: 100%;
+                height: 100%;
+            }
+            .image_container:before
+            {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: hsl(271, 76%, 53%);
+                transform: scale(0);
+                transition: all 800ms linear;
+                transform-origin: 0 50%;
+                z-index: 2;
+                opacity: 0.3;
+            }
+            .image_container:hover:before
+            {
+                transform: scale(1);
+            }
+            span
+            {
+                position: absolute;
+                opacity: 0;
+                transition: all 800ms linear;
+                z-index: 3;
+            }
+            .title
+            {
+                font-size: 115%;
+                left: 10%;
+                top: 3%;
+            }
+            .description
+            {
+                font-size: 88%;
+                left: 12%;
+                top: 20%;
+                width: 88%;
+            }
+            .image_container:hover span
+            {
+                opacity: 1;
+            }
+            .line1
+            {
+                left: 0;
+                top: 0;
+                position: absolute;
+                background: #53d2c7;
+                transition: all 800ms linear;
+            }
+            .top
+            {
+                width: 3px;
+                height: 0;
+                left: 5%;
+            }
+            .image_container:hover .top
+            {
+                height: 100%;
+            }
+            .left
+            {
+                width: 0;
+                height: 3px;
+                top: 95%;
+            }
+            .image_container:hover .left
+            {
+                width: 100%;
+            }
+            .link
+            {
+                color: #0c4b0c;
+                text-decoration: none;
+            }
+            .link:hover
+            {
+                text-decoration: underline;
+            }
+            a:visited
+            {
+                color: #560909;
+                text-decoration: none;
+            }
+            .drop
+            {
+                display: flex;
+                background-image: linear-gradient(200deg, #3d0553, #9b4dcb, #320448);
+                flex-direction: row-reverse;
+            }
+            .drop-cont
+            {
+                display: none;
+            }
+            .drop:hover .disappear
+            {
+                display: none;
+            }
+            .drop:hover .drop-cont
+            {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+        </style>
+        <meta charset = "UTF-8">
+    </head>
+    <script>
+        function Visitors()
+        {
+            var visitCount = localStorage.getItem("page_view");
+            if(visitCount)
+            {
+                visitCount = Number(visitCount) + 1;
+                localStorage.setItem("page_view", visitCount);
+            }
+            else
+            {
+                visitCount = 1;
+                localStorage.setItem("page_view", 1);
+            }
+            document.getElementById("demo").innerHTML = visitCount;
+        }
+    </script>
+    <body onload = "Visitors()">
+        <ul class = "h">
+            <li>
+                <a class = "active3" href = "Log In Form.html" style = "color: white">
+                    Sign In
+                </a>
+            </li>
+            <li>
+                <a class = "active" href = "index.html" style = "color: white">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Energy.html" style = "color: white">
+                    Dark Energy
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Matter.html" style = "color: white">
+                    Dark Matter
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Flow.html" style = "color: white">
+                    Dark Flow
+                </a>
+            </li>
+            <li>
+                <a href = "Star.html" style = "color: white">
+                    Star
+                </a>
+            </li>
+            <li class = "animations">
+                <div class = "drop">
+                    <a class = "disappear" style = "color: white; cursor: pointer">
+                        Animations
+                    </a>
+                    <div class = "drop-cont">
+                        <a href = "Solar System/Solar System.html" style = "color: white" target = "_blank">
+                            Solar System
+                        </a>
+                        <a href = "Simple Terra/Simple Terra.html" style = "color: white" target = "_blank">
+                            Terra
+                        </a>
+                        <a href = "Orb/Orb.html" style = "color: white" target = "_blank">
+                            Orb
+                        </a>
+                        <a href = "Night Flower/Night Flower.html" style = "color: white" target = "_blank">
+                            Form of Life
+                        </a>
+                        <a href = "Black Hole Shader/Black Hole Shader.html" style = "color: white" target = "_blank">
+                            Black Hole
+                        </a>
+                        <a href = "Nebula/Nebula.html" style = "color: white" target = "_blank">
+                            Nebula
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li style = "float: left">
+                <a class = "active2" href = "Gallery.html" style = "color: white">
+                    Gallery
+                </a>
+            </li>
+        </ul>
+        <center>
+            <h1 style = "text-decoration: none; color:#070e50; font-size: 260%">
+                Universe Encyclopedia
+            </h1>
+        </center>
+        <br>
+        <br>
+        <h2 style = "text-decoration: none; font-size: 210%; font-weight: normal">
+            Star
+            <div class = "counter-text unselectable_2">
+                &nbsp;views
+            </div>
+            <div id = "demo" class = "website-counter unselectable_2">
+            </div>
+            <div class = "counter-text unselectable_2">
+                Writer: <i>Alexandru Gabriel</i> | 16-09-2022 |&nbsp;
+            </div>
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 254px">
+                    <a href = "media\1080px-The_Sun_in_white_light.jpg">
+                        <img loading = "lazy" src = "media\1080px-The_Sun_in_white_light.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1080px-The_Sun_in_white_light.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Image of the Sun, a G-type main-sequence star, the closest to Earth
+                    </div>
+                </div>
+            </div>
+            A <b>star</b> is an astronomical object comprising a luminous spheroid of plasma held together by its gravity. The nearest star to Earth is the Sun. Many other stars are visible to the naked eye at night, but their immense distances 
+            from Earth make them appear as fixed points of light. The most prominent stars have been categorised into constellations and asterisms, and many of the brightest stars have proper names. Astronomers have assembled star catalogues 
+            that identify the known stars and provide standardized stellar designations. The observable universe contains an estimated 10<sup>22</sup> to 10<sup>24</sup> stars. Still, most are invisible to the naked eye from Earth, including 
+            all individual stars outside our galaxy, the Milky Way.<br>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 302px">
+                    <a href = "media\1687px-Starsinthesky.jpg">
+                        <img loading = "lazy" src = "media\1687px-Starsinthesky.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1687px-Starsinthesky.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        A star-forming region in the Large Magellanic Cloud
+                    </div>
+                </div>
+            </div>
+            Under a star is understood in astronomy as a massive, self-luminous celestial body made of very hot gas and plasma, such as the Sun. In addition, a planet of our solar system illuminated by the Sun is also commonly called <i><b>a star</b></i>, 
+            such as <i><b>evening star</b></i>, although it is not a star like the Sun.<br>
+            The fact that almost all self-luminous celestial bodies visible to the naked eye are Sun-like objects that appear point-like only because of their long distance is one of the most important findings of modern astronomy. About 
+            three-quarters of the stars are part of a binary or multiple system, many have a planetary system. Jointly formed stars often form star clusters. Under favorable conditions, several thousand stars can be freely distinguished. They all 
+            belong to the same galaxy as the Sun, the Milky Way, which consists of over a hundred billion stars. This galaxy, along with its neighboring galaxies, belongs to the Local Group, one of thousands of galaxy clusters.<br>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 299px">
+                    <a href = "media\1131px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA's_Solar_Dynamics_Observatory_-_20100819.jpg">
+                        <img loading = "lazy" src = "media\1131px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA's_Solar_Dynamics_Observatory_-_20100819.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1131px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA's_Solar_Dynamics_Observatory_-_20100819.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        In addition to light, a star like the Sun also emits radiation in the extreme ultraviolet range (false color representation of solar emission at 30 nm)
+                    </div>
+                </div>
+            </div>
+            Stars are formed from gas clouds – in certain areas (H-II region) from gaseous molecular clouds – by local strong compression in several phases. They are held together by the gravity of their own mass and are therefore approximately 
+            spherical. While a star inside is several million degrees hot (in the core of the Sun just under 16,000,000 Kelvin), in most of the case the surface temperature is between 2,000 K and 20,000 K (in the photosphere of the Sun just 
+            under 6,000 K); As exposed star nuclei, white dwarfs can reach temperatures of up to 100,000 K at their surface. From the glowing star surface, not only an intense radiation such as light emanates, but also a stream of charged plasma 
+            particles (stellar wind) far into space, forming an astrosphere.<br>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 310px">
+                    <a href = "media\1e9m_comparison.png">
+                        <img loading = "lazy" src = "media\1e9m_comparison.png" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1e9m_comparison.png">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Stars can have different sizes, luminosity and color – such as Bellatrix as the Blue Giant, Algol B as the Red Giant, the Sun and OGLE-TR-122b, a red dwarf (below, next to the gas planets Jupiter and Saturn)
+                    </div>
+                </div>
+            </div>
+            A star's life begins with the gravitational collapse of a gaseous nebula of material composed primarily of hydrogen, along with helium and trace amounts of heavier elements. Its total mass is the main factor determining its evolution 
+            and eventual fate. A star shines for most of its active life due to the thermonuclear fusion of hydrogen into helium in its core. This process releases energy that traverses the star's interior and radiates into outer space. At the end 
+            of a star's lifetime, its core becomes a stellar remnant: a white dwarf, a neutron star, or—if it is sufficiently massive—a black hole.<br>
+            Stellar nucleosynthesis in stars or their remnants creates almost all naturally occurring chemical elements heavier than lithium. Stellar mass loss or supernova explosions return chemically enriched material to the interstellar medium. 
+            These elements are then recycled into new stars. Astronomers can determine stellar properties—including mass, age, metallicity (chemical composition), variability, distance, and motion through space—by carrying out observations of a 
+            star's apparent brightness, spectrum, and changes in its position in the sky over time.<br>
+            Stars can differ significantly in mass and volume, as well as in luminosity and color; in the course of a star's evolution, these properties change. An orienting classification of the stars is possible with the two characteristics 
+            absolute brightness and spectral type alone. The properties of stars are also important in determining whether or not a planet orbiting them could carry life.
+        </div>
+        <table>
+            <tr>
+                <th style = "font-size: 115%">
+                    <center>Contents</center>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    1. 
+                    <a href = "#Overview" class = "link">
+                        Overview
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    2. 
+                    <a href = "#Observation history" class = "link">
+                        Observation history
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3. 
+                    <a href = "#Units of measurement" class = "link">
+                        Units of measurement
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    4. 
+                    <a href = "#Star formation" class = "link">
+                        Star formation
+                    </a>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.1. 
+                            <a href = "#Stellar nurseries" class = "link">
+                                Stellar nurseries
+                            </a>
+                            <tr>
+                                <td style = "padding-left: 15%">
+                                    4.1.1. 
+                                    <a href = "#Interstellar clouds" class = "link">
+                                        Interstellar clouds
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style = "padding-left: 15%">
+                                    4.1.2. 
+                                    <a href = "#Cloud collapse" class = "link">
+                                        Cloud collapse
+                                    </a>
+                                </td>
+                            </tr>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.2. 
+                            <a href = "#Protostar" class = "link">
+                                Protostar
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.3. 
+                            <a href = "#Brown dwarfs and sub-stellar objects" class = "link">
+                                Brown dwarfs and sub-stellar objects
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.4. 
+                            <a href = "#Observations" class = "link">
+                                Observations
+                            </a>
+                            <tr>
+                                <td style = "padding-left: 15%">
+                                    4.4.1. 
+                                    <a href = "#Notable pathfinder objects" class = "link">
+                                        Notable pathfinder objects
+                                    </a>
+                                </td>
+                            </tr>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.5. 
+                            <a href = "#Low mass and high mass star formation" class = "link">
+                                Low mass and high mass star formation
+                            </a>
+                        </td>
+                    </tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    5. 
+                    <a href = "#Stellar evolution" class = "link">
+                        Stellar evolution
+                    </a>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            5.1. 
+                            <a href = "#Origin" class = "link">
+                                Origin
+                            </a>
+                        </td>
+                    </tr>
+                </td>
+            </tr>
+        </table>
+        <h2 class = "subtitle_first" id = "Overview">
+            Overview
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 415px">
+                    <a href = "media\Star-sizes.jpg">
+                        <img loading = "lazy" src = "media\Star-sizes.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Star-sizes.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Celestial body in size comparison<br>
+                        1: Mercury < Mars < Venus < Earth<br>
+                        2: Earth < Neptune < Uranus < Saturn < Jupiter<br>
+                        3: Jupiter < Wolf 359 < Sun < Sirius<br>
+                        4: Sirius < Pollux < Arctur < Aldebaran<br>
+                        5: Aldebaran < Rigel < Antares < Betelgeuse<br>
+                        6: Betelgeuse < μ Cephei < VV Cephei A < VY Canis Majoris
+                    </div>
+                </div>
+            </div>
+            Most stars consist of 99% hydrogen and helium in the form of hot plasma. Their radiant energy is generated in the star's interior by stellar nuclear fusion and reaches the surface through intense radiation and convection. About 90% 
+            of the stars – the main sequence of stars – are like the Sun in a stable balance between gravity, radiation and gas pressure, in which they remain for many millions to billions of years.<br>
+            After that, they inflate into giant stars and eventually shrink into white dwarfs, as which they slowly cool down. These very compact final stages of stellar evolution as well as the even denser neutron stars are also counted among 
+            the stars, although they only emit radiation due to their residual heat.<br>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 300px">
+                    <a href = "media\RedDwarfPlanet.jpg">
+                        <img loading = "lazy" src = "media\RedDwarfPlanet.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\RedDwarfPlanet.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Artist's conception of a planet in orbit around a red dwarf, Barnard's Star
+                    </div>
+                </div>
+            </div>
+            The nearest and best-studied star is the Sun, the center of the solar system. Even in the Middle Ages, it was unknown that the Sun is a "normal star", but ancient natural philosophers already suspected that it must be hotter than a 
+            glowing stone. The Sun is the only star on which structures can be clearly seen from Earth: sunspots, solar flares and solar flares.<br>
+            Only a few relatively close supergiants such as Betelgeuse or Mira are visible in state-of-the-art telescopes as disks that can detect coarse irregularities. All other stars are too far away for that; they appear with the available 
+            optical instruments as diffraction discs of point-shaped light sources.<br>
+            In the past, the term fixed stars was used to differentiate it from <i><b>tail stars</b></i> (comets) and <i><b>changing stars</b></i> (planets). However, the positions of stars in the sky are not fixed, but their star locations slowly 
+            shift against each other. The measurable proper motion is of different sizes and can be around ten arc seconds per year (10.3"/a) for a comparatively close star such as Barnard's arrow star. In ten thousand years, therefore, some of 
+            today's constellations will be significantly changed.<br>
+            With the naked eye, depending on darkness and atmospheric conditions, about 2000 to 6000 stars can be seen in the entire sky, but less than 1000 near the city. The sight of these seemingly structureless points of light easily belies 
+            the fact that stars span immense ranges of values not only in terms of their distance, but also in terms of the variations of temperatures, luminosity, massdensity, volume and lifetime. Thus, the outermost layers of red giant stars 
+            would be called vacuum according to the criteria of terrestrial technology, while neutron stars can be denser than atomic nuclei; with a mass density of 4×10<sup>15</sup> kg/m<sup>3</sup>, a spoon with 12 cm<sup>3</sup> would weigh 
+            about as much as the entire water in Lake Constance (48 km<sup>3</sup>). The extremely different manifestations of stars correspond to considerable differences in their internal structure; turbulent exchange processes often take place 
+            between the depth-dependent zones. This article provides a rough overview and refers to further articles.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Observation history">
+            Observation history
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 313px">
+                    <a href = "media\1497px-Milky_Way_IR_Spitzer.jpg">
+                        <img loading = "lazy" src = "media\1497px-Milky_Way_IR_Spitzer.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1497px-Milky_Way_IR_Spitzer.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Infrared image from NASA's Spitzer Space Telescope showing hundreds of thousands of stars in the Milky Way galaxy
+                    </div>
+                </div>
+            </div>
+            The twentieth century saw increasingly rapid advances in the scientific study of stars. The photograph became a valuable astronomical tool. Karl Schwarzschild discovered that the color of a star and, hence, its temperature, could be 
+            determined by comparing the visual magnitude against the photographic magnitude. The development of the photoelectric photometer allowed precise measurements of magnitude at multiple wavelength intervals. In 1921 Albert Abraham 
+            Michelson made the first measurements of a stellar diameter using an interferometer on the Hooker telescope at Mount Wilson Observatory.<br>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 300px">
+                    <a href = "media\1440px-Spitzer_space_telescope.jpg">
+                        <img loading = "lazy" src = "media\1440px-Spitzer_space_telescope.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1440px-Spitzer_space_telescope.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        An artist rendering of the Spitzer Space Telescope.
+                    </div>
+                </div>
+            </div>
+            Important theoretical work on the physical structure of stars occurred during the first decades of the twentieth century. In 1913, the Hertzsprung-Russell diagram was developed, propelling the astrophysical study of stars. Successful 
+            models were developed to explain the interiors of stars and stellar evolution. Cecilia Payne-Gaposchkin first proposed that stars were made primarily of hydrogen and helium in her 1925 PhD thesis. The spectra of stars were further 
+            understood through advances in quantum physics. This allowed the chemical composition of the stellar atmosphere to be determined.<br>
+            With the exception of rare events such as supernovae and supernova imposters, individual stars have primarily been observed in the Local Group, and especially in the visible part of the Milky Way (as demonstrated by the detailed star 
+            catalogues available for our galaxy) and its satellites. Individual stars such as Cepheid variables have been observed in the M87 and M100 galaxies of the Virgo Cluster, as well as luminous stars in some other relatively nearby galaxies. 
+            With the aid of gravitational lensing, a single star (named Icarus) has been observed at 9 billion light-years away.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Units of measurement">
+            Units of measurement
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 272px">
+                    <a href = "media\Venustransit_2004-06-08_07-44.jpg">
+                        <img loading = "lazy" src = "media\Venustransit_2004-06-08_07-44.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Venustransit_2004-06-08_07-44.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The grey line indicates the Earth–Sun distance, which on average is about 1 astronomical unit.
+                    </div>
+                </div>
+            </div>
+            Although stellar parameters can be expressed in SI units or Gaussian units, it is often most convenient to express mass, luminosity, and radii in solar units, based on the characteristics of the Sun. In 2015, the IAU defined a set of 
+            nominal solar values (defined as SI constants, without uncertainties) which can be used for quoting stellar parameters:<br>
+            &emsp;&emsp;&ensp;&nbsp;nominal solar luminosity: <i>L</i><sub>☉</sub> = 3.828 × 10<sup>26</sup> W<br>
+            &emsp;&emsp;&ensp;&nbsp;nominal solar radius: <i>R</i><sub>☉</sub> = 6.957 × 10<sup>8</sup> m<br>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 220px">
+                    <a href = "media\Astronomical_unit.png">
+                        <img loading = "lazy" src = "media\Astronomical_unit.png" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Astronomical_unit.png">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The grey line indicates the Earth–Sun distance, which on average is about 1 astronomical unit.
+                    </div>
+                </div>
+            </div>
+            The solar mass M<sub>☉</sub> was not explicitly defined by the IAU (International Astronomical Union) due to the large relative uncertainty (10<sup>-4</sup>) of the Newtonian gravitational constant G. Since the product of the Newtonian 
+            gravitational constant and solar mass together (GM<sub>☉</sub>) has been determined to much greater precision, the IAU defined the <i><b>nominal</b></i> solar mass parameter to be:<br>
+            &emsp;&emsp;&ensp;&nbsp;nominal solar mass parameter: <i>GM</i><sub>☉</sub> = 1.3271244 × 10<sup>20</sup> m<sup>3</sup> s<sup>-2</sup><br>
+            The nominal solar mass parameter can be combined with the most recent (2014) CODATA estimate of the Newtonian gravitational constant G to derive the solar mass to be approximately 1.9885 × 10<sup>30</sup> kg. Although the exact values 
+            for the luminosity, radius, mass parameter, and mass may vary slightly in the future due to observational uncertainties, the 2015 IAU nominal constants will remain the same SI values as they remain useful measures for quoting stellar parameters.<br>
+            Large lengths, such as the radius of a giant star or the semi-major axis of a binary star system, are often expressed in terms of the astronomical unit—approximately equal to the mean distance between the Earth and the Sun (150 million km 
+            or approximately 93 million miles). In 2012, the IAU defined the astronomical constant to be an exact length in meters: 149,597,870,700 m.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Star formation">
+            Star formation
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 312px">
+                    <a href = "media\PIA23865-W51Nebula-StarFactory-20200825.jpg">
+                        <img loading = "lazy" src = "media\PIA23865-W51Nebula-StarFactory-20200825.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\PIA23865-W51Nebula-StarFactory-20200825.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The W51 nebula in Aquila - one of the largest star factories in the Milky Way (August 25, 2020)
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 264px">
+                    <a href = "media\Witness_the_Birth_of_a_Star.jpg">
+                        <img loading = "lazy" src = "media\Witness_the_Birth_of_a_Star.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Witness_the_Birth_of_a_Star.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Artist's conception of the birth of a star within a dense molecular cloud
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 342px">
+                    <a href = "media\1920px-Milkyway360-hemispheres-32k_m14-g1_Clouds.jpg">
+                        <img loading = "lazy" src = "media\1920px-Milkyway360-hemispheres-32k_m14-g1_Clouds.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1920px-Milkyway360-hemispheres-32k_m14-g1_Clouds.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The Milky Way as seen by Gaia, with prominent dark features labeled in white, as well as prominent star clouds labeled in black.
+                    </div>
+                </div>
+            </div>
+            <b>Star formation</b> is the process by which dense regions within molecular clouds in interstellar space, sometimes referred to as "stellar nurseries" or "star-forming regions", collapse and form stars. As a branch of astronomy, star 
+            formation includes the study of the interstellar medium (ISM) and giant molecular clouds (GMC) as precursors to the star formation process, and the study of protostars and young stellar objects as its immediate products. It is closely 
+            related to planet formation, another branch of astronomy. Star formation theory, as well as accounting for the formation of a single star, must also account for the statistics of binary stars and the initial mass function. Most stars 
+            do not form in isolation but as part of a group of stars referred as star clusters or stellar associations.<br>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 216px">
+                    <a href = "media\W40_star-forming_region.jpg">
+                        <img loading = "lazy" src = "media\W40_star-forming_region.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\W40_star-forming_region.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        A cluster of approximately 500 young stars lies within the nearby W40 stellar nursery.
+                    </div>
+                </div>
+            </div>
+            The formation of a star begins with gravitational instability within a molecular cloud, caused by regions of higher density&nbsp;— often triggered by compression of clouds by radiation from massive stars, expanding bubbles in the interstellar 
+            medium, the collision of different molecular clouds, or the collision of galaxies (as in a starburst galaxy). When a region reaches a sufficient density of matter to satisfy the criteria for Jeans instability, it begins to collapse 
+            under its own gravitational force.<br>
+            As the cloud collapses, individual conglomerations of dense dust and gas form "Bok globules". As a globule collapses and the density increases, the gravitational energy converts into heat and the temperature rises. When the protostellar 
+            cloud has approximately reached the stable condition of hydrostatic equilibrium, a protostar forms at the core. These pre-main-sequence stars are often surrounded by a protoplanetary disk and powered mainly by the conversion of 
+            gravitational energy. The period of gravitational contraction lasts about 10 million years for a star like the sun, up to 100 million years for a red dwarf.<br>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 285px">
+                    <a href = "media\lossy-page1-2228px-Heic1424a.tif.jpg">
+                        <img loading = "lazy" src = "media\lossy-page1-2228px-Heic1424a.tif.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\lossy-page1-2228px-Heic1424a.tif.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Hubble image of XZ Tauri.
+                    </div>
+                </div>
+            </div>
+            Early stars of less than 2 M<sub>☉</sub> are called T Tauri stars, while those with greater mass are Herbig Ae/Be stars. These newly formed stars emit jets of gas along their axis of rotation, which may reduce the angular momentum of the 
+            collapsing star and result in small patches of nebulosity known as Herbig–Haro objects. These jets, in combination with radiation from nearby massive stars, may help to drive away the surrounding cloud from which the star was formed.<br>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 310px">
+                    <a href = "media\imgonline-com-ua-twotoone-Arpn2ZaoP0W.jpg">
+                        <img loading = "lazy" src = "media\imgonline-com-ua-twotoone-Arpn2ZaoP0W.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\imgonline-com-ua-twotoone-Arpn2ZaoP0W.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Hubble Space Telescope images of HH 24 (left) and HH 32 (right; top) – colourful nebulae are typical of Herbig–Haro objects
+                    </div>
+                </div>
+            </div>
+            Early in their development, T Tauri stars follow the Hayashi track—they contract and decrease in luminosity while remaining at roughly the same temperature. Less massive T Tauri stars follow this track to the main sequence, while more 
+            massive stars turn onto the Henyey track.<br>
+            Most stars are observed to be members of binary star systems, and the properties of those binaries are the result of the conditions in which they formed. A gas cloud must lose its angular momentum in order to collapse and form a star. 
+            The fragmentation of the cloud into multiple stars distributes some of that angular momentum. The primordial binaries transfer some angular momentum by gravitational interactions during close encounters with other stars in young stellar 
+            clusters. These interactions tend to split apart more widely separated (soft) binaries while causing hard binaries to become more tightly bound. This produces the separation of binaries into their two observed populations distributions.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Stellar nurseries">
+            Stellar nurseries
+        </h2>
+        <h2 class = "subtitle_third" id = "Interstellar clouds">
+            Interstellar clouds
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 235px">
+                    <a href = "media\2191px-Eagle_nebula_pillars.jpg">
+                        <img loading = "lazy" src = "media\2191px-Eagle_nebula_pillars.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\2191px-Eagle_nebula_pillars.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Hubble Space Telescope image known as <i>Pillars of Creation</i>, where stars are forming in the Eagle Nebula
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 343px">
+                    <a href = "media\688px-Antares_and_Rho_Ophiuchi_by_Adam_Block.jpg">
+                        <img loading = "lazy" src = "media\688px-Antares_and_Rho_Ophiuchi_by_Adam_Block.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\688px-Antares_and_Rho_Ophiuchi_by_Adam_Block.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Rho Ophiuchi Region, with the main dark nebula Lynds 1688 (and further L1689) to the left, ρ Ophiuchi at the center of the large blue area (IC 4604), Antares in the large yellow area and Sigma Scorpii in the redish Sh2-9 area, 
+                        with Messier 4 inbetween the latter two stars. North is right.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 234px">
+                    <a href = "media\2178px-Carina_Nebula_by_ESO.jpg">
+                        <img loading = "lazy" src = "media\2178px-Carina_Nebula_by_ESO.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\2178px-Carina_Nebula_by_ESO.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The Carina Nebula is an example of a diffuse nebula
+                    </div>
+                </div>
+            </div>
+            An <b>interstellar cloud</b> is generally an accumulation of gas, plasma, and dust in our and other galaxies. Put differently, an interstellar cloud is a denser-than-average region of the interstellar medium (ISM), the matter and radiation 
+            that exists in the space between the star systems in a galaxy. Depending on the density, size, and temperature of a given cloud, its hydrogen can be neutral, making an H I region; ionized, or plasma making it an H II region; or molecular, 
+            which are referred to simply as molecular clouds, or sometime dense clouds. Neutral and ionized clouds are sometimes also called <i><b>diffuse clouds</b></i>. An interstellar cloud is formed by the gas and dust particles from a red 
+            giant in its later life.<br>
+            A spiral galaxy like the Milky Way contains stars, stellar remnants, and a diffuse interstellar medium (ISM) of gas and dust. The interstellar medium consists of 10<sup>-4</sup> to 10<sup>6</sup> particles per cm<sup>3</sup> and is typically composed 
+            of roughly 70% hydrogen by mass, with most of the remaining gas consisting of helium. This medium has been chemically enriched by trace amounts of heavier elements that were produced and ejected from stars via the fusion of helium as they 
+            passed beyond the end of their main sequence lifetime. Higher density regions of the interstellar medium form clouds, or diffuse nebulae, where star formation takes place. In contrast to spirals, an elliptical galaxy loses the cold 
+            component of its interstellar medium within roughly a billion years, which hinders the galaxy from forming <i><b>diffuse nebulae</b></i> except through mergers with other galaxies.<br>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 271px">
+                    <a href = "media\2160px-Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg">
+                        <img loading = "lazy" src = "media\2160px-Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\2160px-Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The entire Orion Nebula in a composite image of visible light and infrared; taken by Hubble Space Telescope in 2006
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 246px">
+                    <a href = "media\Voyager.jpg">
+                        <img loading = "lazy" src = "media\Voyager.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Voyager.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Voyager 1 is the first artificial object to reach the interstellar medium.
+                    </div>
+                </div>
+            </div>
+            A <b>nebula</b> is a distinct luminescent part of interstellar medium, which can consist of ionized, neutral or molecular hydrogen and also cosmic dust. Nebulae are often star-forming regions, such as in the "Pillars of Creation" in the 
+            Eagle Nebula. In these regions, the formations of gas, dust, and other materials "clump" together to form denser regions, which attract further matter, and eventually will become dense enough to form stars. The remaining material is then 
+            believed to form planets and other planetary system objects.<br>
+            In the dense nebulae where stars are produced, much of the hydrogen is in the molecular (H<sub>2</sub>) form, so these nebulae are called molecular clouds. The Herschel Space Observatory has revealed that filaments are truly ubiquitous in 
+            molecular clouds. Dense molecular filaments, which are central to the star formation process, will fragment into gravitationally bound cores, most of which will evolve into stars. Continuous accretion of gas, geometrical bending, and 
+            magnetic fields may control the detailed fragmentation manner of the filaments. In supercritical filaments observations have revealed quasi-periodic chains of dense cores with spacing comparable to the filament inner width, and includes 
+            embedded protostars with outflows. Observations indicate that the coldest clouds tend to form low-mass stars, observed first in the infrared inside the clouds, then in visible light at their surface when the clouds dissipate, while giant 
+            molecular clouds, which are generally warmer, produce stars of all masses. These giant molecular clouds have typical densities of 100 particles per cm<sup>3</sup>, diameters of 100 light-years (9.5×10<sup>14</sup> km), masses of up to 
+            6 million solar masses (<i>M</i><sub>☉</sub>), and an average interior temperature of 10 K. About half the total mass of the galactic ISM is found in molecular clouds and in the Milky Way there are an estimated 6,000 molecular clouds, 
+            <div class = "image_container" style = "width: 15%; float: right; margin-left: 0.4em">
+                <a href = "media\1274px-Rho_Ophiucus_Widefield.jpg">
+                    <img loading = "lazy" src = "media\1274px-Rho_Ophiucus_Widefield.jpg" style = "float: right">
+                    <span class = "title font_color">
+                        Rho Ophiuchi Cloud
+                    </span>
+                    <span class = "description font_color">
+                        The large multicoloured Rho Ophiuchi cloud complex with the Dark River clouds (or Rho Ophiuchi Streamers)
+                    </span>
+                    <span class = "line1 top">
+                    </span>
+                    <span class = "line1 left">
+                    </span>
+                </a>
+            </div>
+            each with more than 100,000 <i>M</i><sub>☉</sub>. The nearest nebula to the Sun where massive stars are being formed is the Orion Nebula, 1,300 ly (1.2×10<sup>16</sup> km) away. However, lower mass star formation is occurring about 400–450 
+            light years distant in the ρ Ophiuchi cloud complex.<br>
+            A more compact site of star formation is the opaque clouds of dense gas and dust known as Bok globules, so named after the astronomer Bart Bok. These can form in association with collapsing molecular clouds or possibly independently. 
+            The Bok globules are typically up to a light year across and contain a few solar masses. They can be observed as dark clouds silhouetted against bright emission nebulae or background stars. Over half the known Bok globules have been found 
+            to contain newly forming stars.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_third" id = "Cloud collapse">
+            Cloud collapse
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 248px">
+                    <a href = "media\Chandra_X-ray_View_of_Orion.jpg">
+                        <img loading = "lazy" src = "media\Chandra_X-ray_View_of_Orion.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Chandra_X-ray_View_of_Orion.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Chandra X-ray view of Orion showing the Trapezium embedded cluster.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 268px">
+                    <a href = "media\1498px-Pleiades_large.jpg">
+                        <img loading = "lazy" src = "media\1498px-Pleiades_large.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1498px-Pleiades_large.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The Pleiades is one of the most famous open clusters.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 268px">
+                    <a href = "media\1764px-Artist’s_impression_of_stars_born_in_winds_from_supermassive_black_holes.jpg">
+                        <img loading = "lazy" src = "media\1764px-Artist’s_impression_of_stars_born_in_winds_from_supermassive_black_holes.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1764px-Artist’s_impression_of_stars_born_in_winds_from_supermassive_black_holes.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Artist's impression of stars born in winds from supermassive black holes.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 248px">
+                    <a href = "media\ALMA_views_a_stellar_explosion_in_Orion.jpg">
+                        <img loading = "lazy" src = "media\ALMA_views_a_stellar_explosion_in_Orion.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\ALMA_views_a_stellar_explosion_in_Orion.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        ALMA observations of the Orion Nebula complex provide insights into explosions at star birth.
+                    </div>
+                </div>
+            </div>
+            Gravitational collapse is the contraction of an astronomical object due to the influence of its own gravity, which tends to draw matter inward toward the center of gravity. Gravitational collapse is a fundamental mechanism for structure 
+            formation in the universe. Over time an initial, relatively smooth distribution of matter will collapse to form pockets of higher density, typically creating a hierarchy of condensed structures such as clusters of galaxies, stellar 
+            groups, stars and planets.<br>
+            An interstellar cloud of gas will remain in hydrostatic equilibrium as long as the kinetic energy of the gas pressure is in balance with the potential energy of the internal gravitational force. Mathematically this is expressed using 
+            the virial theorem, which states that, to maintain equilibrium, the gravitational potential energy must equal twice the internal thermal energy. If a cloud is massive enough that the gas pressure is insufficient to support it, the cloud 
+            will undergo gravitational collapse. The mass above which a cloud will undergo such collapse is called the Jeans mass. The Jeans mass depends on the temperature and density of the cloud, but is typically thousands to tens of thousands 
+            of solar masses. During cloud collapse dozens to tens of thousands of stars form more or less simultaneously which is observable in so-called embedded clusters. The end product of a core collapse is an open cluster of stars.<br>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 268px">
+                    <a href = "media\Size_can_be_deceptive_ESO_553-46.jpg">
+                        <img loading = "lazy" src = "media\Size_can_be_deceptive_ESO_553-46.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Size_can_be_deceptive_ESO_553-46.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Dwarf galaxy ESO 553-46 has one of the highest rates of star formation of the 1000 or so galaxies nearest to the Milky Way.
+                    </div>
+                </div>
+            </div>
+            In <i><b>triggered star formation</b></i>, one of several events might occur to compress a molecular cloud and initiate its gravitational collapse. Molecular clouds may collide with each other, or a nearby supernova explosion can be a 
+            trigger, sending shocked matter into the cloud at very high speeds. (The resulting new stars may themselves soon produce supernovae, producing self-propagating star formation.) Alternatively, galactic collisions can trigger massive 
+            starbursts of star formation as the gas clouds in each galaxy are compressed and agitated by tidal forces. The latter mechanism may be responsible for the formation of globular clusters.<br>
+            A supermassive black hole at the core of a galaxy may serve to regulate the rate of star formation in a galactic nucleus. A black hole that is accreting infalling matter can become active, emitting a strong wind through a collimated 
+            relativistic jet. This can limit further star formation. Massive black holes ejecting radio-frequency-emitting particles at near-light speed can also block the formation of new stars in aging galaxies. However, the radio emissions around 
+            the jets may also trigger star formation. Likewise, a weaker jet may trigger star formation when it collides with a cloud.<br>
+            As it collapses, a molecular cloud breaks into smaller and smaller pieces in a hierarchical manner, until the fragments reach stellar mass. In each of these fragments, the collapsing gas radiates away the energy gained by the release of 
+            gravitational potential energy. As the density increases, the fragments become opaque and are thus less efficient at radiating away their energy. This raises the temperature of the cloud and inhibits further fragmentation. The fragments 
+            now condense into rotating spheres of gas that serve as stellar embryos.<br>
+            Complicating this picture of a collapsing cloud are the effects of turbulence, macroscopic flows, rotation, magnetic fields and the cloud geometry. Both rotation and magnetic fields can hinder the collapse of a cloud. Turbulence is 
+            instrumental in causing fragmentation of the cloud, and on the smallest scales it promotes collapse.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Protostar">
+            Protostar
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 311px">
+                    <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d6/A_Young_Star_Flaunts_its_X-ray_Spots.ogv/A_Young_Star_Flaunts_its_X-ray_Spots.ogv.720p.vp9.webm">
+                        <video poster = "media\MediaPlayer5.png" width = "100%" title = "Play Video">
+                        </video>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d6/A_Young_Star_Flaunts_its_X-ray_Spots.ogv/A_Young_Star_Flaunts_its_X-ray_Spots.ogv.720p.vp9.webm">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Video about the protostar V1647 Orionis and its X-ray emission (2004).
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 247px">
+                    <a href = "media\Cepheus_B.jpg">
+                        <img loading = "lazy" src = "media\Cepheus_B.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Cepheus_B.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Composite image showing young stars in and around molecular cloud Cepheus B.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 311px">
+                    <a href = "media\1009px-LH_95.jpg">
+                        <img loading = "lazy" src = "media\1009px-LH_95.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1009px-LH_95.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        LH 95 stellar nursery in Large Magellanic Cloud.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 247px">
+                    <a href = "media\1099px-N11_(Hubble).jpg">
+                        <img loading = "lazy" src = "media\1099px-N11_(Hubble).jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1099px-N11_(Hubble).jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        N11, part of a complex network of gas clouds and star clusters within our neighbouring galaxy, the Large Magellanic Cloud.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 247px">
+                    <a href = "media\1711px-Star_formation_region_Lupus_3.jpg">
+                        <img loading = "lazy" src = "media\1711px-Star_formation_region_Lupus_3.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1711px-Star_formation_region_Lupus_3.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Star formation region Lupus 3.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 311px">
+                    <a href = "media\3839px-PIA18928-Protostar-HOPS383-20150323.jpg">
+                        <img loading = "lazy" src = "media\3839px-PIA18928-Protostar-HOPS383-20150323.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\3839px-PIA18928-Protostar-HOPS383-20150323.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Protostar outburst - HOPS 383 (2015).
+                    </div>
+                </div>
+            </div>
+            A protostellar cloud will continue to collapse as long as the gravitational binding energy can be eliminated. This excess energy is primarily lost through radiation. However, the collapsing cloud will eventually become opaque to its 
+            own radiation, and the energy must be removed through some other means. The dust within the cloud becomes heated to temperatures of 60–100 K, and these particles radiate at wavelengths in the far infrared where the cloud is transparent. 
+            Thus the dust mediates the further collapse of the cloud.<br>
+            During the collapse, the density of the cloud increases towards the center and thus the middle region becomes optically opaque first. This occurs when the density is about 10<sup>-13</sup> g / cm<sup>3</sup>. A core region, called the 
+            first hydrostatic core, forms where the collapse is essentially halted. It continues to increase in temperature as determined by the virial theorem. The gas falling toward this opaque region collides with it and creates shock waves 
+            that further heat the core.<br>
+            When the core temperature reaches about 2000 K, the thermal energy dissociates the H<sub>2</sub> molecules. This is followed by the ionization of the hydrogen and helium atoms. These processes absorb the energy of the contraction, allowing it to 
+            continue on timescales comparable to the period of collapse at free fall velocities. After the density of infalling material has reached about 10<sup>-8</sup> g / cm<sup>3</sup>, that material is sufficiently transparent to allow 
+            energy radiated by the protostar to escape. The combination of convection within the protostar and radiation from its exterior allow the star to contract further. This continues until the gas is hot enough for the internal pressure to 
+            support the protostar against further gravitational collapse&nbsp;&nbsp;—&nbsp;&nbsp;a state called hydrostatic equilibrium. When this accretion phase is nearly complete, the resulting object is known as a protostar.<br>
+            Accretion of material onto the protostar continues partially from the newly formed circumstellar disc. When the density and temperature are high enough, deuterium fusion begins, and the outward pressure of the resultant radiation slows 
+            (but does not stop) the collapse. Material comprising the cloud continues to "rain" onto the protostar. In this stage bipolar jets are produced called Herbig–Haro objects. This is probably the means by which excess angular momentum of 
+            the infalling material is expelled, allowing the star to continue to form.<br>
+            When the surrounding gas and dust envelope disperses and accretion process stops, the star is considered a pre-main-sequence star (PMS star). The energy source of these objects is gravitational contraction, as opposed to hydrogen burning 
+            in main sequence stars. The PMS star follows a Hayashi track on the Hertzsprung–Russell (H–R) diagram. The contraction will proceed until the Hayashi limit is reached, and thereafter contraction will continue on a Kelvin–Helmholtz timescale 
+            with the temperature remaining stable. Stars with less than 0.5 <i>M</i><sub>☉</sub> thereafter join the main sequence. For more massive PMS stars, at the end of the Hayashi track they will slowly collapse in near hydrostatic 
+            equilibrium, following the Henyey track.<br>
+            Finally, hydrogen begins to fuse in the core of the star, and the rest of the enveloping material is cleared away. This ends the protostellar phase and begins the star's main sequence phase on the H–R diagram.<br>
+            The stages of the process are well defined in stars with masses around 1 <i>M</i><sub>☉</sub> or less. In high mass stars, the length of the star formation process is comparable to the other timescales of their evolution, much shorter, 
+            and the process is not so well defined. The later evolution of stars is studied in stellar evolution.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Brown dwarfs and sub-stellar objects">
+            Brown dwarfs and sub-stellar objects
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 285px">
+                    <a href = "media\3240px-WISE_1828+2650_Brown_dwarf.jpg">
+                        <img loading = "lazy" src = "media\3240px-WISE_1828+2650_Brown_dwarf.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\3240px-WISE_1828+2650_Brown_dwarf.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Artist's vision of a Y-type brown dwarf
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 288px">
+                    <a href = "media\3840px-Artist’s_conception_of_a_brown_dwarf_like_2MASSJ22282889-431026.jpg">
+                        <img loading = "lazy" src = "media\3840px-Artist’s_conception_of_a_brown_dwarf_like_2MASSJ22282889-431026.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\3840px-Artist’s_conception_of_a_brown_dwarf_like_2MASSJ22282889-431026.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Artist's concept of a T-type brown dwarf
+                    </div>
+                </div>
+            </div>
+            Brown dwarfs are substellar objects that are not massive enough to sustain nuclear fusion of ordinary hydrogen (<sup>1</sup>H) into helium in their cores, unlike a main-sequence star. Instead, they have a mass between the most massive gas 
+            giant planets and the least massive stars, approximately 13 to 80 times that of Jupiter (<i>M</i><sub>J</sub>). However, they can fuse deuterium (<sup>2</sup>H), and the most massive ones (> 65 <i>M</i><sub>J</sub>) can fuse lithium (<sup>7</sup>Li).<br>
+            Protostars with masses less than roughly 0.08 <i>M</i><sub>☉</sub> (1.6×10<sup>29</sup> kg) never reach temperatures high enough for nuclear fusion of hydrogen to begin. These are known as brown dwarfs. The International Astronomical Union 
+            defines brown dwarfs as stars massive enough to fuse deuterium at some point in their lives (13 Jupiter masses (<i>M</i><sub>J</sub>), 2.5 × 10<sup>28</sup> kg, or 0.0125 <i>M</i><sub>☉</sub>). Objects smaller than 13 <i>M</i><sub>J</sub> 
+            are classified as sub-brown dwarfs (but if they orbit around another stellar object they are classified as planets). Both types, deuterium-burning and not, shine dimly and fade away slowly, cooling gradually over hundreds of millions of years.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Observations">
+            Observations
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 287px">
+                    <a href = "media\The_Orion_A_molecular_cloud_from_VISTA.jpg">
+                        <img loading = "lazy" src = "media\The_Orion_A_molecular_cloud_from_VISTA.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\The_Orion_A_molecular_cloud_from_VISTA.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The Orion Nebula is an archetypical example of star formation, from the massive, young stars that are shaping the nebula to the pillars of dense gas that may be the homes of budding stars.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 292px">
+                    <a href = "media\2938px-Star-forming_region_S106_(captured_by_the_Hubble_Space_Telescope).jpg">
+                        <img loading = "lazy" src = "media\2938px-Star-forming_region_S106_(captured_by_the_Hubble_Space_Telescope).jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\2938px-Star-forming_region_S106_(captured_by_the_Hubble_Space_Telescope).jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Star-forming region S106.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 292px">
+                    <a href = "media\NASA-FlameNebula-NGC2024-20140507.jpg">
+                        <img loading = "lazy" src = "media\NASA-FlameNebula-NGC2024-20140507.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\NASA-FlameNebula-NGC2024-20140507.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Young stars (purple) revealed by X-ray inside the NGC 2024 star-forming region.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 287px">
+                    <a href = "media\WISE_artist_concept_(PIA17254,_crop).jpg">
+                        <img loading = "lazy" src = "media\WISE_artist_concept_(PIA17254,_crop).jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\WISE_artist_concept_(PIA17254,_crop).jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        WISE spacecraft is a NASA infrared astronomy space telescope in the Explorers Program.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 292px">
+                    <a href = "media\3840px-Herschel’s_view_of_the_Taurus_molecular_cloud_ESA384012.jpg">
+                        <img loading = "lazy" src = "media\3840px-Herschel’s_view_of_the_Taurus_molecular_cloud_ESA384012.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\3840px-Herschel’s_view_of_the_Taurus_molecular_cloud_ESA384012.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Taurus molecular cloud (Herschel Space Observatory)
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 287px">
+                    <a href = "media\1782px-Chandra_artist_illustration.jpg">
+                        <img loading = "lazy" src = "media\1782px-Chandra_artist_illustration.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1782px-Chandra_artist_illustration.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The Chandra X-ray Observatory (CXO) is a Flagship-class space telescope.
+                    </div>
+                </div>
+            </div>
+            Key elements of star formation are only available by observing in wavelengths other than the optical. The protostellar stage of stellar existence is almost invariably hidden away deep inside dense clouds of gas and dust left over from the GMC. 
+            Often, these star-forming cocoons known as Bok globules, can be seen in silhouette against bright emission from surrounding gas. Early stages of a star's life can be seen in infrared light, which penetrates the dust more easily than visible 
+            light. Observations from the Wide-field Infrared Survey Explorer (WISE) have thus been especially important for unveiling numerous galactic protostars and their parent star clusters. Examples of such embedded star clusters are FSR 1184, 
+            FSR 1190, Camargo 14, Camargo 74, Majaess 64, and Majaess 98.<br>
+            The structure of the molecular cloud and the effects of the protostar can be observed in near-IR extinction maps (where the number of stars are counted per unit area and compared to a nearby zero extinction area of sky), continuum dust emission 
+            and rotational transitions of CO and other molecules; these last two are observed in the millimeter and submillimeter range. The radiation from the protostar and early star has to be observed in infrared astronomy wavelengths, as the extinction 
+            caused by the rest of the cloud in which the star is forming is usually too big to allow us to observe it in the visual part of the spectrum. This presents considerable difficulties as the Earth's atmosphere is almost entirely opaque from 20μm 
+            to 850μm, with narrow windows at 200μm and 450μm. Even outside this range, atmospheric subtraction techniques must be used.<br>
+            X-ray observations have proven useful for studying young stars, since X-ray emission from these objects is about 100–100,000 times stronger than X-ray emission from main-sequence stars. The earliest detections of X-rays from T Tauri stars were 
+            made by the Einstein X-ray Observatory For low-mass stars X-rays are generated by the heating of the stellar corona through magnetic reconnection, while for high-mass O and early B-type stars X-rays are generated through supersonic shocks in 
+            the stellar winds. Photons in the soft X-ray energy range covered by the Chandra X-ray Observatory and XMM-Newton may penetrate the interstellar medium with only moderate absorption due to gas, making the X-ray a useful wavelength for seeing 
+            the stellar populations within molecular clouds. X-ray emission as evidence of stellar youth makes this band particularly useful for performing censuses of stars in star-forming regions, given that not all young stars have infrared excesses. 
+            X-ray observations have provided near-complete censuses of all stellar-mass objects in the Orion Nebula Cluster and Taurus Molecular Cloud.<br>
+            The formation of individual stars can only be directly observed in the Milky Way Galaxy, but in distant galaxies star formation has been detected through its unique spectral signature.<br>
+            Initial research indicates star-forming clumps start as giant, dense areas in turbulent gas-rich matter in young galaxies, live about 500 million years, and may migrate to the center of a galaxy, creating the central bulge of a galaxy.<br>
+            On February 21, 2014, NASA announced a greatly upgraded database for tracking polycyclic aromatic hydrocarbons (PAHs) in the universe. According to scientists, more than 20% of the carbon in the universe may be associated with PAHs, possible 
+            starting materials for the formation of life. PAHs seem to have been formed shortly after the Big Bang, are widespread throughout the universe, and are associated with new stars and exoplanets.<br>
+            In February 2018, astronomers reported, for the first time, a signal of the reionization epoch, an indirect detection of light from the earliest stars formed - about 180 million years after the Big Bang.<br>
+            An article published on October 22, 2019, reported on the detection of 3MM-1, a massive star-forming galaxy about 12.5 billion light-years away that is obscured by clouds of dust.[50] At a mass of about 10<sup>10.8</sup> solar masses, it showed 
+            a star formation rate about 100 times as high as in the Milky Way.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_third" id = "Notable pathfinder objects">
+            Notable pathfinder objects
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 294px">
+                    <a href = "media\Great_Observatories.jpg">
+                        <img loading = "lazy" src = "media\Great_Observatories.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Great_Observatories.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Four <b>Great Observatories</b>
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 288px">
+                    <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5c/Artist%27s_impression_of_the_free-floating_planet_CFBDSIR_J214947.2-040308.9.ogv/Artist%27s_impression_of_the_free-floating_planet_CFBDSIR_J214947.2-040308.9.ogv.720p.vp9.webm">
+                        <video poster = "media\MediaPlayer6.png" width = "100%" title = "Play Video">
+                        </video>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/5c/Artist%27s_impression_of_the_free-floating_planet_CFBDSIR_J214947.2-040308.9.ogv/Artist%27s_impression_of_the_free-floating_planet_CFBDSIR_J214947.2-040308.9.ogv.720p.vp9.webm">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        This video shows an artist's impression of the free-floating planet CFBDSIR J214947.2-040308.9.
+                    </div>
+                </div>
+            </div>
+            &emsp;&ensp;1.&ensp;MWC 349 was first discovered in 1978, and is estimated to be only 1,000 years old.<br>
+            &emsp;&ensp;2.&ensp;VLA 1623 – The first exemplar Class 0 protostar, a type of embedded protostar that has yet to accrete the majority of its mass. Found in 1993, is possibly younger than 10,000 years.<br>
+            &emsp;&ensp;3.&ensp;L1014 – An extremely faint embedded object representative of a new class of sources that are only now being detected with the newest telescopes. Their status is still undetermined, they could be the youngest low-mass Class 0 
+            protostars yet seen or even very low-mass evolved objects (like brown dwarfs or even rogue planets).<br>
+            &emsp;&ensp;4.&ensp;GCIRS 8* – The youngest known main sequence star in the Galactic Center region, discovered in August 2006. It is estimated to be 3.5 million years old.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Low mass and high mass star formation">
+            Low mass and high mass star formation
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 288px">
+                    <a href = "media\Infrared_Image_of_Dark_Cloud_in_Aquila.jpg">
+                        <img loading = "lazy" src = "media\Infrared_Image_of_Dark_Cloud_in_Aquila.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Infrared_Image_of_Dark_Cloud_in_Aquila.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Star-forming region Westerhout 40 and the Serpens-Aquila Rift <sup>_</sup> cloud filaments containing new stars fill the region.
+                    </div>
+                </div>
+            </div>
+            Stars of different masses are thought to form by slightly different mechanisms. The theory of low-mass star formation, which is well-supported by observation, suggests that low-mass stars form by the gravitational collapse of rotating density 
+            enhancements within molecular clouds. As described above, the collapse of a rotating cloud of gas and dust leads to the formation of an accretion disk through which matter is channeled onto a central protostar. For stars with masses higher 
+            than about 8 <i>M</i><sub>☉</sub>, however, the mechanism of star formation is not well understood.<br>
+            Massive stars emit copious quantities of radiation which pushes against infalling material. In the past, it was thought that this radiation pressure might be substantial enough to halt accretion onto the massive protostar and prevent the 
+            formation of stars with masses more than a few tens of solar masses. Recent theoretical work has shown that the production of a jet and outflow clears a cavity through which much of the radiation from a massive protostar can escape without 
+            hindering accretion through the disk and onto the protostar. Present thinking is that massive stars may therefore be able to form by a mechanism similar to that by which low mass stars form.<br>
+            There is mounting evidence that at least some massive protostars are indeed surrounded by accretion disks. Several other theories of massive star formation remain to be tested observationally. Of these, perhaps the most prominent is the theory 
+            of competitive accretion, which suggests that massive protostars are "seeded" by low-mass protostars which compete with other protostars to draw in matter from the entire parent molecular cloud, instead of simply from a small local region.<br>
+            Another theory of massive star formation suggests that massive stars may form by the coalescence of two or more stars of lower mass.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Stellar evolution">
+            Stellar evolution
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 310px">
+                    <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/53/The_life_cycle_of_a_Sun-like_star_%28eso1337a%29.webm/The_life_cycle_of_a_Sun-like_star_%28eso1337a%29.webm.720p.vp9.webm">
+                        <video poster = "media\MediaPlayer7.png" width = "100%" title = "Play Video">
+                        </video>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/5/53/The_life_cycle_of_a_Sun-like_star_%28eso1337a%29.webm/The_life_cycle_of_a_Sun-like_star_%28eso1337a%29.webm.720p.vp9.webm">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The change in size with time of a Sun-like star
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 310px">
+                    <a href = "media\1529px-Diagram_of_the_life_of_Sun-like_stars.jpg">
+                        <img loading = "lazy" src = "media\1529px-Diagram_of_the_life_of_Sun-like_stars.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1529px-Diagram_of_the_life_of_Sun-like_stars.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Artist's depiction of the life cycle of a Sun-like star, starting as a main-sequence star at lower left then expanding through the subgiant and giant phases, until its outer envelope is expelled to form a planetary nebula at upper right
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 310px">
+                    <a href = "media\Opo0113i.jpg">
+                        <img loading = "lazy" src = "media\Opo0113i.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Opo0113i.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Illustration of the dynamics of a proplyd, short for ionized protoplanetary disk
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 310px">
+                    <a href = "media\1920px-Star_Life_Cycle_Chart.jpg">
+                        <img loading = "lazy" src = "media\1920px-Star_Life_Cycle_Chart.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1920px-Star_Life_Cycle_Chart.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Chart of stellar evolution
+                    </div>
+                </div>
+            </div>
+            <b>Stellar evolution</b> is the process by which a star changes over the course of time. Depending on the mass of the star, its lifetime can range from a few million years for the most massive to trillions of years for the least massive, 
+            which is considerably longer than the age of the universe. The table shows the lifetimes of stars as a function of their masses. All stars are formed from collapsing clouds of gas and dust, often called nebulae or molecular clouds. Over 
+            the course of millions of years, these protostars settle down into a state of equilibrium, becoming what is known as a main-sequence star.<br>
+            Nuclear fusion powers a star for most of its existence. Initially the energy is generated by the fusion of hydrogen atoms at the core of the main-sequence star. Later, as the preponderance of atoms at the core becomes helium, stars like 
+            the Sun begin to fuse hydrogen along a spherical shell surrounding the core. This process causes the star to gradually grow in size, passing through the subgiant stage until it reaches the red-giant phase. Stars with at least half the 
+            mass of the Sun can also begin to generate energy through the fusion of helium at their core, whereas more-massive stars can fuse heavier elements along a series of concentric shells. Once a star like the Sun has exhausted its nuclear 
+            fuel, its core collapses into a dense white dwarf and the outer layers are expelled as a planetary nebula. Stars with around ten or more times the mass of the Sun can explode in a supernova as their inert iron cores collapse into an 
+            extremely dense neutron star or black hole. Although the universe is not old enough for any of the smallest red dwarfs to have reached the end of their existence, stellar models suggest they will slowly become brighter and hotter before 
+            running out of hydrogen fuel and becoming low-mass white dwarfs.<br>
+            Stellar evolution is not studied by observing the life of a single star, as most stellar changes occur too slowly to be detected, even over many centuries. Instead, astrophysicists come to understand how stars evolve by observing numerous 
+            stars at various points in their lifetime, and by simulating stellar structure using computer models.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Origin">
+            Origin
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 296px">
+                    <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4d/Millisecond_pulsar_and_accretion_disk_-_NASA_animation_%28hi-res%29.ogv/Millisecond_pulsar_and_accretion_disk_-_NASA_animation_%28hi-res%29.ogv.480p.webm">
+                        <video poster = "media\MediaPlayer8.png" width = "100%" title = "Play Video">
+                        </video>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4d/Millisecond_pulsar_and_accretion_disk_-_NASA_animation_%28hi-res%29.ogv/Millisecond_pulsar_and_accretion_disk_-_NASA_animation_%28hi-res%29.ogv.480p.webm">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The formation of a pulsar: A star in a binary star system collapses into a neutron star. Material begins to flow to him from his companion (accretion). The incident matter causes an acceleration and the emission of high-energy radiation. Finally, a pulsar has been created 
+                        that rotates up to 1000 times per second.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 280px">
+                    <a href = "media\Protostellar_jet.jpg">
+                        <img loading = "lazy" src = "media\Protostellar_jet.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Protostellar_jet.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Images of an emerging star: above a luminous jet of 12 light years in length in an optical image, in the lower infrared image the dust disk, the edge of which is recognizable as a bar in the middle of a dark double cone.
+                    </div>
+                </div>
+            </div>
+            A large proportion of stars formed in the early stages of the universe over 10 billion years ago. But even today, stars are still forming. The typical star formation proceeds according to the following scheme:<br>
+            &emsp;&ensp;1.&ensp;The starting point for star formation is a gas cloud (usually molecular cloud), which consists predominantly of hydrogen, and which collapses due to its own gravity. This happens when gravity dominates the gas pressure, 
+            and thus the jeans criterion is met. Triggers can be, for example, the pressure wave of a nearby supernova, density waves in interstellar matter or the radiation pressure of already formed young stars.<br>
+            &emsp;&ensp;2.&ensp;Due to the further compression of the gas cloud, individual globules (spatially narrowly limited dust and gas clouds) are formed, from which the stars then emerge: The stars rarely form in isolation, but rather in groups. 
+            The period of contraction lasts a total of about 10 to 15 million years.<br>
+            &emsp;&ensp;3.&ensp;With the further contraction of the globules, the density increases and because of the released gravitational energy (as well as the resulting increased gravitational pressure), the temperature continues to rise (virial 
+            theorem; the kinetic energy of the particles corresponds to the temperature). The free collapse comes to a standstill when the cloud in the color-brightness diagram reaches the so-called Hayashi line, which delineates the area within which 
+            stable stars are possible at all. After that, in the color-brightness diagram, the star first moves along this Hayashi line before moving towards the main sequence, where the so-called hydrogen burning begins, i.e. the stellar nuclear fusion 
+            of hydrogen to helium through the Bethe-Weizsäcker cycle or the proton-proton reaction. As a result of the angular momentum of the globules, a disk is formed that orbits the young star and from which it further accretes mass. This accretion 
+            disk can form one or more stars and planets. However, this phase of stellar evolution is not yet so well understood. The plane of the disk becomes the ecliptic. During accretion from the disk, matter jets are also formed in both directions 
+            of the pole axes, which can reach a length of over 10 light years.<br>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 288px">
+                    <a href = "media\Sternentwicklung.png">
+                        <img loading = "lazy" src = "media\Sternentwicklung.png" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Sternentwicklung.png">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Schematic overview of the life phases of a star
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 288px">
+                    <a href = "media\R136a1.jpg">
+                        <img loading = "lazy" src = "media\R136a1.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\R136a1.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        R136a1 (artist's impression)
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 288px">
+                    <a href = "media\TTauriStarDrawing.jpg">
+                        <img loading = "lazy" src = "media\TTauriStarDrawing.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\TTauriStarDrawing.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Artist's impression of a T Tauri star with a circumstellar accretion disc
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 288px">
+                    <a href = "media\1697px-Magellanic_Clouds__Irregular_Dwarf_Galaxies.jpg">
+                        <img loading = "lazy" src = "media\1697px-Magellanic_Clouds__Irregular_Dwarf_Galaxies.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1697px-Magellanic_Clouds__Irregular_Dwarf_Galaxies.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Small and Large Magellanic Cloud
+                    </div>
+                </div>
+            </div>
+            Massive stars form less frequently than low-mass stars. This is described by the Original Mass Function. Depending on the mass, different scenarios of star formation arise:<br>
+            &emsp;&ensp;1.&ensp;Above a certain limit mass, stars can probably not form at all due to the accretion process, since these stars would already produce such a strong stellar wind in the accretion stage that the mass loss would exceed the 
+            accretion rate. Stars of this size, such as the <b><i>blue stragglers</i></b>, are probably formed by star collisions.<br>
+            &emsp;&ensp;2.&ensp;<b><i>Massive and thus hot stars with more than 8 solar masses</i></b> contract comparatively quickly. After the ignition of the nuclear fusion, the UV-rich radiation quickly drives the surrounding globule apart and the 
+            star does not accrete any further mass. They therefore very quickly reach the main sequence in the Hertzsprung-Russell diagram. With 265 solar masses, the heaviest star discovered so far with the abbreviation R136a1 is just over a million 
+            years old and is located in a star cluster in the Tarantula Nebula of the Large Magellanic Cloud. At its formation, the star may have had up to 320 solar masses.<br>
+            &emsp;&ensp;3.&ensp;<b><i>Stars between about 3 and 8 solar masses</i></b> pass through a phase in which they are called Herbig Ae/Be stars. In this phase, the star is already on the main sequence, but still accretes mass for some time.<br>
+            &emsp;&ensp;4.&ensp;<b><i>Low-mass stars between 0.07 and 3 solar masses</i></b> remain embedded in the globules for some time after the ignition of nuclear fusion and continue to accrete mass. During this time, they are only visible in the 
+            infrared spectral range. As they approach the main sequence, they pass through the stage of the T-Tauri stars.<br>
+            &emsp;&ensp;5.&ensp;<b><i>Objects between 13 and 75 Jupiter masses (or 0.07 solar masses)</i></b> also reach the necessary temperature to ignite a nuclear fusion, but not the fusion of hydrogen, but only that of primordial deuterium present in 
+            small quantities, from 65 Jupiter masses also of lithium. These objects are called brown dwarfs and are located between the planetary gas giants (up to 13 M<sub>J</sub>) and stars in terms of their mass. Since the fuel supply is not sufficient 
+            to significantly stop the contraction, brown dwarfs are called substellar objects.
+        </div>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 255px">
+                    <a href = "media\946px-Ngc604_hst.jpg">
+                        <img loading = "lazy" src = "media\946px-Ngc604_hst.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\946px-Ngc604_hst.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Active star-forming region NGC604 with a diameter of 1,300 light years in the triangular nebula M33
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 288px">
+                    <a href = "media\1211px-NGC_3603b.jpg">
+                        <img loading = "lazy" src = "media\1211px-NGC_3603b.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1211px-NGC_3603b.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The emission nebula NGC 3603 imaged by the Hubble Space Telescope
+                    </div>
+                </div>
+            </div>
+            A globule can form a binary or multiple star system as well as a single star. When stars form in groups, however, independently formed stars can also form binary or multiple star systems through mutual capture. It is estimated that about 
+            two-thirds of all stars are part of a binary or multiple star system.<br>
+            In the early stages of the universe, only hydrogen and helium were available for star formation. These stars belong to the so-called Population III, they were too massive and thus too short-lived to exist to this day. The next generation, 
+            called Population II stars, still exist today, they are mainly found in the halo of the Milky Way, but they have also been detected near the Sun. Stars that were formed later contain from the outset a certain proportion of heavy elements 
+            that were produced by nuclear reactions in earlier generations of stars and enriched interstellar matter with heavy elements, for example through supernova explosions. Most of the stars in the milky way's disk are among them. They are 
+            called stars of Population I.<br>
+            An example of an active star-forming region is NGC 3603 in the constellation Kiel of the ship at a distance of 20,000 light years. Star formation processes are observed in the infrared and X-ray range, as these spectral ranges are hardly 
+            absorbed by the surrounding dust clouds, unlike visible light. Satellites such as the Chandra X-ray telescope are used for this purpose.
+        </div>
+    </body>
+</html>

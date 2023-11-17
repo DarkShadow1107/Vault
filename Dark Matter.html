@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html lang = "en" style = "background-color: #a573f5; width: 1521.5px">
+    <head>
+        <title>
+            Dark Matter
+        </title>
+        <style>
+            img
+            {
+                width: 100%;
+                height: 100%;
+            }
+            .image_blur:hover img
+            {
+                filter: none;
+                transition: none;
+            }
+            .image_blur:not(:hover) img
+            {
+                transition: none;
+            }
+            .center_gif
+            {
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                height: 85.5%;
+                padding-top: 5%;
+            }
+            .lightbox
+            {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 4;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+            }
+            .lightbox:target
+            {
+                display: flex;
+            }
+            .frac
+            {
+                display: inline-block;
+                position: relative;
+                vertical-align: middle;
+                letter-spacing: 0.001em;
+                text-align: center;
+            }
+            .frac > span
+            {
+                display: block;
+                padding: 0.1em;
+            }
+            .frac span.bottom
+            {
+                border-top: thin solid black;
+            }
+            .frac span.symbol
+            {
+                display: none;
+            }
+            .subtitle_first
+            {
+                text-decoration: none;
+                font-size: 165%;
+                font-weight: normal;
+            }
+            .subtitle_second
+            {
+                text-decoration: none;
+                font-size: 150%;
+                font-weight: normal;
+            }
+            .subtitle_third
+            {
+                text-decoration: none;
+                font-size: 135%;
+                font-weight: normal;
+            }
+            .subtitle_fourth
+            {
+                text-decoration: none;
+                font-size: 100%;
+                font-weight: normal;
+            }
+            ::-webkit-scrollbar
+            {
+                width: 15px;
+            }
+            ::-webkit-scrollbar-track
+            {
+                background: #a573f5; 
+            }
+            ::-webkit-scrollbar-thumb
+            {
+                background-image: linear-gradient(#400b52, #9a52cb); 
+            }
+            ::-webkit-scrollbar-thumb:hover
+            {
+                background-image: linear-gradient(120deg, #3B0078, #9C0EC9); 
+            }
+            .counter-text
+            {
+                float: right;
+                font-size: 62%;
+                color: black;
+                font-weight: normal;
+            }
+            .website-counter
+            {
+                color: black;
+                font-weight: normal;
+                font-size: 62%;
+                float: right;
+            }
+            div.thumbinner
+            {
+                border: 1px solid #202020;
+                background-color: #a573f5;
+                font-size: 94%;
+                padding: 3px;
+                text-align: left;
+                overflow: hidden;
+            }
+            .thumbinner
+            {
+                min-width: 100px;
+            }
+            div.tleft
+            {
+                margin: 0.3em 0.3em 1.0em 0;
+            }
+            div.tleft, div.floatleft, table.floatleft
+            {
+                float: left;
+                clear: left;
+            }
+            div.tright
+            {
+                margin: 0.3em 0.4em 1.0em 0;
+            }
+            div.thumb
+            {
+                width: auto;
+                background-color: transparent;
+                margin-bottom: 0.5em;
+            }
+            div.tright, div.floatright, table.floatright
+            {
+                float: right;
+                clear: right;
+            }
+            .thumbcaption
+            {
+                border: 0;
+                font-size: 94%;
+                line-height: 1.4em;
+                padding: 3px;
+            }
+            .mw-content-ltr .thumbcaption
+            {
+                text-align: left;
+            }
+            .magnify
+            {
+                display: block;
+                text-indent: 15px;
+                width: 23px;
+                user-select: none;
+                margin-left: 3px;
+                margin-right: 0;
+                float: right;
+            }
+            .table_border_div
+            {
+                border: 0;
+                width: 100%;
+                font-size: 90%;
+            }
+            table
+            {
+                border: 1px solid black;
+                text-align: left;
+                padding: 8px;
+                font-family: Times New Roman;
+                width: 33%;
+            }
+            body
+            {
+                font-size: 100%;
+            }
+            div.a
+            {
+                text-align: left;
+            }
+            ul.h
+            {
+                list-style-type: none;
+                margin: -8px;
+                padding: 0;
+                overflow: hidden;
+                background-image: linear-gradient(#380a48, #a25ecf);
+                position: sticky;
+                top: 0;
+                z-index: 5;
+            }
+            li.animations
+            {
+                border-left: 2px solid rgb(95, 19, 125);
+            }
+            li
+            {
+                float: right;
+                border-left: 1px solid rgb(156, 50, 233);
+            }
+            li:last-child
+            {
+                border-left: none;
+            }
+            li a
+            {
+                display: block;
+                color: whitesmoke;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            li a:hover
+            {
+                background-image: linear-gradient(120deg, #3B0078, #9C0EC9);
+            }
+            .active3
+            {
+                background-image: linear-gradient(150deg, #54137a, #9146c1, #380a52);
+            }
+            .active2
+            {
+                background-image: linear-gradient(135deg, #792fa6, #511177);
+            }
+            .active
+            {
+                background-image: linear-gradient(250deg, #7831a3, #511177);
+            }
+            .line
+            {
+                width: 100%;
+                height: 0.65%;
+                border-bottom: 1px solid black;
+                position: static;
+            }
+            .afterdiv
+            {
+                font-family: Times New Roman;
+                font-size: 115%;
+                float: left;
+                margin-top: 0.1%;
+                line-height: 150%;
+            }
+            .afterdiv_in
+            {
+                font-family: Times New Roman;
+                font-size: 100%;
+                float: left;
+                margin-left: 2%;
+                margin-top: 0.1%;
+                line-height: 150%;
+            }
+            .unselectable
+            {
+                font-size: 0.1%;
+                margin-bottom: -1.1%;
+                color: #a573f5;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            .unselectable_2
+            {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            ol
+            {
+                font-family: Times New Roman;
+                font-size: 100%;
+                float: left;
+                margin-top: 0.1%;
+                line-height: 100%;
+                margin-left: 2%;
+            }
+            .font_color
+            {
+                color:#53d2c7;
+            }
+            .image_container
+            {
+                position: relative;
+                cursor: pointer;
+            }
+            img
+            {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .image_container:before
+            {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: hsl(271, 76%, 53%);
+                transform: scale(0);
+                transition: all 800ms linear;
+                transform-origin: 0 50%;
+                z-index: 2;
+                opacity: 0.35;
+            }
+            .image_container:hover:before
+            {
+                transform: scale(1);
+            }
+            span
+            {
+                position: absolute;
+                opacity: 0;
+                transition: all 800ms linear;
+                z-index: 3;
+            }
+            .title
+            {
+                left: 10%;
+                top: 3%;
+            }
+            .description
+            {
+                left: 12%;
+                top: 20%;
+                width: 88%;
+            }
+            .image_container:hover span
+            {
+                opacity: 1;
+            }
+            .line1
+            {
+                left: 0;
+                top: 0;
+                position: absolute;
+                background: #53d2c7;
+                transition: all 800ms linear;
+            }
+            .top
+            {
+                width: 3px;
+                height: 0;
+                left: 5%;
+            }
+            .image_container:hover .top
+            {
+                height: 100%;
+            }
+            .left
+            {
+                width: 0;
+                height: 3px;
+                top: 95%;
+            }
+            .image_container:hover .left
+            {
+                width: 100%;
+            }
+            .link
+            {
+                color: #0c4b0c;
+                text-decoration: none;
+            }
+            .link:hover
+            {
+                text-decoration: underline;
+            }
+            a:visited
+            {
+                color: #560909;
+                text-decoration: none;
+            }
+            .drop
+            {
+                display: flex;
+                background-image: linear-gradient(200deg, #3d0553, #9b4dcb, #320448);
+                flex-direction: row-reverse;
+            }
+            .drop-cont
+            {
+                display: none;
+            }
+            .drop:hover .disappear
+            {
+                display: none;
+            }
+            .drop:hover .drop-cont
+            {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+        </style>
+        <meta charset = "UTF-8">
+    </head>
+    <script>
+        function Visitors()
+        {
+            var visitCount = localStorage.getItem("page_view");
+            if(visitCount)
+            {
+                visitCount = Number(visitCount) + 1;
+                localStorage.setItem("page_view", visitCount);
+            }
+            else
+            {
+                visitCount = 1;
+                localStorage.setItem("page_view", 1);
+            }
+            document.getElementById("demo").innerHTML = visitCount;
+        }
+    </script>
+    <body onload = "Visitors()">
+        <ul class = "h">
+            <li>
+                <a class = "active3" href = "Log In Form.html" style = "color: white">
+                    Sign In
+                </a>
+            </li>
+            <li>
+                <a class = "active" href = "index.html" style = "color: white">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Energy.html" style = "color: white">
+                    Dark Energy
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Matter.html" style = "color: white">
+                    Dark Matter
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Flow.html" style = "color: white">
+                    Dark Flow
+                </a>
+            </li>
+            <li>
+                <a href = "Star.html" style = "color: white">
+                    Star
+                </a>
+            </li>
+            <li class = "animations">
+                <div class = "drop">
+                    <a class = "disappear" style = "color: white; cursor: pointer">
+                        Animations
+                    </a>
+                    <div class = "drop-cont">
+                        <a href = "Solar System/Solar System.html" style = "color: white" target = "_blank">
+                            Solar System
+                        </a>
+                        <a href = "Simple Terra/Simple Terra.html" style = "color: white" target = "_blank">
+                            Terra
+                        </a>
+                        <a href = "Orb/Orb.html" style = "color: white" target = "_blank">
+                            Orb
+                        </a>
+                        <a href = "Night Flower/Night Flower.html" style = "color: white" target = "_blank">
+                            Form of Life
+                        </a>
+                        <a href = "Black Hole Shader/Black Hole Shader.html" style = "color: white" target = "_blank">
+                            Black Hole
+                        </a>
+                        <a href = "Nebula/Nebula.html" style = "color: white" target = "_blank">
+                            Nebula
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li style = "float: left">
+                <a class = "active2" href = "Gallery.html" style = "color: white">
+                    Gallery
+                </a>
+            </li>
+        </ul>
+        <center>
+            <h1 style = "text-decoration: none; color:#070e50; font-size: 260%">
+                Universe Encyclopedia
+            </h1>
+        </center>
+        <br>
+        <br>
+        <h2 style = "text-decoration: none; font-size: 210%; font-weight: normal">
+            Dark Matter
+            <div class = "counter-text unselectable_2">
+                &nbsp;views
+            </div>
+            <div id = "demo" class = "website-counter unselectable_2">
+            </div>
+            <div class = "counter-text unselectable_2">
+                Writer: <i>Alexandru Gabriel</i> | 05-09-2022 |&nbsp;
+            </div>
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img1">
+                <div class = "image_blur">
+                    <div style = "width: 28.7%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\Cosmic-Web-Concept.gif" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Neutron star eruption
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Accretion disc of a gamma rays eruption of a neutron star
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img1">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\Cosmic-Web-Concept.gif">
+                </div>
+            </a>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 230px">
+                    <a href = "#img2">
+                        <img loading = "lazy" src = "media\image3.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img2">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image3.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img2.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img2.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image3.jpg">
+                            </div>
+                        </a>
+                        Simulated Large Hadron Collider CMS particle detector data depicting a Higgs boson produced by colliding protons decaying into hadron jets and electrons
+                    </div>
+                </div>
+            </div>
+            <b>Dark matter</b> is a hypothetical form of matter thought to account for approximately 85% of the matter in the Universe. Dark matter is called "dark" because it does not appear to interact with the electromagnetic field, which 
+            means it does not absorb, reflect, or emit electromagnetic radiation (like light) and is, therefore, difficult to detect. Various astrophysical observations – including gravitational effects which cannot be explained by currently 
+            accepted theories of gravity unless more matter is present than can be seen – imply dark matter's presence. For this reason, most experts think that dark matter is abundant in the Universe and has had a strong influence on its 
+            structure and evolution.<br>
+            The primary evidence for dark matter comes from calculations showing that many galaxies would behave quite differently if they did not contain a large amount of unseen matter. Some galaxies would not have formed at all and others 
+            would not move as they currently do. Other lines of evidence include observations in gravitational lensing and the cosmic microwave background, along with astronomical observations of the observable Universe's current structure, 
+            the formation and evolution of galaxies, mass location during galactic collisions, and the motion of galaxies within galaxy clusters. 
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 335px">
+                    <a href = "#img3">
+                        <img loading = "lazy" src = "media\20220902_173445.gif" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img3">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\20220902_173445.gif">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img3.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img3.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\20220902_173445.gif">
+                            </div>
+                        </a>
+                        Animation of Galaxy Collision
+                    </div>
+                </div>
+            </div>
+            In the standard Lambda-CDM model of cosmology, the total mass-energy content of the Universe contains 5% ordinary matter and energy, 27% dark matter, and 68% of a form of energy known as dark energy. Thus, dark matter constitutes 
+            85% of the total mass, while dark energy and dark matter constitute 95% of the total mass&nbsp;-&nbsp;energy content.<br>
+            <a href = "#img4">
+                <div class = "image_blur">
+                    <div style = "width: 25%; float: right; margin-left: 0.4em">
+                        <img loading = "lazy" src = "media\Dark-Matter-Simulation.gif" style = "float: right">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Neutron star eruption
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Accretion disc of a gamma rays eruption of a neutron star
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img4">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\Dark-Matter-Simulation.gif">
+                </div>
+            </a>
+            Because no one has directly observed dark matter yet – assuming it exists – it must barely interact with ordinary baryonic matter and radiation except through gravity. Most dark matter is thought to be non-baryonic; it may be composed 
+            of some as-yet-undiscovered subatomic particles. The primary candidate for dark matter is some new kind of elementary particle that has not yet been discovered, particularly weakly interacting massive particles (WIMPs), though axions 
+            have drawn renewed attention due to the non-detection of WIMPs in experiments. Many experiments to directly detect and study dark matter particles are being actively undertaken, but none have yet succeeded. Dark matter is classified 
+            as "cold," "warm," or "hot" according to its velocity (more precisely, its free streaming length). Current models favor a cold dark matter scenario, in which structures emerge by the gradual accumulation of particles.<br>
+            Although the scientific community generally accepts dark matter's existence, some astrophysicists, intrigued by specific observations that are not well-explained by ordinary dark matter, argue for various modifications of the standard 
+            laws of general relativity. These include modified Newtonian dynamics, tensor–vector–scalar gravity, or entropic gravity. These models attempt to account for all observations without invoking supplemental non-baryonic matter.
+        </div>
+        <table>
+            <tr>
+                <th style = "font-size: 115%">
+                    <center>Contents</center>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    1. 
+                    <a href = "#Technical definition" class = "link">
+                        Technical definition
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    2. 
+                    <a href = "#Observational evidence" class = "link">
+                        Observational evidence
+                    </a>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            2.1. 
+                            <a href = "#Galaxy rotation curves" class = "link">
+                                Galaxy rotation curves
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            2.2. 
+                            <a href = "#Velocity dispersions" class = "link">
+                                Velocity dispersions
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            2.3. 
+                            <a href = "#Galaxy clusters" class = "link">
+                                Galaxy clusters
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            2.4. 
+                            <a href = "#Gravitational lensing" class = "link">
+                                Gravitational lensing
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            2.5. 
+                            <a href = "#Cosmic microwave background" class = "link">
+                                Cosmic microwave background
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            2.6. 
+                            <a href = "#Structure formation" class = "link">
+                                Structure formation
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            2.7. 
+                            <a href = "#Bullet Cluster" class = "link">
+                                Bullet Cluster
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            2.8. 
+                            <a href = "#Type Ia supernova distance measurements" class = "link">
+                                Type Ia supernova distance measurements
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            2.9. 
+                            <a href = "#Sky surveys and baryon acoustic oscillations" class = "link">
+                                Sky surveys and baryon acoustic oscillations
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            2.10. 
+                            <a href = "#Redshift-space distortions" class = "link">
+                                Redshift-space distortions
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            2.11. 
+                            <a href = "#Lyman-alpha forest" class = "link">
+                                Lyman-alpha forest
+                            </a>
+                        </td>
+                    </tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3. 
+                    <a href = "#Theoretical classifications" class = "link">
+                        Theoretical classifications
+                    </a>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            3.1. 
+                            <a href = "#Composition" class = "link">
+                                Composition
+                            </a>
+                            <tr>
+                                <td style = "padding-left: 15%">
+                                    3.1.1. 
+                                    <a href = "#Baryonic matter" class = "link">
+                                        Baryonic matter
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style = "padding-left: 15%">
+                                    3.1.2. 
+                                    <a href = "#Non-baryonic matter" class = "link">
+                                        Non-baryonic matter
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style = "padding-left: 15%">
+                                    3.1.3. 
+                                    <a href = "#Dark matter aggregation and dense dark matter objects" class = "link">
+                                        Dark matter aggregation and dense dark matter objects
+                                    </a>
+                                </td>
+                            </tr>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            3.2. 
+                            <a href = "#Free streaming length" class = "link">
+                                Free streaming length
+                            </a>
+                            <tr>
+                                <td style = "padding-left: 15%">
+                                    3.2.1. 
+                                    <a href = "#Fluctuation spectrum effects" class = "link">
+                                        Fluctuation spectrum effects
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style = "padding-left: 15%">
+                                    3.2.2. 
+                                    <a href = "#Alternative definitions" class = "link">
+                                        Alternative definitions
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style = "padding-left: 15%">
+                                    3.2.3. 
+                                    <a href = "#Cold dark matter" class = "link">
+                                        Cold dark matter
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style = "padding-left: 15%">
+                                    3.2.4. 
+                                    <a href = "#Warm dark matter" class = "link">
+                                        Warm dark matter
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style = "padding-left: 15%">
+                                    3.2.5. 
+                                    <a href = "#Hot dark matter" class = "link">
+                                        Hot dark matter
+                                    </a>
+                                </td>
+                            </tr>
+                        </td>
+                    </tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    4. 
+                    <a href = "#Detection of dark matter particles" class = "link">
+                        Detection of dark matter particles
+                    </a>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.1. 
+                            <a href = "#Direct detection" class = "link">
+                                Direct detection
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.2. 
+                            <a href = "#Indirect detection" class = "link">
+                                Indirect detection
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.3. 
+                            <a href = "#Collider searches for dark matter" class = "link">
+                                Collider searches for dark matter
+                            </a>
+                        </td>
+                    </tr>
+                </td>
+            </tr>
+        </table>
+        <h2 class = "subtitle_first" id = "Technical definition">
+            Technical definition
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img5">
+                <div class = "image_blur">
+                    <div style = "width: 22.3%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image4.gif" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Neutron star eruption
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Accretion disc of a gamma rays eruption of a neutron star
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img5">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image4.gif">
+                </div>
+            </a>
+            <a href = "#img6">
+                <div class = "image_blur">
+                    <div style = "width: 24%; float: right; margin-left: 0.4em">
+                        <img loading = "lazy" src = "media\image5.gif" style = "float: right">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Neutron star eruption
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Accretion disc of a gamma rays eruption of a neutron star
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img6">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image5.gif">
+                </div>
+            </a>
+            In standard cosmology, matter is anything whose energy density scales with the inverse cube of the scale factor, i.e., <i><b>ρ ∝ a<sup>-3</sup></b></i>. This is in contrast to radiation, which scales as the inverse fourth power of 
+            the scale factor <i><b>ρ ∝ a<sup>-4</sup></b></i>, and a cosmological constant, which is independent of a. These scalings can be understood intuitively: For an ordinary particle in a cubical box, doubling the length of the sides of 
+            the box decreases the density (and hence energy density) by a factor of 8 (= 2<sup>3</sup>). For radiation, the energy density decreases by a factor of 16 (= 2<sup>4</sup>), because any act whose effect increases the scale factor 
+            must also cause a proportional redshift. A cosmological constant, as an intrinsic property of space, has a constant energy density regardless of the volume under consideration.<br>
+            In principle, "dark matter" means all components of the Universe which are not visible but still obey <i><b>ρ ∝ a<sup>-3</sup></b></i>. In practice, the term "dark matter" is often used to mean only the non-baryonic component of 
+            dark matter, i.e., excluding "missing baryons". Context will usually indicate which meaning is intended.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Observational evidence">
+            Observational evidence
+            <div class = "line">
+            </div>
+        </h2>
+        <h2 class = "subtitle_second" id = "Galaxy rotation curves">
+            Galaxy rotation curves
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 341px">
+                    <a href = "#img7">
+                        <img loading = "lazy" src = "media\image8.gif" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img7">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image8.gif">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img7.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img7.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image8.gif">
+                            </div>
+                        </a>
+                        Left: A simulated galaxy without dark matter. Right: Galaxy with a flat rotation curve that would be expected with dark matter.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 324px">
+                    <a href = "#img8">
+                        <img loading = "lazy" src = "media\image6.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img8">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image6.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img8.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img8.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image6.jpg">
+                            </div>
+                        </a>
+                        An example of a spiral galaxy, the Pinwheel Galaxy (also known as Messier 101 or NGC 5457)
+                    </div>
+                </div>
+            </div>
+            The rotation curve of a disc galaxy (also called a velocity curve) is a plot of the orbital speeds of visible stars or gas in that galaxy versus their radial distance from that galaxy's centre. It is typically rendered graphically as 
+            a plot, and the data observed from each side of a spiral galaxy are generally asymmetric, so that data from each side are averaged to create the curve. A significant discrepancy exists between the experimental curves observed, and a 
+            curve derived by applying gravity theory to the matter observed in a galaxy. Theories involving dark matter are the main postulated solutions to account for the variance.<br>
+            The rotational/orbital speeds of galaxies/stars do not follow the rules found in other orbital systems such as stars/planets and planets/moons that have most of their mass at the centre. Stars revolve around their galaxy's centre at 
+            equal or increasing speed over a large range of distances. In contrast, the orbital velocities of planets in planetary systems and moons orbiting planets decline with distance according to Kepler’s third law. This reflects the mass 
+            distributions within those systems. The mass estimations for galaxies based on the light they emit are far too low to explain the velocity observations.<br>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 311px">
+                    <a href = "#img9">
+                        <img loading = "lazy" src = "media\20220902_183739.gif" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img9">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\20220902_183739.gif">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img9.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img9.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\20220902_183739.gif">
+                            </div>
+                        </a>
+                        This artist's impression shows the expected distribution of dark matter in the Milky Way galaxy as a blue halo of material surrounding the galaxy.
+                    </div>
+                </div>
+            </div>
+            The galaxy rotation problem is the discrepancy between observed galaxy rotation curves and the theoretical prediction, assuming a centrally dominated mass associated with the observed luminous material. When mass profiles of galaxies 
+            are calculated from the distribution of stars in spirals and mass-to-light ratios in the stellar disks, they do not match with the masses derived from the observed rotation curves and the law of gravity. A solution to this conundrum 
+            is to hypothesize the existence of dark matter and to assume its distribution from the galaxy's center out to its halo.<br>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 230px">
+                    <a href = "#img10">
+                        <img loading = "lazy" src = "media\HubbleTuningFork.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img10">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\HubbleTuningFork.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img10.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img10.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\HubbleTuningFork.jpg">
+                            </div>
+                        </a>
+                        Tuning-fork-style diagram of the Hubble sequence
+                    </div>
+                </div>
+            </div>
+            Though dark matter is by far the most accepted explanation of the rotation problem, other proposals have been offered with varying degrees of success. Of the possible alternatives, one of the most notable is modified Newtonian dynamics 
+            (MOND), which involves modifying the laws of gravity.<br>
+            The arms of spiral galaxies rotate around the galactic center. The luminous mass density of a spiral galaxy decreases as one goes from the center to the outskirts. If luminous mass were all the matter, then we can model the galaxy as a 
+            point mass in the centre and test masses orbiting around it, similar to the Solar System. From Kepler's Second Law, it is expected that the rotation velocities will decrease with distance from the center, similar to the Solar System. 
+            This is not observed. Instead, the galaxy rotation curve remains flat as distance from the center increases.<br>
+            If Kepler's laws are correct, then the obvious way to resolve this discrepancy is to conclude the mass distribution in spiral galaxies is not similar to that of the Solar System. In particular, there is a lot of non-luminous matter 
+            (dark matter) in the outskirts of the galaxy.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Velocity dispersions">
+            Velocity dispersions
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 288px">
+                    <a href = "#img11">
+                        <img loading = "lazy" src = "media\image11.png" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img11">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image11.png">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img11.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img11.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image11.png">
+                            </div>
+                        </a>
+                        Rotation curve of spiral galaxy Messier 33 (yellow and blue points with error bars), and a predicted one from distribution of the visible matter (gray line). The discrepancy between the two curves can be accounted for by 
+                        adding a dark matter halo surrounding the galaxy.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 296px">
+                    <a href = "#img12">
+                        <img loading = "lazy" src = "media\image10.png" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img12">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image10.1.png">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img12.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img12.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image10.1.png">
+                            </div>
+                        </a>
+                        Rotation curve of a typical spiral galaxy: predicted (A) and observed (B). Dark matter can explain the 'flat' appearance of the velocity curve out to a large radius.
+                    </div>
+                </div>
+            </div>
+            In astronomy, the velocity dispersion (σ) is the statistical dispersion of velocities about the mean velocity for a group of astronomical objects, such as an open cluster, globular cluster, galaxy, galaxy cluster, or supercluster. By 
+            measuring the radial velocities of the group's members through astronomical spectroscopy, the velocity dispersion of that group can be estimated and used to derive the group's mass from the virial theorem. Radial velocity is found by 
+            measuring the Doppler width of spectral lines of a collection of objects; the more radial velocities one measures, the more accurately one knows their dispersion. A central velocity dispersion refers to the σ of the interior regions 
+            of an extended object, such as a galaxy or cluster.<br>
+            The relationship between velocity dispersion and matter (or the observed electromagnetic radiation emitted by this matter) takes several forms in astronomy based on the object(s) being observed. For instance, the M–σ relation was found 
+            for material circling black holes, the Faber–Jackson relation for elliptical galaxies, and the Tully–Fisher relation for spiral galaxies. For example, the σ found for objects about the Milky Way's supermassive black hole (SMBH) is 
+            about 100 km/s. The Andromeda Galaxy (Messier 31) hosts a SMBH about 10 times larger than our own, and has a σ ≈ 160 km/s.<br>
+            For spiral galaxies, the increase in velocity dispersion in population I stars is a gradual process which likely results from the random momentum exchanges, known as dynamical friction, between individual stars and large interstellar 
+            media (gas and dust clouds) with masses greater than 105 M<sub>☉</sub>. Face-on spiral galaxies have a central σ ≲ 90 km/s; slightly more if viewed edge-on.<br>
+            Stars in bound systems must obey the virial theorem. The theorem, together with the measured velocity distribution, can be used to measure the mass distribution in a bound system, such as elliptical galaxies or globular clusters. With 
+            some exceptions, velocity dispersion estimates of elliptical galaxies do not match the predicted velocity dispersion from the observed mass distribution, even assuming complicated distributions of stellar orbits.<br>
+            As with galaxy rotation curves, the obvious way to resolve the discrepancy is to postulate the existence of non-luminous matter.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Galaxy clusters">
+            Galaxy clusters
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img13">
+                <div class = "image_blur">
+                    <div style = "width: 20%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image13.gif" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Neutron star eruption
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Accretion disc of a gamma rays eruption of a neutron star
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img13">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image13.gif">
+                </div>
+            </a>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 320px">
+                    <a href = "#img14">
+                        <img loading = "lazy" src = "media\image14.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img14">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image14.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img14.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img14.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image14.jpg">
+                            </div>
+                        </a>
+                        The Laniakea supercluster with many galaxy clusters
+                    </div>
+                </div>
+            </div>
+            A galaxy cluster, or cluster of galaxies, is a structure that consists of anywhere from hundreds to thousands of galaxies that are bound together by gravity with typical masses ranging from 10<sup>14</sup>–10<sup>15</sup> solar masses. 
+            They are the second largest known gravitationally bound structures in the Universe after galaxy filaments and were believed to be the largest known structures in the Universe until the 1980s, when superclusters were discovered. One of 
+            the key features of clusters is the intracluster medium (ICM). The ICM consists of heated gas between the galaxies and has a peak temperature between 2–15 keV that is dependent on the total mass of the cluster. Galaxy clusters should 
+            not be confused with star clusters, such as <i><b>galactic clusters</b></i>—also known as open clusters—which are structures of stars within galaxies, or with globular clusters, which typically orbit galaxies.<br>
+            Galaxy clusters are particularly important for dark matter studies since their masses can be estimated in three independent ways:<br>
+            &emsp;&ensp;1.&ensp;From the scatter in radial velocities of the galaxies within clusters<br>
+            &emsp;&ensp;2.&ensp;From X-rays emitted by hot gas in the clusters. From the X-ray energy spectrum and flux, the gas temperature and density can be estimated, hence giving the pressure; assuming pressure and gravity balance determines 
+            the cluster's mass profile.<br>
+            &emsp;&ensp;3.&ensp;Gravitational lensing (usually of more distant galaxies) can measure cluster masses without relying on observations of dynamics (e.g., velocity).<br>
+            Generally, these three methods are in reasonable agreement that dark matter outweighs visible matter by approximately 5 to 1.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Gravitational lensing">
+            Gravitational lensing
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 288px">
+                    <a href = "#img15">
+                        <img loading = "lazy" src = "media\1040px-Gravitationell-lins-4.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img15">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\1040px-Gravitationell-lins-4.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img15.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img15.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\1040px-Gravitationell-lins-4.jpg">
+                            </div>
+                        </a>
+                        Strong gravitational lensing as observed by the Hubble Space Telescope in Abell 1689 indicates the presence of dark matter – enlarge the image to see the lensing arcs.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 279px">
+                    <a href = "#img16">
+                        <img loading = "lazy" src = "media\image16.gif" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img16">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image16.gif">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img16.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img16.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image16.gif">
+                            </div>
+                        </a>
+                        Models of rotating disc galaxies in the present day (left) and ten billion years ago (right). In the present-day galaxy, dark matter – shown in red – is more concentrated near the center and it rotates more rapidly (effect exaggerated).
+                    </div>
+                </div>
+            </div>
+            One of the consequences of general relativity is massive objects (such as a cluster of galaxies) lying between a more distant source (such as a quasar) and an observer should act as a lens to bend the light from this source. 
+            The more massive an object, the more lensing is observed.<br>
+            Strong lensing is the observed distortion of background galaxies into arcs when their light passes through such a gravitational lens. It has been observed around many distant clusters including Abell 1689. By measuring the distortion 
+            geometry, the mass of the intervening cluster can be obtained. In the dozens of cases where this has been done, the mass-to-light ratios obtained correspond to the dynamical dark matter measurements of clusters. Lensing can lead to 
+            multiple copies of an image. By analyzing the distribution of multiple image copies, scientists have been able to deduce and map the distribution of dark matter around the MACS J0416.1-2403 galaxy cluster.<br>
+            Weak gravitational lensing investigates minute distortions of galaxies, using statistical analyses from vast galaxy surveys. By examining the apparent shear deformation of the adjacent background galaxies, the mean distribution of 
+            dark matter can be characterized. The mass-to-light ratios correspond to dark matter densities predicted by other large-scale structure measurements. Dark matter does not bend light itself; mass (in this case the mass of the dark 
+            matter) bends spacetime. Light follows the curvature of spacetime, resulting in the lensing effect.<br>
+            In May 2021, a new detailed dark matter map was revealed by the Dark Energy Survey Collaboration. In addition, the map revealed previously undiscovered filamentary structures connecting galaxies, by using a machine learning method.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Cosmic microwave background">
+            Cosmic microwave background
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img17">
+                <div class = "image_blur">
+                    <div style = "width: 25.2%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image19.gif" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%; color: #0b4e0b">
+                            Neutron star eruption
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%; color: #0b4e0b">
+                            Accretion disc of a gamma rays eruption of a neutron star
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img17">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image19.gif">
+                </div>
+            </a>
+            <a href = "#img18">
+                <div class = "image_blur">
+                    <div style = "width: 25.2%; float: right; margin-left: 0.4em">
+                        <img loading = "lazy" src = "media\image20.gif" style = "float: right">
+                        <span class = "title font_color" style = "font-size: 130%; color: #0b4e0b">
+                            Neutron star eruption
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%; color: #0b4e0b">
+                            Accretion disc of a gamma rays eruption of a neutron star
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img18">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image20.gif">
+                </div>
+            </a>
+            Although both dark matter and ordinary matter are matter, they do not behave in the same way. In particular, in the early Universe, ordinary matter was ionized and interacted strongly with radiation via Thomson scattering. Dark matter 
+            does not interact directly with radiation, but it does affect the cosmic microwave background (CMB) by its gravitational potential (mainly on large scales) and by its effects on the density and velocity of ordinary matter. Ordinary 
+            and dark matter perturbations, therefore, evolve differently with time and leave different imprints on the CMB.<br>
+            The cosmic microwave background is very close to a perfect blackbody but contains very small temperature anisotropies of a few parts in 100,000. A sky map of anisotropies can be decomposed into an angular power spectrum, which is 
+            observed to contain a series of acoustic peaks at near-equal spacing but different heights. The series of peaks can be predicted for any assumed set of cosmological parameters by modern computer codes such as 
+            <a href = "#img19">
+                <div class = "image_blur">
+                    <div style = "width: 20.2%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image21.jpg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Neutron star eruption
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Accretion disc of a gamma rays eruption of a neutron star
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img19">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image21.jpg">
+                </div>
+            </a>
+            <a href = "#img20">
+                <div class = "image_blur">
+                    <div style = "width: 15.5%; float: right; margin-left: 0.4em">
+                        <img loading = "lazy" src = "media\image59.jpg" style = "float: right">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Neutron star eruption
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Accretion disc of a gamma rays eruption of a neutron star
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img20">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image59.jpg">
+                </div>
+            </a>
+            CMBFAST and CAMB, and matching theory to data, therefore, constrains cosmological parameters. The first peak mostly shows the density of baryonic matter, while the third peak relates mostly to the density of dark matter, measuring 
+            the density of matter and the density of atoms.<br>
+            The CMB anisotropy was first discovered by COBE in 1992, though this had too coarse resolution to detect the acoustic peaks. After the discovery of the first acoustic peak by the balloon-borne BOOMERanG experiment in 2000, the power 
+            spectrum was precisely observed by WMAP in 2003–2012, and even more precisely by the <i><b>Planck</b></i> spacecraft in 2013–2015. The results support the Lambda-CDM model.<br>
+            The observed CMB angular power spectrum provides powerful evidence in support of dark matter, as its precise structure is well fitted by the Lambda-CDM model, but difficult to reproduce with any competing model such as modified Newtonian dynamics (MOND).
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Structure formation">
+            Structure formation
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 339px">
+                    <a href = "#img21">
+                        <img loading = "lazy" src = "media\1421px-COSMOS_3D_dark_matter_map.png" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img21">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\1421px-COSMOS_3D_dark_matter_map.png">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img21">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        3-D map of the large-scale distribution of dark matter, reconstructed from measurements of weak gravitational lensing with the Hubble Space Telescope.
+                    </div>
+                </div>
+            </div>
+            <a href = "#img22">
+                <div class = "image_blur">
+                    <div style = "width: 22.5%; float: right; margin-left: 0.4em">
+                        <img loading = "lazy" src = "media\image22.gif" style = "float: right">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Neutron star eruption
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Accretion disc of a gamma rays eruption of a neutron star
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img22">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image22.gif">
+                </div>
+            </a>
+            In physical cosmology, structure formation is the formation of galaxies, galaxy clusters and larger structures from small early density fluctuations. The Universe, as is now known from observations of the cosmic microwave background 
+            radiation, began in a hot, dense, nearly uniform state approximately 13.8 billion years ago. However, looking at the night sky today, structures on all scales can be seen, from stars and planets to galaxies. On even larger scales, 
+            galaxy clusters and sheet-like structures of galaxies are separated by enormous voids containing few galaxies. Structure formation attempts to model how these structures were formed by gravitational instability of small early ripples 
+            in spacetime density or another emergence.<br>
+            Structure formation refers to the period after the Big Bang when density perturbations collapsed to form stars, galaxies, and clusters. Prior to structure formation, the Friedmann solutions to general relativity describe a homogeneous 
+            Universe. Later, small anisotropies gradually grew and condensed the homogeneous Universe into stars, galaxies and larger structures. 
+            <a href = "#img23">
+                <div class = "image_blur">
+                    <div style = "width: 20%; float: right; margin-left: 0.4em">
+                        <img loading = "lazy" src = "media\image24.jpg" style = "float: right">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Neutron star eruption
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Accretion disc of a gamma rays eruption of a neutron star
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img23">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image24.jpg">
+                </div>
+            </a>
+            Ordinary matter is affected by radiation, which is the dominant element of the Universe at very early times. As a result, its density perturbations are washed out and unable to condense into structure. If there were only ordinary matter 
+            in the Universe, there would not have been enough time for density perturbations to grow into the galaxies and clusters currently seen.<br>
+            Dark matter provides a solution to this problem because it is unaffected by radiation. Therefore, its density perturbations can grow first. The resulting gravitational potential acts as an attractive potential well for ordinary matter 
+            collapsing later, speeding up the structure formation process.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Bullet Cluster">
+            Bullet Cluster
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 275px">
+                    <a href = "#img24">
+                        <img loading = "lazy" src = "media\image26.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img24">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image26.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img24">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        X-ray photo by Chandra X-ray Observatory. Exposure time was 140 hours. The scale is shown in megaparsecs. Redshift (z) = 0.3, meaning its light has wavelengths stretched by a factor of 1.3.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 319px">
+                    <a href = "#img25">
+                        <img loading = "lazy" src = "media\image35.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img25">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image35.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img25">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        X-ray image (pink) superimposed over a visible light image (galaxies), with matter distribution calculated from gravitational lensing (blue)
+                    </div>
+                </div>
+            </div>
+            The <b>Bullet Cluster (1E 0657-56)</b> consists of two colliding clusters of galaxies. Strictly speaking, the name <i><b>Bullet Cluster</b></i> refers to the smaller subcluster, moving away from the larger one. It is at a comoving radial 
+            distance of 1.141 Gpc (3.72 billion light-years).<br>
+            Gravitational lensing studies of the Bullet Cluster are claimed to provide the best evidence to date for the existence of dark matter.<br>
+            Observations of other galaxy cluster collisions, such as MACS J0025.4-1222, similarly support the existence of dark matter.<br>
+            The Bullet Cluster provides the best current evidence for the nature of dark matter and provides "evidence against some of the more popular versions of Modified Newtonian dynamics (MOND)" as applied to large galactic clusters. At a 
+            statistical significance of 8σ, it was found that the spatial offset of the center of the total mass from the center of the baryonic mass peaks cannot be explained with an alteration of the gravitational force law alone.<br>
+            If dark matter does not exist, then the next most likely explanation must be that general relativity – the prevailing theory of gravity – is incorrect and should be modified. The Bullet Cluster, the result of a recent collision of two 
+            galaxy clusters, provides a challenge for modified gravity theories because its apparent center of mass is far displaced from the baryonic center of mass. Standard dark matter models can easily explain this observation, but modified 
+            gravity has a much harder time, especially since the observational evidence is model-independent.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Type Ia supernova distance measurements">
+            Type Ia supernova distance measurements
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 320px">
+                    <a href = "media\20220902_205634.gif">
+                        <img loading = "lazy" src = "media\20220902_205634.gif" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\20220902_205634.gif">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        At the core of a planetary nebula, Henize 2&nbsp;-&nbsp;428, two white dwarf stars slightly under one solar mass each are expected to merge and create a Type Ia supernova destroying both in about 700 million years (artist's impression).
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 298px">
+                    <a href = "media\G299-Remnants-SuperNova-Type1a-20150218.jpg">
+                        <img loading = "lazy" src = "media\G299-Remnants-SuperNova-Type1a-20150218.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\G299-Remnants-SuperNova-Type1a-20150218.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        G299 Type Ia supernova remnant.
+                    </div>
+                </div>
+            </div>
+            A Type Ia supernova (read: "type one-A") is a type of supernova that occurs in binary systems (two stars orbiting one another) in which one of the stars is a white dwarf. The other star can be anything from a giant star to an even smaller white dwarf.<br>
+            The type Ia category of supernova produces a fairly consistent peak luminosity because of this fixed critical mass at which a white dwarf will explode. Their consistent peak luminosity allows these explosions to be used as standard candles 
+            to measure the distance to their host galaxies: the visual magnitude of a type Ia supernova, as observed from Earth, indicates its distance from Earth.<br>
+            In May 2015, NASA reported that the <b>Kepler space observatory</b> observed KSN 2011b, a type Ia supernova in the process of exploding. Details of the pre-nova moments may help scientists better judge the quality of Type Ia supernovae as standard 
+            candles, which is an important link in the argument for dark energy.<br>
+            Type Ia supernovae can be used as standard candles to measure extragalactic distances, which can in turn be used to measure how fast the Universe has expanded in the past. Data indicates the Universe is expanding at an accelerating rate, 
+            the cause of which is usually ascribed to dark energy. Since observations indicate the Universe is almost flat, it is expected the total energy density of everything in the Universe should sum to 1 (Ω<sub>tot</sub> ≈ 1). The measured dark 
+            energy density is Ω<sub>Λ</sub> ≈ 0.690; the observed ordinary (baryonic) matter energy density is Ω<sub>b</sub> ≈ 0.0482 and the energy density of radiation is negligible. This leaves a missing Ω<sub>dm</sub> ≈ 0.258 which nonetheless 
+            behaves like matter (see technical definition section above) – dark matter.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Sky surveys and baryon acoustic oscillations">
+            Sky surveys and baryon acoustic oscillations
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 350px">
+                    <a href = "media\SDSS2020.png">
+                        <img loading = "lazy" src = "media\SDSS2020.png" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\SDSS2020.png">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        SDSS map shown as a rainbow of colors, located within the observable Universe (the outer sphere, showing fluctuations in the Cosmic Microwave Background). As we look out in distance, we look back in time. So, the location of 
+                        these signals reveals the expansion rate of the Universe at different times in cosmic history. (2020)
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 286px">
+                    <a href = "media\Three_steps_to_the_Hubble_constant.jpg">
+                        <img loading = "lazy" src = "media\Three_steps_to_the_Hubble_constant.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Three_steps_to_the_Hubble_constant.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Three steps to the Hubble constant
+                    </div>
+                </div>
+            </div>
+            Baryon acoustic oscillations (BAO) are fluctuations in the density of the visible baryonic matter (normal matter) of the Universe on large scales. These are predicted to arise in the Lambda-CDM model due to acoustic oscillations in the 
+            photon–baryon fluid of the early Universe, and can be observed in the cosmic microwave background angular power spectrum. BAOs set up a preferred length scale for baryons. As the dark matter and baryons clumped together after recombination, 
+            the effect is much weaker in the galaxy distribution in the nearby Universe, but is detectable as a subtle (≈1 percent) preference for pairs of galaxies to be separated by 147 Mpc, compared to those separated by 130–160 Mpc. This feature 
+            was predicted theoretically in the 1990s and then discovered in 2005, in two large galaxy redshift surveys, the Sloan Digital Sky Survey and the 2dF Galaxy Redshift Survey. Combining the CMB observations with BAO measurements from galaxy 
+            redshift surveys provides a precise estimate of the Hubble constant and the average matter density in the Universe. The results support the Lambda-CDM model.<br>
+            The <b>Sloan Digital Sky Survey</b> or <b>SDSS</b> is a major multi-spectral imaging and spectroscopic redshift survey using a dedicated 2.5-m wide-angle optical telescope at Apache Point Observatory in New Mexico, United States. The project began in 
+            2000 and was named after the Alfred P. Sloan Foundation, which contributed significant funding.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Redshift-space distortions">
+            Redshift-space distortions
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 343px">
+                    <a href = "https://upload.wikimedia.org/wikipedia/commons/6/69/A_slice_through_the_Universe.webm">
+                        <video poster = "media\MediaPlayer9.png" width = "100%" title = "Play Video">
+                        </video>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "https://upload.wikimedia.org/wikipedia/commons/6/69/A_slice_through_the_Universe.webm">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The positions in space of the galaxies identified by the VIPERS survey.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 320px">
+                    <a href = "media\image31.png">
+                        <img loading = "lazy" src = "media\image31.png" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\image31.png">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Rendering of the 2dFGRS data.
+                    </div>
+                </div>
+            </div>
+            Large galaxy redshift surveys may be used to make a three-dimensional map of the galaxy distribution. These maps are slightly distorted because distances are estimated from observed redshifts; the redshift contains a contribution from 
+            the galaxy's so-called peculiar velocity in addition to the dominant Hubble expansion term. On average, superclusters are expanding more slowly than the cosmic mean due to their gravity, while voids are expanding faster than average. 
+            In a redshift map, galaxies in front of a supercluster have excess radial velocities towards it and have redshifts slightly higher than their distance would imply, while galaxies behind the supercluster have redshifts slightly low 
+            for their distance. This effect causes superclusters to appear squashed in the radial direction, and likewise voids are stretched. Their angular positions are unaffected. This effect is not detectable for any one structure since the 
+            true shape is not known, but can be measured by averaging over many structures. It was predicted quantitatively by Nick Kaiser in 1987, and first decisively measured in 2001 by the 2dF Galaxy Redshift Survey. Results are in agreement 
+            with the Lambda-CDM model.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Lyman-alpha forest">
+            Lyman-alpha forest
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 329px">
+                    <a href = "media\Lyman-alpha_forest.gif">
+                        <img loading = "lazy" src = "media\Lyman-alpha_forest.gif" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Lyman-alpha_forest.gif">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        A quasar spectrum with Lyman absorbers being continuously redshifted due to cosmic expansion forming a "forest" of lines.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 230px">
+                    <a href = "media\image34.gif">
+                        <img loading = "lazy" src = "media\image34.gif" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\image34.gif">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        A computer simulation of a possible Lyman-alpha forest configuration at z = 3
+                    </div>
+                </div>
+            </div>
+            In astronomical spectroscopy, the Lyman-alpha forest is the sum of the absorption lines arising from the Lyman-alpha transition of neutral hydrogen in the spectra of distant galaxies and quasars. Lyman-alpha forest observations can 
+            also constrain cosmological models. These constraints agree with those obtained from WMAP data.<br>
+            For a neutral hydrogen atom, spectral lines are formed when an electron transitions between energy levels. The Lyman series of spectral lines are produced by electrons transitioning between the ground state and higher energy levels 
+            (excited states). The Lyman-alpha transition corresponds to an electron transitioning between the ground state (<i>n</i> = 1) and the first excited state (<i>n</i> = 2). The Lyman-alpha spectral line has a laboratory, or rest, 
+            wavelength of 1216 Å, which is in the ultraviolet portion of the electromagnetic spectrum.<br>
+            The Lyman-alpha absorption lines in the quasar spectra result from intergalactic gas through which the galaxy or quasar's light has traveled. Since neutral hydrogen clouds in the intergalactic medium are at different degrees of 
+            redshift (due to their varying distance from Earth), their absorption lines are observed at a range of wavelengths. Each individual cloud leaves its fingerprint as an absorption line at a different position in the observed spectrum.<br>
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Theoretical classifications">
+            Theoretical classifications
+            <div class = "line">
+            </div>
+        </h2>
+        <h2 class = "subtitle_second" id = "Composition">
+            Composition
+        </h2>
+        <p class = "afterdiv">
+            Dark matter can refer to any substance which interacts predominantly via gravity with visible matter (e.g., stars and planets). Hence in principle it need not be composed of a new type of fundamental particle but could, at least in part, 
+            be made up of standard baryonic matter, such as protons or neutrons. However, for the reasons outlined below, most scientists think the dark matter is dominated by a non-baryonic component, which is likely composed of a currently 
+            unknown fundamental particle (or similar exotic state).
+        </p>
+        <br>
+        <h2 class = "subtitle_third" id = "Baryon matter">
+            Baryonic matter
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 333px">
+                    <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a9/Fermi_Observations_of_Dwarf_Galaxies_Provide_New_Insights_on_Dark_Matter.ogv/Fermi_Observations_of_Dwarf_Galaxies_Provide_New_Insights_on_Dark_Matter.ogv.720p.vp9.webm">
+                        <video poster = "media\PLAYER.png" title = "Play Video" width = "100%">
+                        </video>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a9/Fermi_Observations_of_Dwarf_Galaxies_Provide_New_Insights_on_Dark_Matter.ogv/Fermi_Observations_of_Dwarf_Galaxies_Provide_New_Insights_on_Dark_Matter.ogv.720p.vp9.webm">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        A quasar spectrum with Lyman absorbers being continuously redshifted due to cosmic expansion forming a "forest" of lines.
+                    </div>
+                </div>
+            </div>
+            Baryons (protons and neutrons) make up ordinary stars and planets. However, baryonic matter also encompasses less common non-primordial black holes, neutron stars, faint old white dwarfs and brown dwarfs, collectively known as massive 
+            astrophysical compact halo objects (MACHOs), which can be hard to detect.<br>
+            However, multiple lines of evidence suggest the majority of dark matter is not made of baryons:<br>
+            &emsp;&ensp;1.&ensp;Sufficient diffuse, baryonic gas or dust would be visible when backlit by stars.<br>
+            &emsp;&ensp;2.&ensp;The theory of Big Bang nucleosynthesis predicts the observed abundance of the chemical elements. If there are more baryons, then there should also be more helium, lithium and heavier elements synthesized during 
+            the Big Bang. Agreement with observed abundances requires that baryonic matter makes up between 4–5% of the Universe's critical density. In contrast, large-scale structure and other observations indicate that the total matter 
+            density is about 30% of the critical density.<br>
+            &emsp;&ensp;3.&ensp;Astronomical searches for gravitational microlensing in the Milky Way found at most only a small fraction of the dark matter may be in dark, compact, conventional objects (MACHOs, etc.); the excluded range of 
+            object masses is from half the Earth's mass up to 30 solar masses, which covers nearly all the plausible candidates.<br>
+            &emsp;&ensp;4.&ensp;Detailed analysis of the small irregularities (anisotropies) in the cosmic microwave background. Observations by WMAP and Planck indicate that around five-sixths of the total matter is in a form that interacts 
+            significantly with ordinary matter or photons only through gravitational effects.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_third" id = "Non-baryonic matter">
+            Non-baryonic matter
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 354px">
+                    <a href = "media\1920px-PBHs-formation.png">
+                        <img loading = "lazy" src = "media\1920px-PBHs-formation.png" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1920px-PBHs-formation.png">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Formation of the Universe with and without primordial black holes
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 290px">
+                    <a href = "media\Bullet_cluster_lensing.jpg">
+                        <img loading = "lazy" src = "media\Bullet_cluster_lensing.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Bullet_cluster_lensing.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Image of the Bullet Cluster from the Hubble Space Telescope with total mass contours (dominated by dark matter) from a lensing analysis overlaid.
+                    </div>
+                </div>
+            </div>
+            Candidates for non-baryonic dark matter are hypothetical particles such as axions, sterile neutrinos, weakly interacting massive particles (WIMPs), supersymmetric particles, geons, or primordial black holes. The three neutrino types 
+            already observed are indeed abundant, and dark, and matter, but because their individual masses – however uncertain they may be – are almost certainly too tiny, they can only supply a small fraction of dark matter, due to limits 
+            derived from large-scale structure and high-redshift galaxies.<br>
+            <b>Primordial black hole</b> (also abbreviated as <b>PHB</b>) is a hypothetical type of black hole that formed soon after the Big Bang. In the early Universe, high densities and heterogeneous conditions could have led sufficiently 
+            dense regions to undergo gravitational collapse, forming black holes.<br>
+            Unlike baryonic matter, nonbaryonic matter did not contribute to the formation of the elements in the early Universe (Big Bang nucleosynthesis) and so its presence is revealed only via its gravitational effects, or weak lensing. 
+            In addition, if the particles of which it is composed are supersymmetric, they can undergo annihilation interactions with themselves, possibly resulting in observable by-products such as gamma rays and neutrinos (indirect detection).
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_third" id = "Dark matter aggregation and dense dark matter objects">
+            Dark matter aggregation and dense dark matter objects
+        </h2>
+        <div class = "afterdiv">
+            If dark matter is composed of weakly-interacting particles, then an obvious question is whether it can form objects equivalent to planets, stars, or black holes. Historically, the answer has been it cannot, because of two factors:<br>
+            <h2 class = "subtitle_fourth">
+                It lacks an efficient means to lose energy
+            </h2>
+            <div class = "afterdiv_in">
+                Ordinary matter forms dense objects because it has numerous ways to lose energy. Losing energy would be essential for object formation, because a particle that gains energy during compaction or falling "inward" under gravity, and 
+                cannot lose it any other way, will heat up and increase velocity and momentum. Dark matter appears to lack a means to lose energy, simply because it is not capable of interacting strongly in other ways except through gravity. 
+                The virial theorem suggests that such a particle would not stay bound to the gradually forming object – as the object began to form and compact, the dark matter particles within it would speed up and tend to escape.
+            </div>
+            <p class = "unselectable">
+                .
+            </p>
+            <h2 class = "subtitle_fourth">
+                It lacks a range of interactions needed to form structures
+            </h2>
+            <div class = "afterdiv_in">
+                Ordinary matter interacts in many different ways, which allows the matter to form more complex structures. For example, stars form through gravity, but the particles within them interact and can emit energy in the form of neutrinos 
+                and electromagnetic radiation through fusion when they become energetic enough. Protons and neutrons can bind via the strong interaction and then form atoms with electrons largely through electromagnetic interaction. There is no 
+                evidence that dark matter is capable of such a wide variety of interactions, since it seems to only interact through gravity (and possibly through some means no stronger than the weak interaction, although until dark matter is 
+                better understood, this is only speculation).
+            </div>
+            <p class = "unselectable">
+                .
+            </p>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 369px">
+                    <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/85/Warped_Space_and_Time_Around_Colliding_Black_Holes_%28Courtesy_Caltech-MIT-LIGO_Laboratory%2C_produced_by_SXS_project%29.webm/Warped_Space_and_Time_Around_Colliding_Black_Holes_%28Courtesy_Caltech-MIT-LIGO_Laboratory%2C_produced_by_SXS_project%29.webm.1080p.vp9.webm">
+                        <video poster = "media\Media Player2.png" width = "100%" title = "Play Video">
+                        </video>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/85/Warped_Space_and_Time_Around_Colliding_Black_Holes_%28Courtesy_Caltech-MIT-LIGO_Laboratory%2C_produced_by_SXS_project%29.webm/Warped_Space_and_Time_Around_Colliding_Black_Holes_%28Courtesy_Caltech-MIT-LIGO_Laboratory%2C_produced_by_SXS_project%29.webm.1080p.vp9.webm">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Simulation of the collision of two black holes. In addition to forming deep gravity wells and coalescing into a single larger black hole, gravitational waves will propagate outwards as the black holes spin past each other.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 240px">
+                    <a href = "media\Andrew_Hamilton_schwarzchild_waterfall.gif">
+                        <img loading = "lazy" src = "media\Andrew_Hamilton_schwarzchild_waterfall.gif" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Andrew_Hamilton_schwarzchild_waterfall.gif">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Picture of space infalling into a Schwarzschild black hole at the Newtonian escape speed. Outside/inside the horizon (red), the infalling speed is less/greater than the speed of light. At the event horizon, the infalling 
+                        speed equals the speed of light. Credit: Andrew Hamilton, JILA
+                    </div>
+                </div>
+            </div>
+            In 2015–2017, the idea that dense dark matter was composed of primordial black holes made a comeback following results of gravitational wave measurements which detected the merger of intermediate-mass black holes. Black holes with about 
+            30 solar masses are not predicted to form by either stellar collapse (typically less than 15 solar masses) or by the merger of black holes in galactic centers (millions or billions of solar masses). It was proposed that the 
+            intermediate-mass black holes causing the detected merger formed in the hot dense early phase of the Universe due to denser regions collapsing. A later survey of about a thousand supernovae detected no gravitational lensing events, 
+            when about eight would be expected if intermediate-mass primordial black holes above a certain mass range accounted for the majority of dark matter.<br>
+            The possibility that atom-sized primordial black holes account for a significant fraction of dark matter was ruled out by measurements of positron and electron fluxes outside the Sun's heliosphere by the Voyager 1 spacecraft. Tiny black 
+            holes are theorized to emit Hawking radiation. However the detected fluxes were too low and did not have the expected energy spectrum, suggesting that tiny primordial black holes are not widespread enough to account for dark matter.
+            Nonetheless, research and theories proposing dense dark matter accounts for dark matter continue as of 2018, including approaches to dark matter cooling, and the question remains unsettled. In 2019, the lack of microlensing effects 
+            in the observation of Andromeda suggests that tiny black holes do not exist.<br>
+            However, there still exists a largely unconstrained mass range smaller than that which can be limited by optical microlensing observations, where primordial black holes may account for all dark matter.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Free streaming length">
+            Free streaming length
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 244px">
+                    <a href = "media\Stellar_Fireworks_Finale.jpg">
+                        <img loading = "lazy" src = "media\Stellar_Fireworks_Finale.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Stellar_Fireworks_Finale.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        An illustration showing protogalaxies colliding
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 265px">
+                    <a href = "media\1561px-An_explosive_phoenix_-_Phoenix_Dwarf.jpg">
+                        <img loading = "lazy" src = "media\1561px-An_explosive_phoenix_-_Phoenix_Dwarf.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1561px-An_explosive_phoenix_-_Phoenix_Dwarf.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The Phoenix Dwarf Galaxy is a dwarf irregular galaxy, featuring younger stars in its inner regions and older ones at its outskirts.
+                    </div>
+                </div>
+            </div>
+            Dark matter can be divided into <i><b>cold</b></i>, <i><b>warm</b></i>, and <i><b>hot</b></i> categories. These categories refer to velocity rather than an actual temperature, indicating how far corresponding objects moved due to random 
+            motions in the early Universe, before they slowed due to cosmic expansion – this is an important distance called the <i><b>free streaming length</b></i> (FSL). Primordial density fluctuations smaller than this length get washed out as 
+            particles spread from overdense to underdense regions, while larger fluctuations are unaffected; therefore this length sets a minimum scale for later structure formation.<br>
+            The categories are set with respect to the size of a protogalaxy (an object that later evolves into a dwarf galaxy): Dark matter particles are classified as cold, warm, or hot according to their FSL; much smaller (cold), similar to 
+            (warm), or much larger (hot) than a protogalaxy. Mixtures of the above are also possible: a theory of mixed dark matter was popular in the mid-1990s, but was rejected following the discovery of dark energy.<br>
+            Cold dark matter leads to a bottom-up formation of structure with galaxies forming first and galaxy clusters at a latter stage, while hot dark matter would result in a top-down formation scenario with large matter aggregations forming 
+            early, later fragmenting into separate galaxies; the latter is excluded by high-redshift galaxy observations.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_third" id = "Fluctuation spectrum effects">
+            Fluctuation spectrum effects
+        </h2>
+        <div class = "afterdiv">
+            These categories also correspond to fluctuation spectrum effects and the interval following the Big Bang at which each type became non-relativistic. Davis <i><b>et al</b></i>. wrote in 1985:<br>
+            <div class = "afterdiv_in">
+                <div class = "thumb tleft">
+                    <div class = "thumbinner" style = "width: 220px">
+                        <a href = "media\Fluorescent_lighting_spectrum_peaks_labelled.svg">
+                            <img loading = "lazy" src = "media\Fluorescent_lighting_spectrum_peaks_labelled.svg" width = "100%">
+                        </a>
+                        <div class = "thumbcaption">
+                            <a href = "media\Fluorescent_lighting_spectrum_peaks_labelled.svg">
+                                <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                            </a>
+                            The spectral density of a fluorescent light as a function of optical wavelength shows peaks at atomic transitions, indicated by the numbered arrows.
+                        </div>
+                    </div>
+                </div>
+                <div class = "thumb tright">
+                    <div class = "thumbinner" style = "width: 278px">
+                        <a href = "media\Voice_waveform_and_spectrum.png">
+                            <img loading = "lazy" src = "media\Voice_waveform_and_spectrum.png" width = "100%">
+                        </a>
+                        <div class = "thumbcaption">
+                            <a href = "media\Voice_waveform_and_spectrum.png">
+                                <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                            </a>
+                            The voice waveform over time (left) has a broad audio power spectrum (right).
+                        </div>
+                    </div>
+                </div>
+                Candidate particles can be grouped into three categories on the basis of their effect on the fluctuation spectrum (Bond <i><b>et al</b></i>. 1983). If the dark matter is composed of abundant light particles which remain relativistic 
+                until shortly before recombination, then it may be termed "hot". The best candidate for hot dark matter is a neutrino ... A second possibility is for the dark matter particles to interact more weakly than neutrinos, to be less 
+                abundant, and to have a mass of order 1 keV. Such particles are termed "warm dark matter", because they have lower thermal velocities than massive neutrinos&nbsp;... there are at present few candidate particles which fit this description. 
+                Gravitinos and photinos have been suggested (Pagels and Primack 1982; Bond, Szalay and Turner 1982) ... Any particles which became nonrelativistic very early, and so were able to diffuse a negligible distance, are termed "cold" 
+                dark matter (CDM). There are many candidates for CDM including supersymmetric particles.
+            </div>
+            &emsp;&emsp;&emsp;&emsp;— M. Davis, G. Efstathiou, C.S. Frenk, and S.D.M. White, The evolution of large-scale structure in a Universe dominated by cold dark matter
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_third" id = "Alternative definitions">
+            Alternative definitions
+        </h2>
+        <div class = "afterdiv">
+            Another approximate dividing line is warm dark matter became non-relativistic when the Universe was approximately 1 year old and 1 millionth of its present size and in the radiation-dominated era (photons and neutrinos), with a photon 
+            temperature 2.7 million Kelvins. Standard physical cosmology gives the particle horizon size as 2 <i><b>c t</b></i> (speed of light multiplied by time) in the radiation-dominated era, thus 2 light-years. A region of this size would 
+            expand to 2 million light-years today (absent structure formation). The actual FSL is approximately 5 times the above length, since it continues to grow slowly as particle velocities decrease inversely with the scale factor after 
+            they become non-relativistic. In this example the FSL would correspond to 10 million light-years, or 3 megaparsecs, today, around the size containing an average large galaxy.<br>
+            The 2.7 million K photon temperature gives a typical photon energy of 250 electronvolts, thereby setting a typical mass scale for warm dark matter: particles much more massive than this, such as GeV–TeV mass WIMPs, would become non-relativistic 
+            much earlier than one year after the Big Bang and thus have FSLs much smaller than a protogalaxy, making them cold. Conversely, much lighter particles, such as neutrinos with masses of only a few eV, have FSLs much larger than a 
+            protogalaxy, thus qualifying them as hot.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_third" id = "Cold dark matter">
+            Cold dark matter
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 299px">
+                    <a href = "media\NGC4676.jpg">
+                        <img loading = "lazy" src = "media\NGC4676.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\NGC4676.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The Mice Galaxies (NGC 4676 A&B) are in the process of merging.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 278px">
+                    <a href = "media\A_galactic_nursery.jpg">
+                        <img loading = "lazy" src = "media\A_galactic_nursery.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\A_galactic_nursery.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Dwarf galaxy NGC 1140.
+                    </div>
+                </div>
+            </div>
+            Cold dark matter offers the simplest explanation for most cosmological observations. It is dark matter composed of constituents with an FSL much smaller than a protogalaxy. This is the focus for dark matter research, as hot dark matter 
+            does not seem capable of supporting galaxy or galaxy cluster formation, and most particle candidates slowed early.<br>
+            The constituents of cold dark matter are unknown. Possibilities range from large objects like MACHOs (such as black holes and Preon stars) or RAMBOs (such as clusters of brown dwarfs), to new particles such as WIMPs and axions.<br>
+            Studies of Big Bang nucleosynthesis and gravitational lensing convinced most cosmologists that MACHOs cannot make up more than a small fraction of dark matter. According to A. Peter: "... the only really plausible dark-matter 
+            candidates are new particles."<br>
+            The 1997 DAMA/NaI experiment and its successor DAMA/LIBRA in 2013, claimed to directly detect dark matter particles passing through the Earth, but many researchers remain skeptical, as negative results from similar experiments 
+            seem incompatible with the DAMA results.<br>
+            Many supersymmetric models offer dark matter candidates in the form of the WIMPy Lightest Supersymmetric Particle (LSP). Separately, heavy sterile neutrinos exist in non-supersymmetric extensions to the standard model which explain 
+            the small neutrino mass through the seesaw mechanism.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_third" id = "Warm dark matter">
+            Warm dark matter
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 240px">
+                    <a href = "media\Dark_Matter_Cloud.png">
+                        <img loading = "lazy" src = "media\Dark_Matter_Cloud.png" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Dark_Matter_Cloud.png">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Artist's impression of dark matter surrounding the Milky Way. Credit: ESO/L. Calçada
+                    </div>
+                </div>
+            </div>
+            <div style = "width: 25%; float: right; margin-left: 0.4em">
+                <a href = "media\R (1).png">
+                    <img loading = "lazy" src = "media\R (1).png" style = "float: right">
+                    <span class = "title font_color" style = "font-size: 130%">
+                        Neutron star eruption
+                    </span>
+                    <span class = "description font_color" style = "font-size: 102%">
+                        Accretion disc of a gamma rays eruption of a neutron star
+                    </span>
+                    <span class = "line1 top">
+                    </span>
+                    <span class = "line1 left">
+                    </span>
+                </a>
+            </div>
+            Warm dark matter comprises particles with an FSL comparable to the size of a protogalaxy. Predictions based on warm dark matter are similar to those for cold dark matter on large scales, but with less small-scale density perturbations. 
+            This reduces the predicted abundance of dwarf galaxies and may lead to lower density of dark matter in the central parts of large galaxies. Some researchers consider this a better fit to observations. A challenge for this model is 
+            the lack of particle candidates with the required mass ≈ 300 eV to 3000 eV.<br>
+            No known particles can be categorized as warm dark matter. A postulated candidate is the sterile neutrino: A heavier, slower form of neutrino that does not interact through the weak force, unlike other neutrinos. Some modified gravity 
+            theories, such as scalar–tensor–vector gravity, require "warm" dark matter to make their equations work.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_third" id = "Hot dark matter">
+            Hot dark matter
+        </h2>
+        <div class = "afterdiv">
+            <div style = "width: 26.5%; float: left; margin-right: 0.4em">
+                <a href = "media\1.webp">
+                    <img loading = "lazy" src = "media\1.webp" style = "float: left">
+                    <span class = "title font_color" style = "font-size: 130%">
+                        Neutron star eruption
+                    </span>
+                    <span class = "description font_color" style = "font-size: 102%">
+                        Accretion disc of a gamma rays eruption of a neutron star
+                    </span>
+                    <span class = "line1 top">
+                    </span>
+                    <span class = "line1 left">
+                    </span>
+                </a>
+            </div>
+            Hot dark matter consists of particles whose FSL is much larger than the size of a protogalaxy. The neutrino qualifies as such particle. They were discovered independently, long before the hunt for dark matter: they were postulated in 
+            1930, and detected in 1956. Neutrinos' mass is less than 10<sup>-6</sup> that of an electron. Neutrinos interact with normal matter only via gravity and the weak force, making them difficult to detect (the weak force only works over 
+            a small distance, thus a neutrino triggers a weak force event only if it hits a nucleus head-on). This makes them “weakly interacting slender particles” (WISPs), as opposed to WIMPs.<br>
+            <div style = "width: 27%; float: right; margin-left: 0.4em">
+                <a href = "media\1 (2).webp">
+                    <img loading = "lazy" src = "media\1 (2).webp" style = "float: right">
+                    <span class = "title font_color" style = "font-size: 130%">
+                        Neutron star eruption
+                    </span>
+                    <span class = "description font_color" style = "font-size: 102%">
+                        Accretion disc of a gamma rays eruption of a neutron star
+                    </span>
+                    <span class = "line1 top">
+                    </span>
+                    <span class = "line1 left">
+                    </span>
+                </a>
+            </div>
+            The three known flavours of neutrinos are the <i><b>electron</b></i>, <i><b>muon</b></i>, and <i><b>tau</b></i>. Their masses are slightly different. Neutrinos oscillate among the flavours as they move. It is hard to determine an exact 
+            upper bound on the collective average mass of the three neutrinos (or for any of the three individually). For example, if the average neutrino mass were over 50 eV/c<sup>2</sup> (less than 10<sup>-5</sup> of the mass of an electron), 
+            the Universe would collapse. CMB data and other methods indicate that their average mass probably does not exceed 0.3 eV/c<sup>2</sup>. Thus, observed neutrinos cannot explain dark matter.<br>
+            Because galaxy-size density fluctuations get washed out by free-streaming, hot dark matter implies the first objects that can form are huge supercluster-size pancakes, which then fragment into galaxies. Deep-field observations show 
+            instead that galaxies formed first, followed by clusters and superclusters as galaxies clump together.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Detection of dark matter particles">
+            Detection of dark matter particles
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 260px">
+                    <a href = "media\a520_comp.webp">
+                        <img loading = "lazy" src = "media\a520_comp.webp" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\a520_comp.webp">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The Bullet Cluster: HST image with overlays. The total projected mass distribution reconstructed from strong and weak gravitational lensing is shown in blue, while the X-ray emitting hot gas observed with Chandra is shown in red.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 250px">
+                    <a href = "media\1293px-ADMX_magnet_installation.jpg">
+                        <img loading = "lazy" src = "media\1293px-ADMX_magnet_installation.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1293px-ADMX_magnet_installation.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The ADMX magnet being installed at the University of Washington. Although installed below the floor, the detector is in a surface laboratory.
+                    </div>
+                </div>
+            </div>
+            If dark matter is made up of subatomic particles, then millions, possibly billions, of such particles must pass through every square centimeter of the Earth each second. Many experiments aim to test this hypothesis. Although WIMPs have 
+            been the main search candidates, axions have drawn renewed attention, with the Axion Dark Matter Experiment (ADMX) searches for axions and many more planned in the future. Another candidate is heavy hidden sector particles which 
+            only interact with ordinary matter via gravity.<br>
+            The <b>Axion Dark Matter Experiment</b> (<b>ADMX</b>, also written as <i>Axion Dark Matter eXperiment</i> in the project's documentation) uses a resonant microwave cavity within a large superconducting magnet to search for cold dark matter 
+            axions in the local galactic dark matter halo. Unusual for a dark matter detector, it is not located deep underground. Sited at the Center for Experimental Nuclear Physics and Astrophysics (CENPA) at the University of Washington, ADMX is a 
+            large collaborative effort with researchers from universities and laboratories around the world.<br>
+            The experiment (written as "eXperiment" in the project's documentation) is designed to detect the very weak conversion of dark matter axions into microwave photons in the presence of a strong magnetic field. If the hypothesis is correct, 
+            an apparatus consisting of an 8 tesla magnet and a cryogenically cooled high-Q tunable microwave cavity should stimulate the conversion of axions into photons. When the cavity's resonant frequency is tuned to the axion mass, the interaction 
+            between nearby axions in the Milky Way halo and ADMX's magnetic field is enhanced. This results in the deposit of a very tiny amount of power (less than a yoctowatt) into the cavity.<br>
+            An extraordinarily sensitive microwave receiver allows the very weak axion signal to be extracted from the noise. The experiment receiver features quantum-limited noise performance delivered by an exotic Superconducting QUantum Interference 
+            Device (SQUID) amplifier and lower temperatures from a <sup>3</sup>He refrigerator. ADMX is the first experiment sensitive to realistic dark-matter axion masses and couplings and the improved detector allows an even more sensitive search.<br>
+            These experiments can be divided into two classes: direct detection experiments, which search for the scattering of dark matter particles off atomic nuclei within a detector; and indirect detection, which look for the products of 
+            dark matter particle annihilations or decays.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Direct detection">
+            Direct detection
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 141px">
+                    <a href = "media\image39.jpg">
+                        <img loading = "lazy" src = "media\image39.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\image39.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Sketch of the working principle of a xenon dual-phase TPC
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 290px">
+                    <a href = "media\image38.jpg">
+                        <img loading = "lazy" src = "media\image38.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\image38.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        MINOS Detector at Soudan Underground Mine
+                    </div>
+                </div>
+            </div>
+            Direct detection experiments aim to observe low-energy recoils (typically a few keVs) of nuclei induced by interactions with particles of dark matter, which (in theory) are passing through the Earth. After such a recoil the nucleus will 
+            emit energy in the form of scintillation light or phonons, as they pass through sensitive detection apparatus. To do so effectively, it is crucial to maintain an extremely low background, which is the reason why such experiments 
+            typically operate deep underground, where interference from cosmic rays is minimized. Examples of underground laboratories with direct detection experiments include the Stawell mine, the Soudan mine, the SNOLAB underground laboratory 
+            at Sudbury, the Gran Sasso National Laboratory, the Canfranc Underground Laboratory, the Boulby Underground Laboratory, the Deep Underground Science and Engineering Laboratory and the China Jinping Underground Laboratory.<br>
+            These experiments mostly use either cryogenic or noble liquid detector technologies. Cryogenic detectors operating at temperatures below 100 mK, detect the heat produced when a particle hits an atom in a crystal absorber such as germanium. 
+            Noble liquid detectors detect scintillation produced by a particle collision in liquid xenon or argon. Cryogenic detector experiments include: CDMS, CRESST, EDELWEISS, EURECA. Noble liquid experiments include LZ, 
+            XENON, DEAP, ArDM, WARP, DarkSide, PandaX, and LUX, the Large Underground Xenon experiment. Both of these techniques focus strongly on their ability to distinguish background particles (which predominantly scatter off electrons) from dark matter 
+            particles (that scatter off nuclei). Other experiments include SIMPLE and PICASSO.<br>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 280px">
+                    <a href = "media\1094px-DEAP3600.jpg">
+                        <img loading = "lazy" src = "media\1094px-DEAP3600.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\1094px-DEAP3600.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        DEAP-3600 detector during construction in 2014
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 220px">
+                    <a href = "media\Dark_matter_halo.png">
+                        <img loading = "lazy" src = "media\Dark_matter_halo.png" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\Dark_matter_halo.png">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Simulated dark matter halo from a cosmological N-body simulation
+                    </div>
+                </div>
+            </div>
+            Currently there has been no well-established claim of dark matter detection from a direct detection experiment, leading instead to strong upper limits on the mass and interaction cross section with nucleons of such dark matter particles. 
+            The DAMA/NaI and more recent DAMA/LIBRA experimental collaborations have detected an annual modulation in the rate of events in their detectors, which they claim is due to dark matter. This results from the expectation that as the Earth 
+            orbits the Sun, the velocity of the detector relative to the dark matter halo will vary by a small amount. This claim is so far unconfirmed and in contradiction with negative results from other experiments such as LUX, SuperCDMS and XENON100.<br>
+            A special case of direct detection experiments covers those with directional sensitivity. This is a search strategy based on the motion of the Solar System around the Galactic Center. A low-pressure time projection chamber makes 
+            it possible to access information on recoiling tracks and constrain WIMP-nucleus kinematics. WIMPs coming from the direction in which the Sun travels (approximately towards Cygnus) may then be separated from background, which should 
+            be isotropic. Directional dark matter experiments include DMTPC, DRIFT, Newage and MIMAC.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Indirect detection">
+            Indirect detection
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 352px">
+                    <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d0/Turning_Black_Holes_into_Dark_Matter_Labs.webm/Turning_Black_Holes_into_Dark_Matter_Labs.webm.1080p.webm">
+                        <video poster = "media\Media Player3.png" width = "100%" title = "Play Video">
+                        </video>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d0/Turning_Black_Holes_into_Dark_Matter_Labs.webm/Turning_Black_Holes_into_Dark_Matter_Labs.webm.1080p.webm">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Video about the potential gamma-ray detection of dark matter annihilation around supermassive black holes.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 298px">
+                    <a href = "media\image41.jpg">
+                        <img loading = "lazy" src = "media\image41.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\image41.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Collage of six cluster collisions with dark matter maps. The clusters were observed in a study of how dark matter in clusters of galaxies behaves when the clusters collide.
+                    </div>
+                </div>
+            </div>
+            Indirect detection experiments search for the products of the self-annihilation or decay of dark matter particles in outer space. For example, in regions of high dark matter density (e.g., the centre of our galaxy) two dark matter 
+            particles could annihilate to produce gamma rays or Standard Model particle–antiparticle pairs. Alternatively, if a dark matter particle is unstable, it could decay into Standard Model (or other) particles. These processes could be 
+            detected indirectly through an excess of gamma rays, antiprotons or positrons emanating from high density regions in our galaxy or others. A major difficulty inherent in such searches is that various astrophysical sources can mimic 
+            the signal expected from dark matter, and so multiple signals are likely required for a conclusive discovery.<br>
+            A few of the dark matter particles passing through the Sun or Earth may scatter off atoms and lose energy. Thus dark matter may accumulate at the center of these bodies, increasing the chance of collision/annihilation. This could 
+            produce a distinctive signal in the form of high-energy neutrinos. Such a signal would be strong indirect proof of WIMP dark matter. High-energy neutrino telescopes such as AMANDA, IceCube and ANTARES are searching for this signal. 
+            The detection by LIGO in September 2015 of gravitational waves opens the possibility of observing dark matter in a new way, particularly if it is in the form of primordial black holes.<br>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 335px">
+                    <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b0/What_is_Fermi.ogv/What_is_Fermi.ogv.720p.vp9.webm">
+                        <video poster = "media\Media Player4.png" width = "100%" title = "Play Video">
+                        </video>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b0/What_is_Fermi.ogv/What_is_Fermi.ogv.720p.vp9.webm">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Video: What is Fermi?
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 304px">
+                    <a href = "media\image44.jpg">
+                        <img loading = "lazy" src = "media\image44.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\image44.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        MAGIC, a Cherenkov telescope in operation on the Canary island of La Palma. On foggy nights, the lasers that are used to focus the mirrors can be seen.
+                    </div>
+                </div>
+            </div>
+            Many experimental searches have been undertaken to look for such emission from dark matter annihilation or decay, examples of which follow. The Energetic Gamma Ray Experiment Telescope observed more gamma rays in 2008 than expected 
+            from the Milky Way, but scientists concluded this was most likely due to incorrect estimation of the telescope's sensitivity.<br>
+            The Fermi Gamma-ray Space Telescope is searching for similar gamma rays. In April 2012, an analysis of previously available data from its Large Area Telescope instrument produced statistical evidence of a 130 GeV signal in the gamma 
+            radiation coming from the center of the Milky Way. WIMP annihilation was seen as the most probable explanation.<br>
+            At higher energies, ground-based gamma-ray telescopes have set limits on the annihilation of dark matter in dwarf spheroidal galaxies and in clusters of galaxies.<br>
+            The PAMELA experiment (launched in 2006) detected excess positrons. They could be from dark matter annihilation or from pulsars. No excess antiprotons were observed.<br>
+            In 2013 results from the Alpha Magnetic Spectrometer on the International Space Station indicated excess high-energy cosmic rays which could be due to dark matter annihilation.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Collider searches for dark matter">
+            Collider searches for dark matter
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 320px">
+                    <a href = "media\image46.jpg">
+                        <img loading = "lazy" src = "media\image46.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\image46.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        The former LEP tunnel at CERN being filled with magnets for the Large Hadron Collider.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 350px">
+                    <a href = "media\LHC_quadrupole_magnets.jpg">
+                        <img loading = "lazy" src = "media\LHC_quadrupole_magnets.jpg" width = "100%">
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "media\LHC_quadrupole_magnets.jpg">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        Superconducting quadrupole electromagnets
+                    </div>
+                </div>
+            </div>
+            An alternative approach to the detection of dark matter particles in nature is to produce them in a laboratory. Experiments with the Large Hadron Collider (LHC) may be able to detect dark matter particles produced in collisions of the 
+            LHC proton beams. Because a dark matter particle should have negligible interactions with normal visible matter, it may be detected indirectly as (large amounts of) missing energy and momentum that escape the detectors, provided other 
+            (non-negligible) collision products are detected. Constraints on dark matter also exist from the LEP experiment using a similar principle, but probing the interaction of dark matter particles with electrons rather than quarks. Any 
+            discovery from collider searches must be corroborated by discoveries in the indirect or direct detection sectors to prove that the particle discovered is, in fact, dark matter.<br>
+            Superconducting quadrupole electromagnets are used to direct the beams to four intersection points, where interactions between accelerated protons will take place.
+        </div>
+    </body>
+</html>

@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang = "en" style = "background-color: #a573f5; width: 100%">
+    <head>
+        <title>
+            Universe
+        </title>
+        <style>
+            .center_gif
+            {
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                height: 85.5%;
+                padding-top: 5%;
+            }
+            .lightbox
+            {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 4;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+            }
+            .lightbox:target
+            {
+                display: flex;
+            }
+            .subtitle_first
+            {
+                text-decoration: none;
+                font-size: 165%;
+                font-weight: normal;
+            }
+            .subtitle_second
+            {
+                text-decoration: none;
+                font-size: 150%;
+                font-weight: normal;
+            }
+            .subtitle_third
+            {
+                text-decoration: none;
+                font-size: 135%;
+                font-weight: normal;
+            }
+            ::-webkit-scrollbar
+            {
+                width: 15px;
+            }
+            ::-webkit-scrollbar-track
+            {
+                background: #a573f5; 
+            }
+            ::-webkit-scrollbar-corner
+            {
+                background: #a573f5; 
+            }
+            ::-webkit-scrollbar-thumb
+            {
+                background-image: linear-gradient(#400b52, #9a52cb); 
+            }
+            ::-webkit-scrollbar-thumb:hover
+            {
+                background-image: linear-gradient(120deg, #3B0078, #9C0EC9); 
+            }
+            .website-counter
+            {
+                color: black;
+                font-weight: normal;
+                font-size: 62%;
+                float: right;
+            }
+            div.thumbinner
+            {
+                border: 1px solid #202020;
+                background-color: #a573f5;
+                font-size: 94%;
+                padding: 3px;
+                text-align: left;
+                overflow: hidden;
+            }
+            .thumbinner
+            {
+                min-width: 100px;
+            }
+            
+            div.tleft
+            {
+                margin: 0.3em 0.3em 1.0em 0;
+            }
+            div.tleft, div.floatleft, table.floatleft
+            {
+                float: left;
+                clear: left;
+            }
+            div.tright
+            {
+                margin: 0.3em 0.4em 1.0em 0;
+            }
+            div.thumb
+            {
+                width: auto;
+                background-color: transparent;
+                margin-bottom: 0.5em;
+            }
+            div.tright, div.floatright, table.floatright
+            {
+                float: right;
+                clear: right;
+            }
+            .thumbcaption
+            {
+                border: 0;
+                font-size: 94%;
+                line-height: 1.4em;
+                padding: 3px;
+            }
+            .mw-content-ltr .thumbcaption
+            {
+                text-align: left;
+            }
+            .magnify
+            {
+                display: block;
+                text-indent: 15px;
+                width: 23px;
+                user-select: none;
+                margin-left: 3px;
+                margin-right: 0;
+                float: right;
+            }
+            .table_border_div
+            {
+                border: 0;
+                width: 100%;
+                font-size: 90%;
+            }
+            table
+            {
+                border: 1px solid black;
+                text-align: left;
+                padding: 8px;
+                font-family: Times New Roman;
+                width: 27%;
+            }
+            body
+            {
+                font-size: 100%;
+            }
+            div.a
+            {
+                text-align: left;
+            }
+            ul
+            {
+                list-style-type: none;
+                margin: -8px;
+                padding: 0;
+                overflow: hidden;
+                background-image: linear-gradient(#380a48, #a25ecf);
+                position: sticky;
+                top: 0;
+                z-index: 5;
+            }
+            li
+            {
+                float: right;
+                border-left: 1px solid rgb(156, 50, 233);
+            }
+            li.animations
+            {
+                border-left: 2px solid rgb(95, 19, 125);
+            }
+            li:last-child
+            {
+                border-left: none;
+            }
+            li a
+            {
+                display: block;
+                color: whitesmoke;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            li a:hover
+            {
+                background-image: linear-gradient(120deg, #3B0078, #9C0EC9);
+            }
+            .active3
+            {
+                background-image: linear-gradient(150deg, #54137a, #9146c1, #380a52);
+            }
+            .active2
+            {
+                background-image: linear-gradient(135deg, #792fa6, #511177);
+            }
+            .active
+            {
+                background-image: linear-gradient(250deg, #7831a3, #511177);
+            }
+            .line
+            {
+                width: 100%;
+                height: 0.65%;
+                border-bottom: 1px solid black;
+                position: static;
+            }
+            .link
+            {
+                color: #0c4b0c;
+                text-decoration: none;
+            }
+            .link:hover
+            {
+                text-decoration: underline;
+            }
+            a:visited
+            {
+                color: #560909;
+                text-decoration: none;
+            }
+            .afterdiv
+            {
+                font-family: Times New Roman;
+                font-size: 115%;
+                float: left;
+                margin-top: 0.1%;
+                line-height: 150%;
+            }
+            .unselectable
+            {
+                font-size: 0.1%;
+                margin-bottom: -1.1%;
+                color: #a573f5;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            .unselectable_2
+            {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            .font_color
+            {
+                z-index: 3;
+                color:#53d2c7;
+            }
+            .image_container
+            {
+                position: relative;
+                cursor: pointer;
+            }
+            img
+            {
+                width: 100%;
+                height: 100%;
+            }
+            .image_blur:hover img
+            {
+                filter: blur(2.5px);
+                transition: all 700ms linear;
+            }
+            .image_blur:not(:hover) img
+            {
+                transition: all 700ms linear;
+            }
+            .image_container:before
+            {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                filter: blur(5px);
+                backdrop-filter: blur(9px) saturate(150%) contrast(45%) brightness(140%);
+                -webkit-backdrop-filter: blur(9px) saturate(150%) contrast(45%) brightness(140%);
+                background-color: hsl(271, 76%, 53%);
+                transform: scale(0);
+                transition: all 800ms linear;
+                transform-origin: 0 50%;
+                z-index: 3;
+                opacity: 0.35;
+            }
+            @supports (-webkit-backdrop-filter: blur(9px) saturate(150%) contrast(45%) brightness(140%)) or (backdrop-filter: blur(9px) saturate(150%) contrast(45%) brightness(140%))
+            {
+                .image_container-b.image_container-reduce
+                {
+                    transition: all 800ms linear;
+                    backdrop-filter: blur(9px) saturate(150%) contrast(45%) brightness(140%);
+                    -webkit-backdrop-filter: blur(9px) saturate(150%) contrast(45%) brightness(140%);
+                }
+            }
+            .image_container:hover:before
+            {
+                transform: scale(1);
+            }
+            span
+            {
+                position: absolute;
+                opacity: 0;
+                transition: all 800ms linear;
+            }
+            .title
+            {
+                left: 10%;
+                top: 3%;
+            }
+            .description
+            {
+                left: 12%;
+                top: 20%;
+                width: 88%;
+            }
+            .image_container:hover span
+            {
+                opacity: 1;
+            }
+            .line1
+            {
+                left: 0;
+                top: 0;
+                position: absolute;
+                background: #53d2c7;
+                transition: all 800ms linear;
+            }
+            .top
+            {
+                width: 3px;
+                height: 0;
+                left: 5%;
+            }
+            .image_container:hover .top
+            {
+                height: 100%;
+            }
+            .left
+            {
+                width: 0;
+                height: 3px;
+                top: 95%;
+            }
+            .image_container:hover .left
+            {
+                width: 100%;
+            }
+            .drop
+            {
+                display: flex;
+                background-image: linear-gradient(200deg, #3d0553, #9b4dcb, #320448);
+                flex-direction: row-reverse;
+            }
+            .drop-cont
+            {
+                display: none;
+            }
+            .drop:hover .disappear
+            {
+                display: none;
+            }
+            .drop:hover .drop-cont
+            {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+        </style>
+        <meta charset = "UTF-8">
+    </head>
+    <script>
+        function Visitors ()
+        {
+            var visitCount = localStorage.getItem ("page_view");
+            visitCount ++;
+            localStorage.setItem ("page_view", visitCount);
+            document.getElementById ("demo").innerHTML = visitCount;
+        }
+    </script>
+    <body onload = "Visitors ()">
+        <ul>
+            <li>
+                <a class = "active3" href = "Log In Form.html" style = "color: white">
+                    Sign In
+                </a>
+            </li>
+            <li>
+                <a class = "active" href = "index.html" style = "color: white">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Energy.html" style = "color: white">
+                    Dark Energy
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Matter.html" style = "color: white">
+                    Dark Matter
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Flow.html" style = "color: white">
+                    Dark Flow
+                </a>
+            </li>
+            <li>
+                <a href = "Star.html" style = "color: white">
+                    Star
+                </a>
+            </li>
+            <li class = "animations">
+                <div class = "drop">
+                    <a class = "disappear" style = "color: white; cursor: pointer">
+                        Animations
+                    </a>
+                    <div class = "drop-cont">
+                        <a href = "Solar System/Solar System.html" style = "color: white" target = "_blank">
+                            Solar System
+                        </a>
+                        <a href = "Simple Terra/Simple Terra.html" style = "color: white" target = "_blank">
+                            Terra
+                        </a>
+                        <a href = "Orb/Orb.html" style = "color: white" target = "_blank">
+                            Orb
+                        </a>
+                        <a href = "Night Flower/Night Flower.html" style = "color: white" target = "_blank">
+                            Form of Life
+                        </a>
+                        <a href = "Black Hole Shader/Black Hole Shader.html" style = "color: white" target = "_blank">
+                            Black Hole
+                        </a>
+                        <a href = "Nebula/Nebula.html" style = "color: white" target = "_blank">
+                            Nebula
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li style = "float: left">
+                <a class = "active2" href = "Gallery.html" style = "color: white">
+                    Gallery
+                </a>
+            </li>
+        </ul>
+        <center>
+            <h1 style = "text-decoration: none; color:#070e50; font-size: 260%">
+                Universe Encyclopedia
+            </h1>
+        </center>
+        <br>
+        <br>
+        <h2 style = "text-decoration: none; font-size: 210%; font-weight: normal">
+            Universe
+            <div class = "website-counter unselectable_2">
+                &nbsp;views
+            </div>
+            <div id = "demo" class = "website-counter unselectable_2">
+            </div>
+            <div class = "website-counter unselectable_2">
+                Writer: <i>Alexandru Gabriel</i> | 31-08-2022 |&nbsp;
+            </div>
+            <div class = "line">
+            </div>
+        </h2>
+        <br>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 450px">
+                    <a href = "#img1">
+                        <img loading = "lazy" src = "media\Hubble_ultra_deep_field.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img1">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Hubble_ultra_deep_field.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        The Hubble Ultra-Deep Field image shows some of the most remote galaxies visible with present technology, each consisting of billions of stars. (Apparent image area about 1/79 that of a full moon)
+                        <table class = "table_border_div">
+                            <tr>
+                                <td width = "45%">
+                                    <b>Age (within Lambda-CDM model)</b>
+                                </td>
+                                <td style = "float: right">
+                                    13.799 ± 0.021 billion years
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width = "45%">
+                                    <b>Diameter</b>
+                                </td>
+                                <td style = "float: right">
+                                    Unknown. Diameter of the observable Universe: 8.8×10<sup>26</sup> m (28.5 Gpc or 93 Gly)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width = "45%">
+                                    <b>Mass (ordinary matter)</b>
+                                </td>
+                                <td style = "float: right">
+                                    At least 10<sup>53</sup> kg
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width = "45%">
+                                    <b>Average density (including the contribution from energy)</b>
+                                </td>
+                                <td style = "float: right">
+                                    9.9 x 10<sup>-30</sup> g/cm<sup>3</sup>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width = "45%">
+                                    <b>Average temperature</b>
+                                </td>
+                                <td style = "float: right">
+                                    2.72548 K (-270.4 °C or -454.8 °F)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width = "45%">
+                                    <b>Main contents</b>
+                                </td>
+                                <td style = "float: right">
+                                    Ordinary (baryonic) matter (4.9%)<br>
+                                    Dark matter (26.8%)<br>
+                                    Dark energy (68.3%)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width = "45%">
+                                    <b>Shape</b>
+                                </td>
+                                <td style = "float: right">
+                                    Flat with a 0.4% margin of error
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <a href = "#img2">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 31.7%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\135275_original_3674x6530.jpg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Gas clouds in a galaxy
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Blue gas clouds that formed some stars and planets
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img2">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\135275_original_3674x6530.jpg">
+                </div>
+            </a>
+            The <b>Universe</b> is all of space and time and their contents, including planets, stars, galaxies, and all other forms of matter and energy. The Big Bang theory is the prevailing cosmological description of the development of the Universe. According to this theory, 
+            space and time emerged together&nbsp; 13.787 ± 0.020 billion years ago, and the Universe has been expanding ever since the Big Bang. While the spatial size of the entire Universe is unknown, it is possible to measure the size of the observable Universe, which is 
+            approximately 93 billion light-years in diameter at the present day.<br>
+            The earliest cosmological models of the Universe were developed by ancient Greek and Indian philosophers and were geocentric, placing Earth at the center. Over the centuries, more precise astronomical observations led Nicolaus Copernicus to develop the 
+            heliocentric model with the Sun at the center of the Solar System. In developing the law of universal gravitation, Isaac Newton built upon Copernicus's work as well as Johannes Kepler's laws of planetary motion and observations by Tycho Brahe.<br>
+            <a href = "#img3">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 29.5%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\20210304_005443.jpg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Neutron star eruption
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Accretion disc of a gamma rays eruption of a neutron star
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img3">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\20210304_005443.jpg">
+                </div>
+            </a>
+            According to the Big Bang theory, the energy and matter initially present have become less dense as the Universe expanded. After an initial accelerated expansion called the inflationary epoch at around 10<sup>-32</sup> seconds, and the separation of the four known 
+            fundamental forces, the Universe gradually cooled and continued to expand, allowing the first subatomic particles and simple atoms to form. Dark matter gradually gathered, forming a foam-like structure of filaments and voids under the influence of gravity. Giant clouds 
+            of hydrogen and helium were gradually drawn to the places where dark matter was most dense, forming the first galaxies, stars, and everything else seen today.<br>
+            From studying the movement of galaxies, it has been discovered that the Universe contains much more matter than is accounted for by visible objects; stars, galaxies, nebulas and interstellar gas. 
+            <a href = "#img4">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 25.2%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\857569.jpg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Galaxy
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Artist's illustration of a spiral galaxy
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img4">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\857569.jpg">
+                </div>
+            </a>
+            This unseen matter is known as dark matter (dark means that there is a wide range of strong indirect evidence that it exists, but we have not yet detected it directly). The ΛCDM model is the most widely accepted model of the Universe. It suggests that about 
+            69.2% ± 1.2% of the mass and energy in the Universe is a cosmological constant (or, in extensions to ΛCDM, other forms of dark energy, such as a scalar field) which is responsible for the current expansion of space, and about 25.8% ± 1.1% is dark matter. 
+            Ordinary ("baryonic") matter is therefore only 4.84% ± 0.1% of the physical Universe. Stars, planets, and visible gas clouds only form about 6% of the ordinary matter.
+        </div>
+        <table style = "margin-top: 0.6em">
+            <tr>
+                <th style = "font-size: 115%">
+                    <center>Contents</center>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    1. 
+                    <a href = "#Definition" class = "link">
+                        Definition
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    2. 
+                    <a href = "#Chronology and the Big Bang" class = "link">
+                        Chronology and the Big Bang
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3. 
+                    <a href = "#Physical properties" class = "link">
+                        Physical properties
+                    </a>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            3.1. 
+                            <a href = "#Size and regions" class = "link">
+                                Size and regions
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            3.2. 
+                            <a href = "#Age and expansion" class = "link">
+                                Age and expansion
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            3.3. 
+                            <a href = "#Spacetime" class = "link">
+                                Spacetime
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            3.4. 
+                            <a href = "#Shape" class = "link">
+                                Shape
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            3.5. 
+                            <a href = "#Support of life" class = "link">
+                                Support of life
+                            </a>
+                        </td>
+                    </tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    4. 
+                    <a href = "#Composition" class = "link">
+                        Composition
+                    </a>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.1. 
+                            <a href = "#Dark energy" class = "link">
+                                Dark energy
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.2. 
+                            <a href = "#Dark matter" class = "link">
+                                Dark matter
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.3. 
+                            <a href = "#Ordinary matter" class = "link">
+                                Ordinary matter
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.4. 
+                            <a href = "#Particles" class = "link">
+                                Particles
+                            </a>
+                            <tr>
+                                <td style = "padding-left: 15%">
+                                    4.4.1. 
+                                    <a href = "#Hadrons" class = "link">
+                                        Hadrons
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style = "padding-left: 15%">
+                                    4.4.2. 
+                                    <a href = "#Leptons" class = "link">
+                                        Leptons
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style = "padding-left: 15%">
+                                    4.4.3. 
+                                    <a href = "#Photons" class = "link">
+                                        Photons
+                                    </a>
+                                </td>
+                            </tr>
+                        </td>
+                    </tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    5. 
+                    <a href = "#Cosmological models" class = "link">
+                        Cosmological models
+                    </a>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            5.1. 
+                            <a href = "#Model of the Universe based on general relativity" class = "link">
+                                Model of the Universe based on general relativity
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            5.2. 
+                            <a href = "#Multiverse hypothesis" class = "link">
+                                Multiverse hypothesis
+                            </a>
+                        </td>
+                    </tr>
+                </td>
+            </tr>
+        </table>
+        <h2 class = "subtitle_first" id = "Definition">
+            Definition
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img5">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 19%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\stars_milky_way_space_116893_2560x1440.jpg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Star cluster
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            A massive star cluster captured with an infrared telecope
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img5">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\stars_milky_way_space_116893_2560x1440.jpg">
+                </div>
+            </a>
+            The physical Universe is defined as all of space and time (collectively referred to as spacetime) and their contents. Such contents comprise all of energy in its various forms, including electromagnetic radiation and matter, and therefore planets, moons, stars, 
+            galaxies, and the contents of intergalactic space. The Universe also includes the physical laws that influence energy and matter, such as conservation laws, classical mechanics, and relativity.<br>
+            The Universe is often defined as "the totality of existence", or everything that exists, everything that has existed, and everything that will exist. In fact, some philosophers and scientists support the inclusion of ideas and abstract concepts—such as mathematics 
+            and logic—in the definition of the Universe. The word Universe may also refer to concepts such as the cosmos, the world, and nature.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Chronology and the Big Bang">
+            Chronology and the Big Bang
+            <div class="line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img6">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 26.4%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image85.gif" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Big Bang
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The explosion of the Big Bang
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img6">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image85.gif">
+                </div>
+            </a>
+            The prevailing model for the evolution of the Universe is the Big Bang theory. The Big Bang model states that the earliest state of the Universe was an extremely hot and dense one, and that the Universe subsequently expanded and cooled. The model is based on general relativity 
+            and on simplifying assumptions such as the homogeneity and isotropy of space. A version of the model with a cosmological constant (Lambda) and cold dark matter, known as the Lambda-CDM model, is the simplest model that provides a reasonably good account of various observations 
+            about the Universe. The Big Bang model accounts for observations such as the correlation of distance and redshift of galaxies, the ratio of the number of hydrogen to helium atoms, and the microwave radiation background.<br>
+            The initial hot, dense state is called the Planck epoch, a brief period extending from time zero to one Planck time unit of approximately 10<sup>-43</sup> seconds. During the Planck epoch, all types of matter and all types of energy were concentrated into a dense state, and 
+            gravity—currently the weakest by far of the four known forces—is believed to have been as strong as the other fundamental forces, and all the forces may have been unified. Since the Planck epoch, space has been expanding to its present scale, with a very short but 
+            intense period of cosmic inflation believed to have occurred within the first 10<sup>-32</sup> seconds. This was a kind of expansion different from those we can see around us today. Objects in space did not physically move; instead the metric that defines space itself 
+            changed. Although objects in spacetime cannot move faster than the speed of light, this limitation does not apply to the metric governing spacetime itself. This initial period of inflation is believed to explain why space appears to be very flat, and much larger than light 
+            could travel since the start of the Universe.<br>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 307px">
+                    <a href = "#img7">
+                        <img loading = "lazy" src = "media\image78.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img7">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image78.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img7.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img7.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image78.jpg">
+                            </div>
+                        </a>
+                        In this diagram, time passes from left to right, so at any given time, the Universe is represented by a disk-shaped "slice" of the diagram
+                    </div>
+                </div>
+            </div>
+            <a href = "#img8">
+                <div class = "image_blur"> 
+                    <div class = "image_container" style = "width: 21.8%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\143441_original_2400x2400.jpg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Star collapsing
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The collapse of a star making a Nebula
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img8">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\143441_original_2400x2400.jpg">
+                </div>
+            </a>
+            Within the first fraction of a second of the Universe's existence, the four fundamental forces had separated. As the Universe continued to cool down from its inconceivably hot state, various types of subatomic particles were able to form in short periods of time known as the quark 
+            epoch, the hadron epoch, and the lepton epoch. Together, these epochs encompassed less than 10 seconds of time following the Big Bang. These elementary particles associated stably into ever larger combinations, including stable protons and neutrons, which then formed more complex atomic 
+            nuclei through nuclear fusion. This process, known as Big Bang nucleosynthesis, only lasted for about 17 minutes and ended about 20 minutes after the Big Bang, so only the fastest and simplest reactions occurred. About 25% of the protons and all the neutrons in the Universe, by mass, were 
+            converted to helium, with small amounts of deuterium (a form of hydrogen) and traces of lithium. Any other element was only formed in very tiny quantities. The other 75% of the protons remained unaffected, as hydrogen nuclei.<br>
+            After nucleosynthesis ended, the Universe entered a period known as the photon epoch. During this period, the Universe was still far too hot for matter to form neutral atoms, so it contained a hot, dense, foggy plasma of negatively charged electrons, neutral neutrinos and positive             nuclei. After about 377,000 years, the Universe had cooled enough that electrons and nuclei could form the first stable atoms. This is known as recombination for historical reasons; in fact electrons and nuclei were combining for the first time. Unlike plasma, neutral atoms are 
+            transparent to many wavelengths of light, so for the first time the Universe also became transparent. The photons released ("decoupled") when these atoms formed can still be seen today; they form the cosmic microwave background (CMB).<br>
+            As the Universe expands, the energy density of electromagnetic radiation decreases more quickly than does that of matter because the energy of a photon decreases with its wavelength. At around 47,000 years, the energy density of matter became larger than that of photons and neutrinos, 
+            and began to dominate the large scale behavior of the Universe. This marked the end of the radiation-dominated era and the start of the matter-dominated era.<br>
+            <a href = "#img9">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 22.3%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\big-bang-explosion-gif-7.gif" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Star explosion
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The explosion of a star
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img9">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\big-bang-explosion-gif-7.gif">
+                </div>
+            </a>
+            <a href = "#img10">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 21.7%; float: right; margin-left: 0.4em">
+                        <img loading = "lazy" src = "media\big-bang-universo-gif-6.gif" style = "float: right">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Big Bang
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Expansion of the Big Bang
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img10">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\big-bang-universo-gif-6.gif">
+                </div>
+            </a>
+            In the earliest stages of the Universe, tiny fluctuations within the Universe's density led to concentrations of dark matter gradually forming. Ordinary matter, attracted to these by gravity, formed large gas clouds and eventually, stars and galaxies, where the dark matter was most dense, 
+            and voids where it was least dense. After around 100 – 300 million years, the first stars formed, known as Population III stars. These were probably very massive, luminous, non metallic and short-lived. They were responsible for the gradual reionization of the Universe between about 200-500 
+            million years and 1 billion years, and also for seeding the Universe with elements heavier than helium, through stellar nucleosynthesis. The Universe also contains a mysterious energy&nbsp;—&nbsp;possibly a scalar field—called dark energy, the density of which does not change over time. After about 
+            9.8 billion years, the Universe had expanded sufficiently so that the density of matter was less than the density of dark energy, marking the beginning of the present dark-energy-dominated era. In this era, the expansion of the Universe is accelerating due to dark energy.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Physical properties">
+            Physical properties
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img11">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 30%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\vqcAnB.webp" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Galaxy cluster
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            An animated illustration of a big galaxy cluster
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img11">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\vqcAnB.webp">
+                </div>
+            </a>
+            Of the four fundamental interactions, gravitation is the dominant at astronomical length scales. Gravity's effects are cumulative; by contrast, the effects of positive and negative charges tend to cancel one another, making electromagnetism relatively insignificant on astronomical length scales. 
+            The remaining two interactions, the weak and strong nuclear forces, decline very rapidly with distance; their effects are confined mainly to sub-atomic length scales.<br>
+            The Universe appears to have much more matter than antimatter, an asymmetry possibly related to the CP violation. This imbalance between matter and antimatter is partially responsible for the existence of all matter existing today, since matter and antimatter, if equally produced at the Big Bang, 
+            would have completely annihilated each other and left only photons as a result of their interaction. The Universe also appears to have neither net momentum nor angular momentum, which follows accepted physical laws if the Universe is finite. These laws are Gauss's law and the non-divergence 
+            of the stress-energy-momentum pseudotensor.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Size and regions">
+            Size and regions
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 303px">
+                    <a href = "#img12">
+                        <img loading = "lazy" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Extended_universe_logarithmic_illustration_%28English_annotated%29.png/1024px-Extended_universe_logarithmic_illustration_%28English_annotated%29.png" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img12">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Extended_universe_logarithmic_illustration_%28English_annotated%29.png/1024px-Extended_universe_logarithmic_illustration_%28English_annotated%29.png">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img12.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img12.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Extended_universe_logarithmic_illustration_%28English_annotated%29.png/1024px-Extended_universe_logarithmic_illustration_%28English_annotated%29.png">
+                            </div>
+                        </a>
+                        Television signals broadcast from Earth will never reach the edges of this image.
+                    </div>
+                </div>
+            </div>
+            <a href = "#img13">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 34%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\Milky-Way-galaxy-chart-Richard-Powell_Summer_Final-V2.jpg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Universe
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The Universe scale of the night sky
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img13">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\Milky-Way-galaxy-chart-Richard-Powell_Summer_Final-V2.jpg">
+                </div>
+            </a>
+            According to the general theory of relativity, far regions of space may never interact with ours even in the lifetime of the Universe due to the finite speed of light and the ongoing expansion of space. For example, radio messages sent from Earth may never reach some regions of space, even if the 
+            Universe were to exist forever: space may expand faster than light can traverse it.<br>
+            The spatial region that can be observed with telescopes is called the observable Universe, which depends on the location of the observer. The proper distance—the distance as would be measured at a specific time, including the present—between Earth and the edge of the observable Universe is 46 billion 
+            light-years (14 billion parsecs), making the diameter of the observable Universe about 93 billion light-years (28 billion parsecs). The distance the light from the edge of the observable Universe has travelled is very close to the age of the Universe times the speed of light, 13.8 billion light-years 
+            (4.2×10<sup>9</sup> pc), but this does not represent the distance at any given time because the edge of the observable Universe and the Earth have since moved further apart. For comparison, the diameter of a typical galaxy is 30,000 light-years (9,198 parsecs), and the typical distance between two 
+            neighboring galaxies is 3 million light-years (919.8 kiloparsecs). As an example, the Milky Way is roughly 100,000–180,000 light&nbsp;-&nbsp;years in diameter, and the nearest sister galaxy to the Milky Way, the Andromeda Galaxy, is located roughly 2.5 million light-years away.<br>
+            Because we cannot observe space beyond the edge of the observable Universe, it is unknown whether the size of the Universe in its totality is finite or infinite. Estimates suggest that the whole Universe, if finite, must be more than 250 times larger than a Hubble sphere. Some disputed estimates for 
+            the total size of the Universe, if finite, reach as high as 10<sup>10<sup>10<sup>122</sup></sup></sup> megaparsecs, as implied by a suggested resolution of the No-Boundary Proposal.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Age and expansion">
+            Age and expansion
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 321px">
+                    <a href = "#img14">
+                        <img loading = "lazy" src = "media\Galactic_Cntr_full_cropped.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img14">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Galactic_Cntr_full_cropped_rotated.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img14.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img14.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\Galactic_Cntr_full_cropped_rotated.jpg">
+                            </div>
+                        </a>
+                        Astronomers have discovered stars in the Milky Way galaxy that are almost 13.6 billion years old.
+                    </div>
+                </div>
+            </div>
+            <a href = "#img15">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 30%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\gallery-1440616110-johngif-3.gif" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Solar system
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Our solar system moving through the Universe
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img15">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\gallery-1440616110-johngif-3.gif">
+                </div>
+            </a>
+            Astronomers calculate the age of the Universe by assuming that the Lambda-CDM model accurately describes the evolution of the Universe from a very uniform, hot, dense primordial state to its present state and measuring the cosmological parameters which constitute the model. Assuming that the Lambda-CDM model is 
+            correct, the measurements of the parameters using a variety of techniques by numerous experiments yield a best value of the age of the Universe as of 2015 of 13.799 ± 0.021 billion years.<br>
+            Over time, the Universe and its contents have evolved; for example, the relative population of quasars and galaxies has changed and space itself has expanded. Due to this expansion, scientists on Earth can observe the light from a galaxy 30 billion light-years away even though that light has traveled 
+            for only 13 billion years; the very space between them has expanded. This expansion is consistent with the observation that the light from distant galaxies has been redshifted; the photons emitted have been stretched to longer wavelengths and lower frequency during their journey. Analyses of Type Ia supernovae 
+            indicate that the spatial expansion is accelerating.<br>
+            <a href = "#img16">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 30%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\R.jpeg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Star explosion
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The explosion of a star making a Nebula
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img16">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\R.jpeg">
+                </div>
+            </a>
+            The more matter there is in the Universe, the stronger the mutual gravitational pull of the matter. If the Universe were <b><i>too</i></b> dense then it would re-collapse into a gravitational singularity. However, if the Universe contained too <b><i>little</i></b> matter then the self-gravity would be too weak for astronomical 
+            structures, like galaxies or planets, to form. Since the Big Bang, the Universe has expanded monotonically. Perhaps unsurprisingly, our Universe has just the right mass-energy density, equivalent to about 5 protons per cubic metre, which has allowed it to expand for the last 13.8 billion years, giving time to form the Universe as observed today.<br>
+            There are dynamical forces acting on the particles in the Universe which affect the expansion rate. Before 1998, it was expected that the expansion rate would be decreasing as time went on due to the influence of gravitational interactions in the Universe; and thus there is an additional observable quantity in the Universe 
+            called the deceleration parameter, which most cosmologists expected to be positive and related to the matter density of the Universe. In 1998, the deceleration parameter was measured by two different groups to be negative, approximately -0.55, which technically implies that the second derivative of the cosmic scale factor <b><i>&auml;</i></b> 
+            has been positive in the last 5-6 billion years. This acceleration does not, however, imply that the Hubble parameter is currently increasing; see deceleration parameter for details.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Spacetime">
+            Spacetime
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img17">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 24%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\GPB_circling_earth.jpg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Spacetime
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The influence of the Earth over the spacetime
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img17">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\GPB_circling_earth.jpg">
+                </div>
+            </a>
+            <a href = "#img18">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 16%; float: right; margin-left: 0.4em">
+                        <img loading = "lazy" src = "media\BlackHole_Lensing.gif" style = "float: right">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Black hole lensing
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The lensing of a black hole over the Milky Way
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img18">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\BlackHole_Lensing.gif">
+                </div>
+            </a>
+            Spacetimes are the arenas in which all physical events take place. The basic elements of spacetimes are events. In any given spacetime, an event is defined as a unique position at a unique time. A spacetime is the union of all events (in the same way that a line is the union of all of its points), formally organized into a manifold.<br>
+            Events, such as matter and energy, bend spacetime. Curved spacetime, on the other hand, forces matter and energy to behave in a certain way. There is no point in considering one without the other.<br>
+            The Universe appears to be a smooth spacetime continuum consisting of three spatial dimensions and one temporal (time) dimension (an event in the spacetime of the physical Universe can therefore be identified by a set of four coordinates: (<i>x</i>,<i>y</i>,<i>z</i>,<i>t</i>). On average, space is observed to be very nearly flat (with a curvature close to zero), 
+            meaning that Euclidean geometry is empirically true with high accuracy throughout most of the Universe. Spacetime also appears to have a simply connected topology, in analogy with a sphere, at least on the length-scale of the observable Universe. 
+            <a href = "#img19">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 17.7%; float: right; margin-left: 0.4em">
+                        <img loading = "lazy" src = "media\BH_LMC.png" style = "float: right">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Black hole
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The view of a black hole lensing over a galaxy
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img19">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\BH_LMC.png">
+                </div>
+            </a>
+            However, present observations cannot exclude the possibilities that the Universe has more dimensions (which is postulated by theories such as the string theory) and that its spacetime may have a multiply connected global topology, in analogy with the cylindrical or toroidal topologies of two-dimensional spaces. The spacetime of the 
+            Universe is usually interpreted from a Euclidean perspective, with space as consisting of three dimensions, and time as consisting of one dimension, the "fourth dimension". By combining space and time into a single manifold called Minkowski space, physicists have simplified a large number of physical theories, as well as described 
+            in a more uniform way the workings of the Universe at both the supergalactic and subatomic levels.<br>
+            Spacetime events are not absolutely defined spatially and temporally but rather are known to be relative to the motion of an observer. Minkowski space approximates the Universe without gravity; the pseudo-Riemannian manifolds of general relativity describe spacetime with matter and gravity.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Shape">
+            Shape
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 320px">
+                    <a href = "#img20">
+                        <img loading = "lazy" src = "media\R (1).jpeg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img20">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\R (1).jpeg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img20.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img20.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\R (1).jpeg">
+                            </div>
+                        </a>
+                        The local geometry of the Universe is determined by whether the density parameter Ω is greater than, less than, or equal to 1. From top to bottom: a spherical Universe with Ω > 1, a hyperbolic Universe with Ω < 1, and a flat Universe with Ω = 1. These depictions of two-dimensional surfaces are merely easily 
+                        visualizable analogs to the 3-dimensional structure of (local) space.
+                    </div>
+                </div>
+            </div>
+            <a href = "#img21">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 25%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\whatshapeist.jpg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Shape of the Universe
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Universe's shape determined by the X-ray detections
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img21">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\whatshapeist.jpg">
+                </div>
+            </a>
+            General relativity describes how spacetime is curved and bent by mass and energy (gravity). The topology or geometry of the Universe includes both local geometry in the observable Universe and global geometry. Cosmologists often work with a given space-like slice of spacetime called the comoving coordinates. The section of spacetime 
+            which can be observed is the backward light cone, which delimits the cosmological horizon. The cosmological horizon (also called the particle horizon or the light horizon) is the maximum distance from which particles can have traveled to the observer in the age of the Universe. This horizon represents the boundary between the 
+            observable and the unobservable regions of the Universe. The existence, properties, and significance of a cosmological horizon depend on the particular cosmological model.<br>
+            An important parameter determining the future evolution of the Universe theory is the density parameter, Omega (Ω), defined as the average matter density of the Universe divided by a critical value of that density. This selects one of three possible geometries depending on whether Ω is equal to, less than, or greater than 1. 
+            These are called, respectively, the flat, open and closed Universes.<br>
+            Observations, including the Cosmic Background Explorer (COBE), Wilkinson Microwave Anisotropy Probe (WMAP), and Planck maps of the CMB, suggest that the Universe is infinite in extent with a finite age, as described by the Friedmann–Lemaître–Robertson–Walker (FLRW) models. These FLRW models thus support inflationary models and the 
+            standard model of cosmology, describing a flat, homogeneous Universe presently dominated by dark matter and dark energy.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Support of life">
+            Support of life
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img22">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 22%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\superearths_hu8d632a47d5a322eb4251d5c481614251_142695_1400x0_resize_q75_box.jpg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Habitable planets
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Planets similar to Terra that can support life
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img22">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\superearths_hu8d632a47d5a322eb4251d5c481614251_142695_1400x0_resize_q75_box.jpg">
+                </div>
+            </a>
+            <a href = "#img23">
+                <div style = "width: 25.9%; float: right; margin-left: 0.4em">
+                    <img loading = "lazy" src = "media\R (2).jpeg" style = "float: right">
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img23">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\R (2).jpeg">
+                </div>
+            </a>
+            The Universe may be fine-tuned; the Fine-tuned Universe hypothesis is the proposition that the conditions that allow the existence of observable life in the Universe can only occur when certain universal fundamental physical constants lie within a very narrow range of values, so that if any of several fundamental constants were only slightly different, 
+            the Universe would have been unlikely to be conducive to the establishment and development of matter, astronomical structures, elemental diversity, or life as it is understood. The proposition is discussed among philosophers, scientists, theologians, and proponents of creationism.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Composition">
+            Composition
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 309px">
+                    <a href = "#img24">
+                        <img loading = "lazy" src = "media\Hubble_Tuning_Fork_diagram.svg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img24">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Hubble_Tuning_Fork_diagram.svg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img24.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img24.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\Hubble_Tuning_Fork_diagram.svg">
+                            </div>
+                        </a>
+                        Hubble tuning fork diagram of galaxy morphology
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 300px">
+                    <a href = "#img25">
+                        <img loading = "lazy" src = "media\Antennae_galaxies_xl.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img25">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Antennae_galaxies_xl.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img25.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img25.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\Antennae_galaxies_xl.jpg">
+                            </div>
+                        </a>
+                        The Antennae Galaxies are a pair of colliding galaxies – the bright, blue knots are young stars that have recently ignited as a result of the merger.
+                    </div>
+                </div>
+            </div>
+            The Universe is composed almost completely of dark energy, dark matter, and ordinary matter. Other contents are electromagnetic radiation (estimated to constitute from 0.005% to close to 0.01% of the total mass-energy of the Universe) and antimatter.<br>
+            The proportions of all types of matter and energy have changed over the history of the Universe. The total amount of electromagnetic radiation generated within the Universe has decreased by 1/2 in the past 2 billion years. Today, ordinary matter, which includes atoms, stars, galaxies, and life, accounts for only 4.9% of the contents 
+            of the Universe. The present overall density of this type of matter is very low, roughly 4.5 × 10<sup>-31</sup> grams per cubic centimetre, corresponding to a density of the order of only one proton for every four cubic metres of volume. The nature of both dark energy and dark matter is unknown. Dark matter, a mysterious form of 
+            matter that has not yet been identified, accounts for 26.8% of the cosmic contents. Dark energy, which is the energy of empty space and is causing the expansion of the Universe to accelerate, accounts for the remaining 68.3% of the contents.<br>
+            Matter, dark matter, and dark energy are distributed homogeneously throughout the Universe over length scales longer than 300 million light-years or so. However, over shorter length-scales, matter tends to clump hierarchically; many atoms are condensed into stars, most stars into galaxies, most galaxies into clusters, superclusters 
+            and, finally, large-scale galactic filaments. The observable Universe contains as many as 200 billion galaxies and, overall, as many as an estimated 1×10<sup>24</sup> stars (more stars than all the grains of sand on planet Earth). Typical galaxies range from dwarfs with as few as ten million (10<sup>7</sup>) stars up to giants with 
+            one trillion (10<sup>12</sup>) stars. Between the larger structures are voids, which are typically 10–150 Mpc (33 million–490 million ly) in diameter. The Milky Way is in the Local Group of galaxies, which in turn is in the Laniakea Supercluster. This supercluster spans over 500 million light-years, while the Local Group spans over 
+            10 million light-years. The Universe also has vast regions of relative emptiness; the largest known void measures 1.8 billion ly (550 Mpc) across.<br>
+            The observable Universe is isotropic on scales significantly larger than superclusters, meaning that the statistical properties of the Universe are the same in all directions as observed from Earth. The Universe is bathed in highly isotropic microwave radiation that corresponds to a thermal equilibrium blackbody spectrum of roughly 2.72548 kelvins. 
+            The hypothesis that the large-scale Universe is homogeneous and isotropic is known as the cosmological principle. A Universe that is both homogeneous and isotropic looks the same from all vantage points and has no center.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Dark energy">
+            Dark energy
+            <p style = "padding-left: 1.5%; font-size: 75%; margin-top: 0.2%;">
+                <i>
+                    Main article: 
+                    <a href = "Dark Energy.html">
+                        Dark Energy
+                    </a>
+                </i>
+            </p>
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 249px">
+                    <a href = "#img26">
+                        <img loading = "lazy" src = "media\image80.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img26">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image80.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img26.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img26.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image80.jpg">
+                            </div>
+                        </a>
+                        The formation of clusters and large-scale filaments in the cold dark matter model with dark energy. The frames show the evolution of structures in a 43 million parsecs (or 140 million light-years) box from redshift of 30 to the present epoch (upper left z=30 to lower right z=0).
+                    </div>
+                </div>
+            </div>
+            <a href = "#img27">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 30%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image2.png" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Dark energy
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The artist's illustration of the dark energy
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img27">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image2.png">
+                </div>
+            </a>
+            An explanation for why the expansion of the Universe is accelerating remains elusive. It is often attributed to "dark energy", an unknown form of energy that is hypothesized to permeate space. On a mass–energy equivalence basis, the density of dark energy (~ 7 × 10<sup>-30</sup> g/cm3) is much less than the density of ordinary matter or 
+            dark matter within galaxies. However, in the present dark-energy era, it dominates the mass–energy of the Universe because it is uniform across space.<br>
+            Two proposed forms for dark energy are the cosmological constant, a <b><i>constant</i></b> energy density filling space homogeneously, and scalar fields such as quintessence or moduli, <b><i>dynamic</i></b> quantities whose energy density can vary in time and space. Contributions from scalar fields that are constant in space are 
+            usually also included in the cosmological constant. The cosmological constant can be formulated to be equivalent to vacuum energy. Scalar fields having only a slight amount of spatial inhomogeneity would be difficult to distinguish from a cosmological constant.<br>
+            Due to the toy model nature of concordance cosmology, some experts believe that a more accurate general relativistic treatment of the structures on all scales in the real Universe may do away with the need to invoke dark energy. Inhomogeneous cosmologies, which attempt to account for the back-reaction of structure formation on the metric, 
+            generally do not acknowledge any dark energy contribution to the Universe's energy density.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Dark matter">
+            Dark matter
+            <p style = "padding-left: 1.5%; font-size: 75%; margin-top: 0.2%;">
+                <i>
+                    Main article: 
+                    <a href = "Dark Matter.html">
+                        Dark Matter
+                    </a>
+                </i>
+            </p>
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 265px">
+                    <a href = "#img28">
+                        <img loading = "lazy" src = "media\Nearsc.gif" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img28">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Nearsc.gif">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img28.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img28.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\Nearsc.gif">
+                            </div>
+                        </a>
+                        A map of the superclusters and voids nearest to Earth
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 290px">
+                    <a href = "#img29">
+                        <img loading = "lazy" src = "media\image3.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img29">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image3.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img29.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img29.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image3.jpg">
+                            </div>
+                        </a>
+                        Simulated Large Hadron Collider CMS particle detector data depicting a Higgs boson produced by colliding protons decaying into hadron jets and electrons
+                    </div>
+                </div>
+            </div>
+            Dark matter is a hypothetical kind of matter that is invisible to the entire electromagnetic spectrum, but which accounts for most of the matter in the Universe. The existence and properties of dark matter are inferred from its gravitational effects on visible matter, radiation, and the large-scale structure of the Universe. Other than neutrinos, 
+            a form of hot dark matter, dark matter has not been detected directly, making it one of the greatest mysteries in modern astrophysics. Dark matter neither emits nor absorbs light or any other electromagnetic radiation at any significant level. Dark matter is estimated to constitute 26.8% of the total mass–energy and 84.5% of the total matter in the Universe.<br>
+            Because no one has directly observed dark matter yet – assuming it exists – it must barely interact with ordinary baryonic matter and radiation except through gravity. Most dark matter is thought to be non-baryonic; it may be composed of some as-yet-undiscovered subatomic particles. The primary candidate for dark matter is some new kind of elementary 
+            particle that has not yet been discovered, particularly weakly interacting massive particles (WIMPs), though axions have drawn renewed attention due to the non-detection of WIMPs in experiments. Many experiments to directly detect and study dark matter particles are being actively undertaken, but none have yet succeeded. Dark matter is classified as 
+            "cold," "warm," or "hot" according to its velocity (more precisely, its free streaming length). Current models favor a cold dark matter scenario, in which structures emerge by the gradual accumulation of particles.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Ordinary matter">
+            Ordinary matter
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 256px">
+                    <a href = "#img30">
+                        <img loading = "lazy" src = "media\Universe_content_bar_chart.svg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img30">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Universe_content_bar_chart_filled.png">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img30.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img30.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\Universe_content_bar_chart_filled.png">
+                            </div>
+                        </a>
+                        Comparison of the contents of the Universe today to 380,000 years after the Big Bang as measured with 5 year WMAP data (from 2008). (Due to rounding errors, the sum of these numbers is not 100%). This reflects the 2008 limits of WMAP's ability to define dark matter and dark energy.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 308px">
+                    <a href = "#img31">
+                        <img loading = "lazy" src = "media\330px-Size_IK_Peg.svg.png" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img31">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\330px-Size_IK_Peg.svg.png">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img31.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img31.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\330px-Size_IK_Peg.svg.png">
+                            </div>
+                        </a>
+                        A comparison between the white dwarf IK Pegasi B (center), its A-class companion IK Pegasi A (left) and the Sun (right). This white dwarf has a surface temperature of 35,500 K.
+                    </div>
+                </div>
+            </div>
+            The remaining 4.9% of the mass–energy of the Universe is ordinary matter, that is, atoms, ions, electrons and the objects they form. This matter includes stars, which produce nearly all of the light we see from galaxies, as well as interstellar gas in the interstellar and intergalactic media, planets, and all the objects from everyday life that we can bump into, touch or squeeze.
+            As a matter of fact, the great majority of ordinary matter in the Universe is unseen, since visible stars and gas inside galaxies and clusters account for less than 10 per cent of the ordinary matter contribution to the mass-energy density of the Universe.<br>
+            Ordinary matter commonly exists in four states (or phases): solid, liquid, gas, and plasma. However, advances in experimental techniques have revealed other previously theoretical phases, such as Bose–Einstein condensates and fermionic condensates.<br>
+            Ordinary matter is composed of two types of elementary particles: quarks and leptons. For example, the proton is formed of two up quarks and one down quark; the neutron is formed of two down quarks and one up quark; and the electron is a kind of lepton. An atom consists of an atomic nucleus, made up of protons and neutrons, and electrons that orbit the nucleus. Because most 
+            of the mass of an atom is concentrated in its nucleus, which is made up of baryons, astronomers often use the term baryonic matter to describe ordinary matter, although a small fraction of this "baryonic matter" is electrons.<br>
+            Soon after the Big Bang, primordial protons and neutrons formed from the quark–gluon plasma of the early Universe as it cooled below two trillion degrees. A few minutes later, in a process known as Big Bang nucleosynthesis, nuclei formed from the primordial protons and neutrons. This nucleosynthesis formed lighter elements, those with small atomic numbers up to lithium and 
+            beryllium, but the abundance of heavier elements dropped off sharply with increasing atomic number. Some boron may have been formed at this time, but the next heavier element, carbon, was not formed in significant amounts. Big Bang nucleosynthesis shut down after about 20 minutes due to the rapid drop in temperature and density of the expanding Universe. Subsequent formation 
+            of heavier elements resulted from stellar nucleosynthesis and supernova nucleosynthesis.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Particles">
+            Particles
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 376px">
+                    <a href = "#img32">
+                        <img loading = "lazy" src = "media\Standard_Model_of_Elementary_Particles.svg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img32">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Standard_Model_of_Elementary_Particles_filled.png">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img32.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img32.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\Standard_Model_of_Elementary_Particles_filled.png">
+                            </div>
+                        </a>
+                        Standard model of elementary particles: the 12 fundamental fermions and 4 fundamental bosons. Brown loops indicate which bosons (red) couple to which fermions (purple and green). Columns are three generations of matter (fermions) and one of forces (bosons). In the first three columns, two rows contain quarks and two leptons. The top two rows' columns contain up (u) 
+                        and down (d) quarks, charm (c) and strange (s) quarks, top (t) and bottom (b) quarks, and photon (γ) and gluon (g), respectively. The bottom two rows' columns contain electron neutrino (ν<sub>e</sub>) and electron (e), muon neutrino (ν<sub>μ</sub>) and muon (μ), tau neutrino (ν<sub>τ</sub>) and tau (τ), and the Z<sup>0</sup> and W<sup>±</sup> carriers of the weak force. 
+                        Mass, charge, and spin are listed for each particle.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 248px">
+                    <a href = "#img33">
+                        <img loading = "lazy" src = "media\02_Fermilab_-_Fermi_National_Accelerator_Laboratory_-_American_particle_accelerator_Fermilab_near_Chicago_Illinois.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img33">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\02_Fermilab_-_Fermi_National_Accelerator_Laboratory_-_American_particle_accelerator_Fermilab_near_Chicago_Illinois.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img33.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img33.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\02_Fermilab_-_Fermi_National_Accelerator_Laboratory_-_American_particle_accelerator_Fermilab_near_Chicago_Illinois.jpg">
+                            </div>
+                        </a>
+                        Fermi National Accelerator Laboratory, USA
+                    </div>
+                </div>
+            </div>
+            Ordinary matter and the forces that act on matter can be described in terms of elementary particles. These particles are sometimes described as being fundamental, since they have an unknown substructure, and it is unknown whether or not they are composed of smaller and even more fundamental particles. Of central importance is the Standard Model, a theory that is concerned 
+            with electromagnetic interactions and the weak and strong nuclear interactions.The Standard Model is supported by the experimental confirmation of the existence of particles that compose matter: quarks and leptons, and their corresponding "antimatter" duals, as well as the force particles that mediate interactions: the photon, the W and Z bosons, and the gluon. The 
+            Standard Model predicted the existence of the recently discovered Higgs boson, a particle that is a manifestation of a field within the Universe that can endow particles with mass. Because of its success in explaining a wide variety of experimental results, the Standard Model is sometimes regarded as a "theory of almost everything". The Standard Model does not, however, 
+            accommodate gravity. A true force-particle "theory of everything" has not been attained.<br>
+            <h2 style = "text-decoration: none; font-size: 120%; font-weight: normal" id = "Hadrons">
+                Hadrons
+            </h2>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 220px">
+                    <a href = "#img34">
+                        <img loading = "lazy" src = "media\Hadron_colors.svg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img34">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Hadron_colors.png" style = "height: 73%">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img34.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img34.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\Hadron_colors.png" style = "height: 73%">
+                            </div>
+                        </a>
+                        All types of hadrons have zero total color charge (three examples shown)
+                    </div>
+                </div>
+            </div>
+            A hadron is a composite particle made of quarks held together by the strong force. Hadrons are categorized into two families: baryons (such as protons and neutrons) made of three quarks, and mesons (such as pions) made of one quark and one antiquark. Of the hadrons, protons are stable, and neutrons bound within atomic nuclei are stable. Other hadrons are unstable under ordinary 
+            conditions and are thus insignificant constituents of the modern Universe. From approximately 10<sup>-6</sup> seconds after the Big Bang, during a period is known as the hadron epoch, the temperature of the Universe had fallen sufficiently to allow quarks to bind together into hadrons, and the mass of the Universe was dominated by hadrons. Initially, the temperature was high 
+            enough to allow the formation of hadron/anti-hadron pairs, which kept matter and antimatter in thermal equilibrium. However, as the temperature of the Universe continued to fall, hadron/anti-hadron pairs were no longer produced. Most of the hadrons and anti-hadrons were then eliminated in particle-antiparticle annihilation reactions, leaving a small residual of hadrons by the 
+            time the Universe was about one second old.<br>
+            A quark is a type of elementary particle and a fundamental constituent of matter. Quarks combine to form composite particles called hadrons, the most stable of which are protons and neutrons, the components of atomic nuclei. All commonly observable matter is composed of up quarks, down quarks and electrons. Owing to a phenomenon known as color 
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 240px">
+                    <a href = "#img35">
+                        <img loading = "lazy" src = "media\Quark_masses_as_balls.svg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img35">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Quark_masses_as_balls.png">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img35.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img35.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\Quark_masses_as_balls.png">
+                            </div>
+                        </a>
+                        Current quark masses for all six flavors in comparison, as balls of proportional volumes. Proton (gray) and electron (red) are shown in bottom left corner for scale.
+                    </div>
+                </div>
+            </div>
+            confinement, quarks are never found in isolation; they can be found only within hadrons, which include baryons (such as protons and neutrons) and mesons, or in quark–gluon plasmas. For this reason, much of what is known about quarks has been drawn from observations of hadrons.<br>
+            There are six types, known as <i>flavors</i>, of quarks: up, down, charm, strange, top, and bottom. Up and down quarks have the lowest masses of all quarks. The heavier quarks rapidly change into up and down quarks through a process of particle decay: the transformation from a higher mass state to a lower mass state. Because of this, up and down quarks are generally stable and the most 
+            common in the Universe, whereas strange, charm, bottom, and top quarks can only be produced in high energy collisions (such as those involving cosmic rays and in particle accelerators). For every quark flavor there is a corresponding type of antiparticle, known as an <b>antiquark</b>, that differs from the quark only in that some of its properties (such as the electric charge) have equal 
+            magnitude but opposite sign.<br>
+            The quark model was independently proposed by physicists Murray Gell-Mann and George Zweig in 1964. Quarks were introduced as parts of an ordering scheme for hadrons, and there was little evidence for their physical existence until deep inelastic scattering experiments at the Stanford Linear Accelerator Center in 1968. Accelerator program experiments have provided evidence for 
+            all six flavors. The top quark, first observed at Fermilab in 1995, was the last to be discovered.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_third" id = "Leptons">
+            Leptons
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img36">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 26%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\R.png" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Leptons creation
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The leptons creation with the Compact Muon Solenoid at the Large Hadron Collider
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img36">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\R.png">
+                </div>
+            </a>
+            A lepton is an elementary, half-integer spin particle that does not undergo strong interactions but is subject to the Pauli exclusion principle; no two leptons of the same species can be in exactly the same state at the same time. Two main classes of leptons exist: charged leptons (also known as the electron-like leptons), and neutral leptons (better known as neutrinos). Electrons 
+            are stable and the most common charged lepton in the Universe, whereas muons and taus are unstable particle that quickly decay after being produced in high energy collisions, such as those involving cosmic rays or carried out in particle accelerators. Charged leptons can combine with other particles to form various composite particles such as atoms and positronium. The electron governs 
+            nearly all of chemistry, as it is found in atoms and is directly tied to all chemical properties. Neutrinos rarely interact with anything, and are consequently rarely observed. Neutrinos stream throughout the Universe but rarely interact with normal matter.<br>
+            The lepton epoch was the period in the evolution of the early Universe in which the leptons dominated the mass of the Universe. It started roughly 1 second after the Big Bang, after the majority of hadrons and anti-hadrons annihilated each other at the end of the hadron epoch. During the lepton epoch the temperature of the Universe was still high enough to create lepton/anti-lepton 
+            pairs, so leptons and anti-leptons were in thermal equilibrium. Approximately 10 seconds after the Big Bang, the temperature of the Universe had fallen to the point where lepton/anti-lepton pairs were no longer created. Most leptons and anti-leptons were then eliminated in annihilation reactions, leaving a small residue of leptons. The mass of the Universe was then dominated by photons 
+            as it entered the following photon epoch.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_third" id = "Photons">
+            Photons
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img37">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 19%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\ImageForArticle_14224(1).webp" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Photon
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The artist's illustration of a photon
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img37">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\ImageForArticle_14224(1).webp">
+                </div>
+            </a>
+            <a href = "#img38">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 19%; float: right; margin-left: 0.4em">
+                        <img loading = "lazy" src = "media\R (3).jpeg" style = "float: right">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Photon
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The energy carried by a photon
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img38">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\R (3).jpeg">
+                </div>
+            </a>
+            A photon is the quantum of light and all other forms of electromagnetic radiation. It is the force carrier for the electromagnetic force, even when static via virtual photons. The effects of this force are easily observable at the microscopic and at the macroscopic level because the photon has zero rest mass; this allows long distance interactions. Like all elementary particles, photons are 
+            currently best explained by quantum mechanics and exhibit wave–particle duality, exhibiting properties of waves and of particles.<br>
+            The photon epoch started after most leptons and anti-leptons were annihilated at the end of the lepton epoch, about 10 seconds after the Big Bang. Atomic nuclei were created in the process of nucleosynthesis which occurred during the first few minutes of the photon epoch. For the remainder of the photon epoch the Universe contained a hot dense plasma of nuclei, electrons and photons. About 
+            380,000 years after the Big Bang, the temperature of the Universe fell to the point where nuclei could combine with electrons to create neutral atoms. As a result, photons no longer interacted frequently with matter and the Universe became transparent. The highly redshifted photons from this period form the cosmic microwave background. Tiny variations in temperature and density detectable 
+            in the CMB were the early "seeds" from which all subsequent structure formation took place.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Cosmological models">
+            Cosmological models
+            <div class = "line">
+            </div>
+        </h2>
+        <h2 class = "subtitle_second" id = "Model of the Universe based on general relativity">
+            Model of the Universe based on general relativity
+        </h2>
+        <div class = "afterdiv">
+            General relativity is the geometric theory of gravitation published by Albert Einstein in 1915 and the current description of gravitation in modern physics. It is the basis of current cosmological models of the Universe. General relativity generalizes special relativity and Newton's law of universal gravitation, providing a unified description of gravity as a geometric property of space and 
+            time, or spacetime. In particular, the curvature of spacetime is directly related to the energy and momentum of whatever matter and radiation are present. The relation is specified by the Einstein field equations, a system of partial differential equations. In general relativity, the distribution of matter and energy determines the geometry of spacetime, which in turn describes the acceleration 
+            of matter. Therefore, solutions of the Einstein field equations describe the evolution of the Universe. Combined with measurements of the amount, type, and distribution of matter in the Universe, the equations of general relativity describe the evolution of the Universe over time.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Multiverse hypothesis">
+            Multiverse hypothesis
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 292px">
+                    <a href = "#img39">
+                        <img loading = "lazy" src = "https://upload.wikimedia.org/wikipedia/commons/2/28/Universe_Antiuniverse_model.png" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img39">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "https://upload.wikimedia.org/wikipedia/commons/2/28/Universe_Antiuniverse_model.png">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img39.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img39.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "https://upload.wikimedia.org/wikipedia/commons/2/28/Universe_Antiuniverse_model.png">
+                            </div>
+                        </a>
+                        Concept of a twin Universe, with the beginning (of time) in the middle.
+                    </div>
+                </div>
+            </div>
+            <a href = "#img40">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 21.7%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\multiverse-fe01-main-tease.jpg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Multiverse
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Artist's concept of the Multiverse
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img40">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\multiverse-fe01-main-tease.jpg">
+                </div>
+            </a>
+            Some speculative theories have proposed that our Universe is but one of a set of disconnected Universes, collectively denoted as the multiverse, challenging or enhancing more limited definitions of the Universe. Scientific multiverse models are distinct from concepts such as alternate planes of consciousness and simulated reality.<br>
+            Max Tegmark developed a four-part classification scheme for the different types of multiverses that scientists have suggested in response to various Physics problems. An example of such multiverses is the one resulting from the chaotic inflation model of the early Universe. Another is the multiverse resulting from the many-worlds interpretation of quantum mechanics. In this interpretation, parallel 
+            worlds are generated in a manner similar to quantum superposition and decoherence, with all states of the wave functions being realized in separate worlds. Effectively, in the many-worlds interpretation the multiverse evolves as a universal wavefunction. If the Big Bang that created our multiverse created an ensemble of multiverses, the wave function of the ensemble would be entangled in this sense.<br>
+            <a href = "#img41">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 20.5%; float: right; margin-left: 0.4em">
+                        <img loading = "lazy" src = "media\OIP.jpeg" style = "float: right">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Multiverse
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Artist's concept of the Multiverse
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img41">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\OIP.jpeg">
+                </div>
+            </a>
+            The least controversial, but still highly disputed, category of multiverse in Tegmark's scheme is Level I. The multiverses of this level are composed by distant spacetime events "in our own Universe". Tegmark and others have argued that, if space is infinite, or sufficiently large and uniform, identical instances of the history of Earth's entire Hubble volume occur every so often, simply by chance. Tegmark 
+            calculated that our nearest so-called doppelgänger, is 10<sup>10<sup>115</sup></sup> metres away from us (a double exponential function larger than a googolplex). However, the arguments used are of speculative nature. Additionally, it would be impossible to scientifically verify the existence of an identical Hubble volume.<br>
+            Around 2010, scientists such as Stephen M. Feeney analyzed Wilkinson Microwave Anisotropy Probe (WMAP) data and claimed to find evidence suggesting that this Universe collided with other (parallel) Universes in the distant past. However, a more thorough analysis of data from the WMAP and from the Planck satellite, which has a resolution three times higher than WMAP, did not reveal any statistically significant 
+            evidence of such a bubble Universe collision. In addition, there was no evidence of any gravitational pull of other Universes on ours.
+        </div>
+    </body>
+</html>

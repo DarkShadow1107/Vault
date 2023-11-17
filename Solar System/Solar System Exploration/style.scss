@@ -1,0 +1,1486 @@
+$planetCount: 15;
+$planetSize: 1200px; // Size of each planet
+$planetSpacing: 2300px; // Space between each planet
+$planetTransitionSpeed: 2.4s;
+$mainPlanetViewAmount: 280; // Less means we see more of the planet at the bottom
+$globalPerspective: 800px;
+$sceneAxisTilt: -20deg;
+$menuSpacing: 13px;
+$traverse: "";
+$traverseTriggers: "";
+
+// Colors
+$sun: #230792;
+$mercury: #146105;
+$venus: #740808;
+$earth: #26daaa;
+$mars: #8fb3ab;
+$ceres: #055005;
+$jupiter: #7a4908;
+$saturn: #2b2532;
+$uranus: #4d0a6f;
+$neptune: #7caaf5;
+$pluto: #4e0438;
+$haumea: #6a0f2dd7;
+$makemake: #065433;
+$eris: #053c5fe4;
+$sedna: #14b182ec;
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700");
+
+.solar_systm {
+    transform-style: preserve-3d;
+    pointer-events: none;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+%absPosition {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto;
+}
+
+@mixin makePlanet($outer, $inner, $texture) {
+    background: url($texture);
+    box-shadow: 0 (-430px) 100px black inset, 0 0px 85px 23px $inner inset,
+        0 0px 21px 3px $inner inset, 0 -10px 100px $outer;
+}
+
+%trajectory {
+    border: 2px dashed white;
+    position: absolute;
+    border-radius: 3400px;
+    background: none !important;
+    z-index: -2;
+}
+
+@mixin makeTrajectory($width, $left, $top) {
+    @extend %trajectory;
+
+    width: $width;
+    height: $width;
+    left: $left;
+    top: $top;
+}
+
+@mixin makeMoon($left, $top, $scale, $texture) {
+    left: $left;
+    top: $top;
+    transform: scale($scale);
+    background: url($texture);
+    z-index: -1;
+    box-shadow: 0px -30px 30px 10px black inset;
+}
+%planet {
+    height: $planetSize;
+    width: $planetSize;
+    border-radius: calc($planetSize / 2);
+    transition: transform 2.8s 0.23s cubic-bezier(0.33, 0, 0, 1),
+        opacity 2s 0.8s, box-shadow 0s 0s;
+    background-size: 1140px 910px !important;
+    top: auto;
+    bottom: -$planetSize + $mainPlanetViewAmount;
+
+    & .moon {
+        height: 200px;
+        width: 200px;
+        border-radius: calc($planetSize / 2);
+        position: absolute;
+        text-align: center;
+        color: white;
+        text-transform: uppercase;
+        opacity: 0;
+        transition: all 0.6s 0.2s;
+
+        h2 {
+            font-weight: 100;
+            font-size: 40px;
+            letter-spacing: 5px;
+            margin: 0;
+            position: relative;
+            top: -120px;
+        }
+        h3 {
+            font-weight: 100;
+            font-size: 20px;
+            letter-spacing: 5px;
+            color: #fea082;
+            margin: 0;
+            position: relative;
+            top: -120px;
+        }
+    }
+
+    @keyframes planet {
+        from {
+            background-position-y: 0px;
+        }
+        to {
+            background-position-y: -1000px;
+        }
+    }
+}
+
+%viewPort {
+    position: absolute;
+    transform: rotatex($sceneAxisTilt);
+    perspective: $globalPerspective;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+// Unforunately we cant be super dynamic with this as
+// perspective changes the scales of objects
+%trigger {
+    @extend %absPosition;
+
+    width: 220px;
+    height: 220px;
+    border-radius: 550px;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 12;
+    left: 18px;
+    bottom: 282px;
+}
+
+%checkbox {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 20px;
+    left: 43px;
+    z-index: 2;
+
+    &:checked {
+        &::before {
+            display: block;
+            width: 6px;
+            height: 6px;
+            background: white;
+            position: relative;
+            top: 3px;
+            left: 3px;
+            content: "";
+            border-radius: 10px;
+        }
+    }
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    font-family: "Tahoma";
+    .logo {
+        color: white;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 100;
+        letter-spacing: 4px;
+        span {
+            font-size: 12px;
+            color: #f39041;
+            display: block;
+        }
+    }
+    label {
+        cursor: pointer;
+
+        &.sun {
+            & > .preview {
+                background: url("https://upload.wikimedia.org/wikipedia/commons/9/99/Map_of_the_full_sun.jpg") !important;
+            }
+        }
+        &.mercury {
+            & > .preview {
+                background: url("https://www.solarsystemscope.com/textures/download/2k_mercury.jpg") !important;
+            }
+        }
+        &.venus {
+            & > .preview {
+                background: url("https://www.solarsystemscope.com/textures/download/2k_venus_atmosphere.jpg") !important;
+            }
+        }
+        &.earth {
+            & > .preview {
+                background: url("https://img00.deviantart.net/04ef/i/2009/114/3/e/new_earth_texture_map_by_lightondesigns.jpg") !important;
+            }
+        }
+        &.mars {
+            & > .preview {
+                background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/mars_texture.jpg") !important;
+            }
+        }
+
+        &.ceres {
+            & > .preview {
+                background: url("https://www.solarsystemscope.com/textures/download/2k_ceres_fictional.jpg") !important;
+            }
+        }
+
+        &.jupiter {
+            & > .preview {
+                background: url("https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA07782_hires.jpg") !important;
+            }
+        }
+
+        &.saturn {
+            & > .preview {
+                background: url("https://www.solarsystemscope.com/images/textures/full/2k_saturn.jpg") !important;
+            }
+        }
+
+        &.uranus {
+            & > .preview {
+                background: url("https://img00.deviantart.net/957c/i/2017/165/4/9/uranus_texture_map_by_jcpag2010-db7yjwb.png") !important;
+            }
+        }
+
+        &.neptune {
+            & > .preview {
+                background: url("https://img00.deviantart.net/f068/i/2017/165/b/c/neptune_texture_map_by_jcpag2010-dbcjcv5.png") !important;
+            }
+        }
+
+        &.pluto {
+            & > .preview {
+                background: url("https://pre00.deviantart.net/4677/th/pre/f/2015/314/4/e/pluto_map__2015_nov_10__by_snowfall_the_cat-d918tlb.png") !important;
+            }
+        }
+
+        &.haumea {
+            & > .preview {
+                background: url("https://www.solarsystemscope.com/textures/download/2k_haumea_fictional.jpg") !important;
+            }
+        }
+
+        &.makemake {
+            & > .preview {
+                background: url("https://www.solarsystemscope.com/textures/download/2k_makemake_fictional.jpg") !important;
+            }
+        }
+
+        &.eris {
+            & > .preview {
+                background: url("https://www.solarsystemscope.com/textures/download/2k_eris_fictional.jpg") !important;
+            }
+        }
+
+        &.sedna {
+            & > .preview {
+                background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3ab110bd-6bda-4a70-8ad9-8178149c07c9/dbvwj5e-82f72f77-f7a8-47c9-8dc2-c9639577d445.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNhYjExMGJkLTZiZGEtNGE3MC04YWQ5LTgxNzgxNDljMDdjOVwvZGJ2d2o1ZS04MmY3MmY3Ny1mN2E4LTQ3YzktOGRjMi1jOTYzOTU3N2Q0NDUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.hXOeuH8Yx_43D5TuWUDzKuu7MEYPlOkK0fgEkggYhiY") !important;
+            }
+        }
+    }
+    label.menu {
+        color: white;
+        display: block;
+        position: absolute;
+        cursor: pointer;
+        left: 79px;
+        z-index: 2;
+
+        &:after {
+            display: block;
+            width: 12px;
+            height: 12px;
+            border-radius: 60px;
+            border: 2px solid white;
+            content: "";
+            z-index: 2;
+            position: absolute;
+            top: -4px;
+            left: -4px;
+        }
+
+        &:hover {
+            h2,
+            h3 {
+                opacity: 1;
+            }
+        }
+
+        &.sun {
+            h2 .pip {
+                background: $sun;
+            }
+        }
+
+        &.mercury {
+            h2 .pip {
+                background: $mercury;
+            }
+        }
+
+        &.venus {
+            h2 .pip {
+                background: $venus;
+            }
+        }
+
+        &.earth {
+            h2 .pip {
+                background: $earth;
+            }
+        }
+
+        &.mars {
+            h2 .pip {
+                background: $mars;
+            }
+        }
+
+        &.ceres {
+            h2 .pip {
+                background: $ceres;
+            }
+        }
+
+        &.jupiter {
+            h2 .pip {
+                background: $jupiter;
+            }
+        }
+
+        &.saturn {
+            h2 .pip {
+                background: $saturn;
+            }
+        }
+
+        &.uranus {
+            h2 .pip {
+                background: $uranus;
+            }
+        }
+
+        &.neptune {
+            h2 .pip {
+                background: $neptune;
+            }
+        }
+
+        &.pluto {
+            h2 .pip {
+                background: $pluto;
+            }
+        }
+
+        &.haumea {
+            h2 .pip {
+                background: $haumea;
+            }
+        }
+
+        &.makemake {
+            h2 .pip {
+                background: $makemake;
+            }
+        }
+
+        &.eris {
+            h2 .pip {
+                background: $eris;
+            }
+        }
+
+        &.sedna {
+            h2 .pip {
+                background: $sedna;
+            }
+        }
+
+        & .preview {
+            width: 30px;
+            height: 30px;
+            float: left;
+            background-size: auto 100% !important;
+            position: absolute;
+            border-radius: 100px;
+            //border: 2px solid white;
+            box-shadow: 0 -13px 10px 2px black inset;
+        }
+
+        & .info {
+            position: relative;
+            left: 50px;
+            top: 1px;
+        }
+
+        h2,
+        h3 {
+            text-transform: uppercase;
+            margin: 0;
+            font-weight: 100;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 12px;
+            opacity: 0.4;
+            margin-bottom: 4px;
+
+            & .pip {
+                width: 0;
+                height: 9px;
+                background: #fea082;
+                float: left;
+                position: relative;
+                top: 3px;
+                transition: all 0.3s;
+                transform: skew(-10deg);
+                margin-right: 0px;
+            }
+        }
+
+        h3 {
+            font-size: 8px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            opacity: 0.3;
+        }
+
+        @for $l from 1 through $planetCount {
+            &:nth-of-type(#{$l}) {
+                // Caluclate middle and distribute evenly
+                $labelSize: 34px;
+                $labelSpacing: $menuSpacing;
+                $totalHeight: ($labelSize * $planetCount) +
+                    calc(($labelSpacing * ($planetCount)) / 2);
+
+                top: calc(
+                    65vh +
+                        100px +
+                        ((#{$labelSpacing} + #{$labelSize}) * #{$l}) +
+                        0px -
+                        #{$totalHeight}
+                );
+            }
+        }
+    }
+
+    & input.read {
+        display: none;
+    }
+
+    & .read:checked + label + input + .panel {
+        right: 0;
+    }
+
+    & .read:checked + label {
+        width: calc(100% - 420px);
+
+        &::after {
+            opacity: 1;
+            left: 0;
+        }
+    }
+
+    & .read:checked + label + label {
+        transition: all 0.3s 0.6s;
+        opacity: 1;
+    }
+
+    & .read:not(:checked) + label + label {
+        transition: all 0.3s 0s;
+        opacity: 0;
+    }
+
+    label.close {
+        position: absolute;
+        right: 60px;
+        opacity: 0;
+        transition: all 0.3s 0.4s;
+        z-index: 3;
+        top: 65px;
+    }
+
+    label.closeBig {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        height: 100vh;
+        transition: all 0.2s;
+        z-index: 10;
+        width: 0;
+        background: rgba(59, 36, 114, 0.422);
+
+        &::after {
+            content: "Back";
+            text-align: center;
+            font-size: 30px;
+            color: white;
+            position: absolute;
+            left: -140px;
+            opacity: 0;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    @for $a from 1 through $planetCount {
+        $traverse: $traverse + " input + label +";
+        $traverseTriggers: $traverseTriggers + " input + label +";
+
+        @if ($a == 1) {
+            $traverseTriggers: "label +";
+        }
+
+        @if ($a == 2) {
+            $traverseTriggers: "label +";
+        }
+
+        @if ($a == 1) {
+            $traverse: "label +";
+        }
+
+        input[type="radio"][name="planet"] {
+            //@extend %checkbox;
+            appearance: none;
+
+            &::after {
+                @extend %absPosition;
+                @extend %trigger;
+
+                content: "";
+            }
+
+            &.planet#{$a}:checked {
+                &::after {
+                    display: none;
+                }
+
+                $input: "";
+
+                @for $b from 1 through $a {
+                    $input: $input + "+label + input";
+                    & #{$input}::after {
+                        display: none;
+                    }
+                }
+
+                & + #{$traverse} div {
+                    // Now in root
+
+                    & .solar_systm {
+                        &:nth-of-type(#{$a}) {
+                            pointer-events: all;
+                        }
+
+                        @for $i from 1 through $planetCount {
+                            &:nth-of-type(#{$i}) .planet {
+                                $translateY: 0;
+                                $translateZ: -$planetSpacing *
+                                    ($i - 1) +
+                                    ($planetSpacing * ($a - 1));
+                                $rotateX: 4deg;
+                                $scaleOffset: 0.89;
+                                $opacity: 2 - ($i - 1) + ($a - 1);
+
+                                transform: translateZ($translateZ)
+                                    translateY($translateY)
+                                    rotatex($rotateX)
+                                    scaleX($scaleOffset);
+                                opacity: $opacity;
+
+                                @if ($a == $i) {
+                                    animation: planet 60s 3.9s infinite linear;
+                                }
+
+                                &_description {
+                                    @if ($a == $i) {
+                                        opacity: 1;
+                                        transition: all 0.6s 2.6s;
+                                        h2,
+                                        h1 {
+                                            position: relative;
+                                            top: 0px;
+                                            transition: all 0.5s 3s;
+                                        }
+
+                                        p,
+                                        a {
+                                            transition: all 1s 3.5s,
+                                                padding 0.3s 0s;
+                                            opacity: 1;
+                                        }
+                                    }
+                                }
+
+                                & .moon {
+                                    @if ($a == $i) {
+                                        opacity: 1;
+                                        transition: all 1s 3.2s;
+                                    }
+                                }
+
+                                & .trajectory {
+                                    @if ($a == $i) {
+                                        opacity: 0.2;
+                                        transition: all 0.6s 2.9s;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                & + label.sun {
+                    & > .info h3 {
+                        color: lighten($sun, 40);
+                    }
+                }
+
+                & + label.mercury {
+                    & > .info h3 {
+                        color: lighten($mercury, 25);
+                    }
+                }
+
+                & + label.venus {
+                    & > .info h3 {
+                        color: lighten($venus, 45);
+                    }
+                }
+
+                & + label.earth {
+                    & > .info h3 {
+                        color: $earth;
+                    }
+                }
+
+                & + label.mars {
+                    & > .info h3 {
+                        color: $mars;
+                    }
+                }
+
+                & + label.ceres {
+                    & > .info h3 {
+                        color: lighten($ceres, 30);
+                    }
+                }
+
+                & + label.jupiter {
+                    & > .info h3 {
+                        color: lighten($jupiter, 12);
+                    }
+                }
+
+                & + label.saturn {
+                    & > .info h3 {
+                        color: lighten($saturn, 27);
+                    }
+                }
+
+                & + label.uranus {
+                    & > .info h3 {
+                        color: lighten($uranus, 43);
+                    }
+                }
+
+                & + label.neptune {
+                    & > .info h3 {
+                        color: $neptune;
+                    }
+                }
+
+                & + label.pluto {
+                    & > .info h3 {
+                        color: lighten($pluto, 26);
+                    }
+                }
+
+                & + label.haumea {
+                    & > .info h3 {
+                        color: lighten($haumea, 23);
+                    }
+                }
+
+                & + label.makemake {
+                    & > .info h3 {
+                        color: lighten($makemake, 25);
+                    }
+                }
+
+                & + label.eris {
+                    & > .info h3 {
+                        color: lighten($eris, 18);
+                    }
+                }
+
+                & + label.sedna {
+                    & > .info h3 {
+                        color: $sedna;
+                    }
+                }
+
+                & + label {
+                    opacity: 1;
+
+                    &:before {
+                        display: block;
+                        width: 4px;
+                        height: 4px;
+                        position: absolute;
+                        left: 2px;
+                        top: 2px;
+                        z-index: 2;
+                        background: white;
+                        border-radius: 4px;
+                        content: "";
+                    }
+                    & > .info h2 {
+                        opacity: 1;
+                        & .pip {
+                            width: 30px;
+                            margin-right: 6px;
+                        }
+                    }
+
+                    & > .info h3 {
+                        opacity: 1;
+                        color: #fea082;
+                    }
+                }
+            }
+        }
+    }
+
+    .solar {
+        @extend %viewPort;
+
+        &_systm {
+            @for $i from 1 through ($planetCount + 1) {
+                &:nth-of-type(#{$i}) {
+                    & .planet {
+                        // This is our initial view of the planets before anything is pressed
+                        $translateY: 0;
+                        $translateZ: -$planetSpacing * ($i - 1);
+                        $opacity: 2 - ($i - 1);
+                        $rotateX: 4deg;
+                        $scaleOffset: 0.89;
+                        transform: translateZ($translateZ)
+                            translateY($translateY)
+                            rotatex($rotateX)
+                            scalex($scaleOffset);
+                        opacity: $opacity;
+
+                        &_description {
+                            opacity: 1;
+
+                            p,
+                            a {
+                                opacity: 0;
+                            }
+
+                            h1,
+                            h2 {
+                                position: relative;
+                                top: -330px;
+                                transition: all 0.5s 0s;
+                            }
+                        }
+                    }
+                }
+            }
+
+            & .planet {
+                @extend %absPosition;
+                @extend %planet;
+
+                & .trajectory {
+                    transition: all 0.6s 0s;
+                    opacity: 0;
+                }
+
+                &.sun {
+                    @include makePlanet(
+                        rgb(225, 111, 58),
+                        rgba(228, 120, 78, 0.6),
+                        "https://upload.wikimedia.org/wikipedia/commons/9/99/Map_of_the_full_sun.jpg"
+                    );
+                }
+
+                &.mercury {
+                    @include makePlanet(
+                        rgb(129, 119, 115),
+                        rgba(221, 199, 195, 0.6),
+                        "https://www.solarsystemscope.com/textures/download/2k_mercury.jpg"
+                    );
+                }
+
+                &.venus {
+                    @include makePlanet(
+                        #ecab6e,
+                        #ffcb9c,
+                        "https://www.solarsystemscope.com/textures/download/2k_venus_atmosphere.jpg"
+                    );
+                }
+
+                &.earth {
+                    @include makePlanet(
+                        #7894a9,
+                        #8cbaff,
+                        "https://img00.deviantart.net/04ef/i/2009/114/3/e/new_earth_texture_map_by_lightondesigns.jpg"
+                    );
+
+                    & .trajectory.m {
+                        @include makeTrajectory(1500px, -150px, -110px);
+                    }
+                    & .moon {
+                        @include makeMoon(
+                            800px,
+                            -160px,
+                            0.45,
+                            "https://www.solarsystemscope.com/textures/download/2k_moon.jpg"
+                        );
+
+                        h3 {
+                            color: $earth;
+                        }
+                    }
+                }
+
+                &.mars {
+                    @include makePlanet(
+                        #783327,
+                        #e86363,
+                        "https://www.solarsystemscope.com/textures/download/2k_mars.jpg"
+                    );
+                    & .moon {
+                        h3 {
+                            color: $mars;
+                        }
+                    }
+
+                    & .deimos {
+                        @include makeMoon(
+                            900px,
+                            -100px,
+                            0.45,
+                            "https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA07782_hires.jpg"
+                        );
+                    }
+
+                    & .trajectory.d {
+                        @include makeTrajectory(1770px, -317px, -110px);
+                    }
+
+                    & .trajectory.p {
+                        @include makeTrajectory(1600px, -200px, -160px);
+                    }
+
+                    & .phoebos {
+                        @include makeMoon(
+                            100px,
+                            -160px,
+                            0.5,
+                            "https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA04746.width-1024.jpg"
+                        );
+                    }
+                }
+
+                &.ceres {
+                    @include makePlanet(
+                        rgb(129, 119, 115),
+                        rgba(221, 199, 195, 0.6),
+                        "https://www.solarsystemscope.com/textures/download/2k_ceres_fictional.jpg"
+                    );
+                }
+
+                &.jupiter {
+                    & .moon {
+                        h3 {
+                            color: lighten($jupiter, 18);
+                        }
+                    }
+
+                    & .trajectory.lop {
+                        @include makeTrajectory(1500px, -210px, -189px);
+                    }
+
+                    & .trajectory.eu {
+                        @include makeTrajectory(1530px, -165px, -130px);
+                    }
+
+                    & .trajectory.ga {
+                        @include makeTrajectory(1760px, -360px, -114px);
+                    }
+
+                    @include makePlanet(
+                        rgba(188, 143, 127, 0.6),
+                        rgba(234, 205, 199, 0.6),
+                        "https://www.solarsystemscope.com/textures/download/2k_jupiter.jpg"
+                    );
+
+                    & .lo {
+                        @include makeMoon(
+                            100px,
+                            -100px,
+                            0.4,
+                            "https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA00021.width-640.jpg"
+                        );
+                    }
+
+                    & .europa {
+                        @include makeMoon(
+                            400px,
+                            -210px,
+                            0.45,
+                            "https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA00539.width-1280.jpg"
+                        );
+                    }
+
+                    & .ganymede {
+                        @include makeMoon(
+                            900px,
+                            -70px,
+                            0.4,
+                            "https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA00357.width-1024.jpg"
+                        );
+                    }
+                }
+
+                &.saturn {
+                    & .moon {
+                        h3 {
+                            color: lighten($saturn, 19);
+                        }
+                    }
+
+                    @include makePlanet(
+                        rgba(188, 143, 127, 0.6),
+                        rgba(234, 205, 199, 0.6),
+                        "https://www.solarsystemscope.com/textures/download/2k_saturn.jpg"
+                    );
+
+                    & .trajectory.ti {
+                        @include makeTrajectory(1500px, -210px, -189px);
+                    }
+
+                    & .trajectory.di {
+                        @include makeTrajectory(1530px, -165px, -130px);
+                    }
+
+                    & .trajectory.enc {
+                        @include makeTrajectory(1760px, -360px, -114px);
+                    }
+
+                    & .titan {
+                        @include makeMoon(
+                            100px,
+                            -100px,
+                            0.4,
+                            "https://pre00.deviantart.net/bea3/th/pre/i/2017/057/7/f/titan_texture_map_8k_by_fargetanik-db0f8m0.png"
+                        );
+                    }
+
+                    & .dione {
+                        @include makeMoon(
+                            400px,
+                            -210px,
+                            0.45,
+                            "https://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA12577-640x350.jpg"
+                        );
+                    }
+
+                    & .enceladus {
+                        @include makeMoon(
+                            900px,
+                            -70px,
+                            0.4,
+                            "https://www.snexplores.org/wp-content/uploads/2023/01/010923_lg_enceladus-snow_feat-1030x580.jpg"
+                        );
+                    }
+                }
+
+                &.uranus {
+                    & .moon {
+                        h3 {
+                            color: lighten($uranus, 45);
+                        }
+                    }
+                    @include makePlanet(
+                        rgba(127, 188, 171, 0.6),
+                        rgba(234, 205, 199, 0.6),
+                        "https://www.solarsystemscope.com/textures/download/2k_uranus.jpg"
+                    );
+
+                    & .trajectory.mir {
+                        @include makeTrajectory(1500px, -210px, -189px);
+                    }
+                    & .trajectory.ari {
+                        @include makeTrajectory(1530px, -165px, -130px);
+                    }
+                    & .trajectory.umb {
+                        @include makeTrajectory(1760px, -360px, -114px);
+                    }
+
+                    & .miranda {
+                        @include makeMoon(
+                            100px,
+                            -100px,
+                            0.4,
+                            "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYWFRgWFhYYGBgaHB4cHBocHB4eJB4eHxwZHCEeISMeIS4lHCErHxoaJjgnKy8xNTU2HiU7QDszPy40NTEBDAwMDw8PEA8PED8dGB0/NDQ/PzE0MT8xNDQxMTExMTQxMTE0MTE0MTExMTExMTE0MTExMTExMTExMTExMTExMf/AABEIAJ8BPgMBIgACEQEDEQH/xAAaAAADAQEBAQAAAAAAAAAAAAACAwQFAQAG/8QAOxAAAgECBAQEBQMEAAYCAwAAAQIRACEDEjFBBFFhcSKBkaEFscHR8BMy4RRCUvEGFWJygqKS0rLC4v/EABYBAQEBAAAAAAAAAAAAAAAAAAACAf/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AATDWBppyFd/TT8AoQ1hYUwoRp7H8isWEYacvl9q8EXdR7f/AFrwnvXCfSg6UT/H5favKqHaPT7V4A967koPNhp+AUJwx+D+a8sdaMR19ftQKyL+fwa4+UaxTWNeIoJw69KJWSYsKMqKW2ANSD5T8hc0B5FIBBB6gn711/DsO8j6mhXhv+pxbYj+aJEI1JbuB/8AqBQDh4mYSsEcxFEZ/BRZvL1ruc8/fWgAdQ3tXpHX0phJrq4hO3v/ALoFDLzjuKL9Mf5L6UQcbrb86fSltgj+23Sg82CdoPkB86U6OB+wHrr7xR5yAJkdaajydZHWgy34og+IqOgNF/UWByn51tvwQYaKd7j61Ji8Ku/hI5Gx96CFcWdAPP8AL1ThoTqAPb5mpMfhzNoVgbR/NGcIEAudORPPf2oKmWBoT/2qT8hQI06I57hV+Zn2pHCqGMqz5WkiCRptrJrvEYgW5W/Mtr/NAT8RFiAu3+Xyo/1TyHcA/ao04ouQRb1It9aoyg2YkzqARp86A/6iLEa8lP3omfpbtS8JFAyyW7mqcPDAEfM0C0J/AfvRgzt+edFhcNyEXvHPnYU02tlFtwKBOa0W9K8Re/ypkmZH55UTSdfagTA5V4oLCPQfxTQLWv1vQlRvtQAwXSB50QUdKLIbnb886VJFAbYcGNa7FtDFGizBJo5iw0+dBM1dX8mmEAkUTmLAdKBat5/nKhPX1rqtRjbSgCPSuBqMmfzSg8iaAlYn760wx3oBO9un+qHNeB9KA8vIUAb1rzuZyhT3Fh71Hi4zq0sEyC55xHfUHfSgemMxYqyMNIaQR85pxFqlTjFMwenP5a07OvMfag5+nrHO8AacvKi/SvM29/5FGqk6UT2HzoOAx1/OlCx/JFGwAgG/aiRZ10/PTWgEKfz+a49uU0DAgxqNO1JTEA8JJJFzOseXegqLHf8A3SmhdOtGyhpKnreL/wA0rEcxG9BpcBiZhltzHnQ8ThnPesv4XiMkE84HbTavoOIOeCCPTXt60GVxIAAsM35/FcwcORmmIJzC1xyvSPiaHMLkCGv1MQI/NKhT+oUSuG5mblLRpaRQaZ4pFXKFZSOUwZE3AEjU9QRtWfj+MywtsAJqfPiiAyOB1EDyq3CSILC5uAaAcLDAXQKvIiD9/WiTHw9JWe4+tOV20KR1BB9hRrwqnTKe1j5yZNB5L6EeRo/n3pQ4VQYBXyJHypj8OY0N9wZoB1016Sa6hvcGetq4MErqWj852rudS0S0/wDUDr0MRQPVY1kdIt71xyRt7D8FdBN/7udpEc4FA7A6R8qAQRvrvXPzyolExOn28qNu1AKOygxodevrXQpY6gCLUeDEW9KGIJEA9/4oO5SZ3FAFkXNh/NWPwp28jNAEIMHQ0ERPSmF5HWnfojSx08u9AUMR7zagQWrwMVUMCba9qEcKenyoEYjAAk6RPaKgfiplicqgSLkEzzI002rSx8KxB0NrelZePwYc3Yxa2um3qJoBGI7LY2GxMEjqRoTyGlX8A5IllCMJEdBv1qbGyEZWByi9p27bmvYPEEsVEQI1Gn89KDReCLkR0/BSXwkmYWdrfWlYmNAlRPy/O1I4XHPiznS4YC0cj96Cg4Qkyuu8+19KX+gg0lfOJ9daeGkSNOdDjAESYO9AKMy/tv8AnSmDFnUQOYv7a1Fg48wI1EjaaeCRYyT3g/Y0Fn6Z6Uc/7qIOw1aV5QJB6+9Wfp26c6BL4wmwPW1h6U0YTMOQ5fSvKxEARa9hXYaRA1/NtBQJRSpI228qVjMLweRg+tLdFZy7o7BB4ZEheZGYwJ517jQGzeHLaYF+21ztQIxsR/7DcGOe35ehf4q4ICsJsCACb68vD5xQpwrsJkgRfVAJAsTNz6Vf8K4H9NCWCz/jnIHc8ySd6CFPjjmSJgEywRrwdJaxi/WqH+MO3hDqeQIObtGk+tUv8ZeSFRAq6tFvJQS2mmk1Ov8AxThs+VkQbDEC3ntdgvXSaBn6ZBzOZc3gTb6T2pf9UwsMLEZjtmyz1zaR0N6IcQG8QYZZJBub6SM2h1sB50tccmxzHaSJ7yCRHoKDr8aoyqzlGOiuBM9w0P7VQ6K/7zmG+ZYg8xealwsSCRZwb3C+LaZI+5tTDjYZsmGEm7ELlnXUxJ96Dn6mGlxfnlX3sJPcVajhh4byJAEX3tpBio04x9Fca3IhoPI5WsfKu/quCYv1CGJ5zPzA+4NQZ5glO/hI5gyINuRrrgpKu+eIgkZT2DTDHt61M7l5JaOZQ38xp6iqcPgkZSXxSWGmGVmwFjMkbidOooFYGMkWLETGxyn/ABaL8/vVRwwYIYfn1tU+AVQkZQumUhpDDaDAjtVLYqDUDxCLT3tGmlB3Kb7RfX89KFB0mjLcmBGx8xahQg3n0PL872oOlBEg96IP38vrXMsGDadxTDg5ri+ny+9BohpAjtavZAdQfL51KeMWTBlZ/dFpi3LeJpyYrEFspA1k29NaA/6UEwG9JkelcxMHLbKTVmGZA52P561Fi8Q+YjM/YRb/ANT7mgWiskyojvJHtRGBcsVnz+lKbi9TmYxzym/kBQJ8RDnLmAO37DI9aBuOqFCQymLGI96xcTDA12vI/OVamK6wQTJI5C/oBUy4aixBuD/HagzlH+6NODxHLZELQL3A94uadjAEhRbSR61Zg8E4ggkE8iR8qDJx8IqsNmM6zr2pmAqJ0BNpg39K+i4f4ZmMv6UD/CgGjN4dgdqCBGUiP2nY7VJxgAIBhuWonsedafxThVQeGYjU3vUHDIRfUddCPegnwihHTcfl/OuAKSchDdDy6Haj4iJFhfaSPkacmEP3eFec69L+vrQKxW/tIs0DWqFW2t7UeEgadCR8/LfWuItxqL7b9O9B4SNJH5FV4CkgAiJ1It7elIVLCYkmwPLc1zinABE6bT+dKBvxVbka6E8gNJPPXWLVl8BiM6mcsKx6WXTsJnYUOBxiqrZlIY5rTMDKT/iAAIJJPTXSl/8AD6F3RGYFXUMTNyDJVQJ/blQA8460DOKxpeCc5E2EAC0S0sDE7C9c+KcRiIiJnOMx8TZEAyaQDAmLyJv7U7E4ElyyKSF5AZbzAWBJPkfsfDYfEYkljhIqEzmBbscpyhRvJY2E32DOTDxWQLiAKhaWYKykk83XXlBHztfw/wAOQAKjoyEQS5hhGqiSIHTLzpzcJxrkuThYiD9qoGQ5b+IAqQxgQJ8MnkDXsVoDKwOAwAzYjuHhtoUamSBJAF99ggc+LwEawNCAZjUEixBEdOlLdSYEQdSxna4ki02+WsyX8VirlVlDEqFDvlhXInxrGs3mbeGdNY+GfwOTaCNY59dL5R7UFOHw+5J9v/t9K88X8cwNAGBnr4ct+hMcqRhEf3nXQySCTIuZAtBkiYjvRY/DwwzTBkZgiWIgQc0XuIJB9rhRd8uZyxAAE6jXw2k76+tUvh4YIzOFPJm99Ad+dYb8IpcQu+4jMd/2uY9Bo1rWtVFUNKjMImxhQBP9oM+GWktpNgATQVHESP3g+YPtPtS0K7N4uoideWlBhYqhRnwkdZBVhi5bHnYpPTcA6RFNwEVy8AplUtBZniAZMgrCg7wRryoKMKSI/cRGkgiTrGjC+qweYOlUIWMq0qQDqs22OoMg7VFgQwJD4bgC4LZuu6DKdb05MdidhexEaEzz6xQPwsK5g3EbaG23mPWiPDkScovcgc+Yp3D45MZ1INxNjobXFjaeW9FxmDlXOmR4NgPCcpsRDHKxAPPagUqjkdZg7ae33ohw2sGBNKnM0wQdbiJU7i8/760w8YM3hBNthYC1AniycxzKANABcdao4fEJUGRlMCx/jSpcXinLlLZZj9snNaJJNh2r3DcIwYtmMLcrlIvyveg3eGxTcEj90CnYzISf8mXKSAfmBas3glLGQmUc+fKn4L5WcSdRb0H3oMH4jhnDYITbXQ87XsI6CowikkgwWP7gCDI3tWv/AMT4xZsMKP2k5j0ItHnU3EoWXOQViDcGCYImBN7Lt50ClxWUkqM4W97X6E6fzRn4qrJLKA06Am380XD4bsoYlYNz4iTHQZZM8iaT/wAvcEs3hBJOltbdRttQJXjELXtNfQ8HxoKKSDyB59q+bbhR/dAadBeRrPTtWnwXCZoQMwOv8j/dBqtx41gzypnEY4LSRHI86zS5TwlwRfmYHM0nF4wiMylojrbna8RQa+NxCNaJFTQkGAqjnmFS4oLrIEA9CB7jvXODKBTm8YWR4TKknaRqenSgTxK+PMQIi0b8q8UJ1AA5UxsPMPACCIKxB9RE1SnFzMothaxB3mY1oPmeP+Fu7yHZFUfuUsLkjZTfQelbGDjqSpJV3UScujEQJ1sNTFN4nFZzAhRrlJn3BmlYiOvhESNQDMb3oNDBYZdMs3LaEgHS+nK/OvnPi+OdlEAwGgtmaZgaWkGTWr8PK4hdMxzkXlbRy3B7Xq1/g7kswCuGEEELmUjlLQBG1B8fxPHcQVdMqMGBUsoItbMB5WPeufBeGccRg4mJJVIGsQFVgpgf45jFq30wspyugUi3MA+ZMDoCQKNeGQMxiSIkA/unltYweUUGIeO4lHY4S4n6YgILwAAFUkESTAmJ3g1s8DhrKZ2d8Yy4xcNMgQmSEbMSGBgSrAwRfaOf8wJOUqwAvAtbTncbWp7Y7KfE7AG4UDbppagmfjeOKxkw1MmWCuCb3iXkCw01ip8P4UQFfEyl5JnmTN2hbkTvNrWrQGKpEkyf+oj5V5VdhCoSP+234OdBBxzOwZGyZf8AoWNNDJvzvRJwOKVgE5TqT4deVpM6V1gc0SQ25gX51rr8RkElRaNJ2id40+tBBxHwzEI8bluRmwmPCJEZb6CKysbgp8KuWg3MzG2T/wCOvccq3+I+KsxGUm55CBU3xDhFXxAN6GJ12HKgyDwTgKQxdxGZixOYDbzBjpFok05MBxBaRuHynOCIJFmiJ5zEdSTRhs2UWi+irH+z5UeCkAtnCne4v0maBacJfMCR2gaxNr2MGR+0zpTcHBCElUBNmBzHwsLSCDmkix2MSd59mJMlVYjTMSY/+JinMrnQRPIAe9ArFx2zakA3IWBHO4XSwtajRVjUkzIi1/MihRAhJYgQYOvyj21rhw87TFumb5Tagegy3JAvpnUn2JFVriLaYJm3OTOkaampMLCUbEDnp+etVLgiAQQBBmdehk2FAapJDMDPz1+m/wAqXxGKZGWwIJ0Uco0B6++tMw1loQAAjYXAjnE786e2GogZTpr4efKdTrQS8X8PhwUJU/5xJttfUQTQfFRMBSRzaDPtR/FcRwhZSQZFwJgT+Gh4bEDoFZzOxIkHud6CRvijongMxqWvB5QDS8P4+MoDeNiZBiPSw0p3DfDiurASYiAwifaixeGwkaEMvvA03MTzoPYCNiMx/uAkDWJ3E67UXEK4kv4gYMHY6bCwpSOihlLMDuQRIHYiDUmCcjMM2I4sQW5EclgH2oNJMQBGZAisLBTG03vtaaxWxXdyXcgze7R08MmK2QA62dUJMQCPENheY8jWfxHwtnP7IOkwGnyJoFKs3u21jMHzmmtxLrAnvqD2J6faupg5Vy5VXoQLgb5jN69+go8ZgDe8W9/egA4pbweHKdYJPmfDMzVmE6CzkwOQLW8q5wxSGysMpEWj7CaTiY6hoAVgdSDPlp70HMb4lLeDDAE6gnN5iAaWcViZsoF4kXPPQXo+LxRljDSG/wAlBPqOVLwsPw+I5iTrlMTuJkCgvwPiAFwJ1sbAdTzpHEcfn0cF9BBsDf3ipv0iTsBtt8z9fWm4SGZli0QDbTfQmga6qwmI5wCb87UCfDVZ1AmDrD7dbzPpTXAkZiBOnX0rQweFWCxa43uY9TQLEoT4QJgAAk9oJvO9O4TjmR58IWBnaCSSf/K0DS16S7EvlQkgLIaRBsdBoKkfARf3PDG4AJBiR/jr/ugZiYoxnb9OWmTIiexG3nWciKDGZtSG23JO9iD8qfgJlxFR8RsNxdSDGdTff9x+VN+KcIquTcixtCkk7EyBPegQ2AzPIlwZ8USVJ3BIq3H4d2wwHcO6m1gI9CTNZ3E4hQymYK2v9zDnfp0p3w3GBMHOFvmbW+m+nag4MLKpIZ8yn+4EKRrYkTI5Ulviga7sZFgBMA8iCIPS9bON8NSQ64i5jyXXykyaE/CcEHO7qHiymwPXKDcjnQYz8ST4lQvOwMQepq3D4pjdvERYEC4G8TqO1dx0YkxmnyIvuIuD3ruCXQySTtNoPtag9iYqZs4XOR/aovPM/aqcXjAwH6iAW7x3MWFZ2NxRDFmfIu0zHbSjfiFYDKrzrmmxnfxTHYUHuL/TJlFIO85MschAmfai4gsoBLkKY8InbnEW8qXwmAhIzYoQ8iMvuImrhwGG8+MkbEG3kCL350EuEzEeBT1I+2tcR3JChSe2a/patA8EEMTmaJM2AEdNZ6USvioubOVkxYKvkAV9zJ5GgixOCdSLAMTIWDtrR/oOolgYna3nYj5VbgcQrPdIYgksRBjz0EwKqJQxIzQZ3/IoJMPCiC4IBMAm58lA2veafjhCoOCSx0BYlYOknQ89u1exlzlSQZOgLZoH3ry4CaTHOTa1B7AwMuhY2mxtpryjyr2Hw1pxS17gC/5YUSuZIDAjn+a0L4kEasYvGg0tQOZL9IsKQ/wrDcFmDAG0KzL/APiRVOA4zETc1UxtGlB83x+Dh4cYYdgANSTrymb1Hh4UyRsJDFj6a/Or+J4a2YrnVmk9oqMozHwkgGPDECOel9qCvDaMMZ1JN4bvH0FZ6o5BUaGwIjTnI1FbCIHUICZHIyB968vCvhrAbNeY3oMNOGysDKkyACRFtZtbXlVWfPYuSJgCbd7a0S8NmMs0OTJtbtVScLBnMJPTlvY0HkTIsG9rbetKXhXIIeFtrMR25VYOHAuXVjpAmfQ2oOKTOIBYDcnXtagxMLhcQEmWKA6jKS+9t/Was4fGRjDYbKQJlgBM79aacYooUftm459r/SiVgLLvvM69DcUCxxCrYYMzuwiewGtdRVIkAqd1ER3g0eJhMFZ4BTZtTJ6fxUb4jt4dOpaPaYigej2MXI25+lL/AKof2iRawFx3mm4eEAABM6TJI73JNVYnArELGlzE9bAg0GfhYZMs5N9Jie5EX9qvTh2yEjcQsnadI0JoE4TIJMgdp8rVs/0wKi8ZdvzSgjwcMKSQNReFtOliKyMZ3bFMQSogbi/Q2mK3sfHQqMrQwI39u380jDfMGmxJBaB8utBjj9dzDGwOWZETsIiR6mtFwG/cDaxvIYb6iqsNEVTb+6YN7/OspyufKHB5i4+YF6CTicLLZcwWbD89Ka/ChwJkEbhmWe+Ug9NafABgAle8eovPtSmdJs3oZ8ooPYfDZFKIWuZuSYnaS00D4AAss7lhNz1BJPvTnzWygn0jzFeLGbKBzBGnrpQDhvmUAi4/afp9qVicLmJOcg7Etp10v2mmjigTZf8A1j8FPPCow8cMTooFh9z1oIv0ABDE4ralzGVf+kA3nqP4okMf2FSeu3Wq04ZEnK3kTP8AquLhK13KheQFz3PLpQL/AFM1oBGliL+moNauARYR0AHy5VnLwOECCDl5An6VWmIii3iMQIBHz310oPWViwEktJJ8Rtskm1Dh8WXYeAHLJzNKwdgNb0P6igGFE9Tp2vUuLxhUBTAXtM99ooKnw0/zgm5kzm/jlTExlUEDxHSwIt571mYWIWIyqO5EirhhuB4t+QigI4ggwomNT9L144WIQosE3tJP52qf+nMyxgcoJPqasdMqhs4WbiST8zFAeHhqtlEx9KbhYYiTEfXnQrhqVDMRBmZMz5U7FwiYNgNqB2MoDxvzpeNiDLc6E/nvR8RDEMRelI235NAf6hgEaRfesziOK/UeBCIup5mtLEaZFL/pVa5UE7igzH4UFsyE25E37QYqlsZyRqIja9XJwojwmANq6mEpkTbc0GRjcI7kuZUCbgkewNz3kV5lzfunvz9/lW2EQLGve9ScQ6xGVh2saDJ4pyCMqRBtEkE9Tzq7CxXcWUAjUaelOwWQ7Me5pyYgQWWKBC/Di13F+YiOxEVPx3D4LOuZTmAsT4dOxuKtbjWOlr+tKZQxJYDp+RQcIGWNVFiBfTnP3rycKrAFsq9CRMcoFpoDhi4k/Ki4YKlypJjnt50HMgBI25DYcqTj8QBseX4Kp/UkTkgnbX151zDCLd1SDoBE+1Al3/aAwGkgzIEbxTXcHMpJE3m8T0rPxcQF2AkTfa1TYbkhgVBvIlDmno5aw6RfnQavA4Sne1wBeSdzf7UXF8PlYBSwMQKzVd0g30tBiO9o+danCEsuZu9zNBzAwXBhotcmDMdOtDxvC4b+ITmmZj7DQVfwyZgzHyPYVwB3BhYAFjzoMVcqtlLSOl4p/D8KhJjKp5xEVkBWRjmnW8GOu1aHDYuYQSen7hHcxeg4S0az9/rQo8aiR+bnWtLgPh7EM7ZAo3HzNJbJmjLbpQTuMosLG8mPw1O3Fwdgfz08quyqCQLg7GD6cqP+mUaFQBzE0EuFGXOFPLa3r86W/FARMRtF/wCDVeJAMzp6HyjSjTAVrjKCeY0oM1cQu0gA9TJHtVi4TgeKL8hVM5OR7CK4uK7GBAGtyT7UEZ4YkyTA7En+KqfBAUMSonTNf56U5kMD9p5XA+dKTCzEFgBl0nWflQGjqFB/PKvfqMxgQo7k+1ed0BMAOfK3TnT+GxFYHNC9vw0CmU81PoPnv0pSYeY5mAEabn7VSOGRmBuR1rvEECyYZ7z/ADFBxAC17jr9KoXCOp02oMBMo08R2/3pTBmkkkRsBQLLzA9aoeNNRzoHw1ixg+1Lw0MEZhHegJiAAImhzQ1heuKwkgMDHnXWKjUDzoPDiotlk68qWuIzXyAdCdaIYs8o6fevOQLgkedvSgDEBO2WOR1piYAYTDR5/WuYfEHoR1FEfiENlKmDvt7maCfEwSn7MzHWDYV7iFZoOQE2kDb01FO/WXab71wcVmt4vTWgUMMCzAeQpq4qKIEedCVgSQBG5A+n2qWcxkKD3+1A5hmUgWJtpP8ANZr/AA91k51gbyfv9KsxuLyf2kzY5RftUT4+fwrmXeCCSO/M0FOFxqIgzvna+kT6fes3FxSxOVhBMycyj50WBwiZ5Ckk/wBxsT6mtlEVBoIO5v8AQ0E3w3hChzsR0Ik7aVYrIZKzB3gCfzrQvjIYzMSPOPr6U8lCAAxEaQBFBHlLG+SOwv7TVWFYW8RGw+s0xHw1nxT0UXnq1Z2PxBawGVeQ36mgHjOObLlWZJm15PK1ScPxXEE5XOVZjwie8zNXJsEF41G1QNgeItmIP/dbudqCrGwxqHDHkR96ZhyykZR/4qB/uswlhHgcjXNNz5RWjwWMVWbidt+3SgceJfJkvl0iI/BS0wg1rg85pTuzHMVEbAmvcPjgsQUPkaCxOFCSAwJ/PTyosbh1UScxMbA1L/U3OWY5fWurxo2a/JlYfSg9gcNvl05/Y696LBSTDAAcw1LC4jTcR0YfKaAIyg+GJ3INA5lvbKfOfOap4VpMHIOZ5VnYDOuoFOwsbmBPcj50F2LwqFhctzP2oONAAyojd5/BU65tJ9xN+U17HLAfugHdh9QT8qDrYJCycsxvRYRGWWKdDJqYYLETnU9B/wD0BQYisBllRuLj3oKVzEWM9Y+VWcCytfOCOnP6VmJiNEEgnpBpuC95kL5X96DQdhJABB6ihLrAoA+Y62iIG/nVAQDW3KgNkUj9wNAcE2ywanDsNI/PKunHf/Ie9B7GwHBnIOsEmvHDA1E0LMx1Y/nnSig5n88qCtMRBsPMGpuLhrqTPLYelAVGwPrQpmnp+czQNwcNyABbnek4zulmJE/tsDPbWnDE5r716VOsig9hp4AWPj3sAPbSufrMujR6fUUl1vYn1NCEtfMfOgLGd3jMxblRYWCbjMAD60o4M7mmDgm2ag7xPDqBmDAwNLz5VG3CK4Jdso/xDXPU39qo/wCXYk3uO4FA3BEf2/8AtQL4bhspJDlhG9opmTMb3HcfevfouLR/7VRg4AP7lPqKCZuEB/uCgedG7ADwx3NvnVrYA6+32pD8ADfPHkfpQQF431/O1FgCWubeQ+tVvwYH9yn/AMP5pX9OdAwPlFA3iMjHVh1FN4dMEC6F+8/I1KMGP3EDyP0pyyf2knv+TQHxDoxgIVHQz89KnfDtZvUfarGwmGoBFArrpEfnagjTAfkIriSJhe5vFaQwzFvnQfpKQcwnrpQQYDOuqiPzWnrjyYKr52rv9Im31o8LD5L5sxNB44Sf4LP/AHEfI0tsBTqnux+tVYXCjnHa1cfDj9rE96CQ8MvKB3P3pz4OUeAAt1JPnrTQTuPSK8yg7H2+9BEFddQJ6U7DxybNEcmFVEk6ie/+6D9McooFlAdFQ/8AjQHAH+A9B96pXBSLzPOhZY/axoEJwyzBA9KYybLEbgAWog53E14MJmIPOf4oPLhpowII3FUIV2f1FIbGnW/lXrUH/9k="
+                        );
+                    }
+
+                    & .ariel {
+                        @include makeMoon(
+                            400px,
+                            -210px,
+                            0.45,
+                            "https://d2pn8kiwq2w21t.cloudfront.net/images/jpegPIA00041.2e16d0ba.fill-400x400-c50.jpg"
+                        );
+                    }
+
+                    & .umbriel {
+                        @include makeMoon(
+                            900px,
+                            -70px,
+                            0.4,
+                            "data:image/jpeg;base64,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"
+                        );
+                    }
+                }
+
+                &.neptune {
+                    & .moon {
+                        h3 {
+                            color: $neptune;
+                        }
+                    }
+                    @include makePlanet(
+                        rgb(45, 65, 83),
+                        rgba(234, 205, 199, 0.6),
+                        "https://www.solarsystemscope.com/images/textures/full/2k_neptune.jpg"
+                    );
+                    & .trajectory.tri {
+                        @include makeTrajectory(1500px, -210px, -189px);
+                    }
+                    & .trajectory.pro {
+                        @include makeTrajectory(1530px, -165px, -130px);
+                    }
+                    & .trajectory.ner {
+                        @include makeTrajectory(1760px, -360px, -114px);
+                    }
+
+                    & .triton {
+                        @include makeMoon(
+                            100px,
+                            -100px,
+                            0.4,
+                            "https://img00.deviantart.net/b934/i/2016/198/b/0/triton_texture_map_14k_by_fargetanik-daac9tm.png"
+                        );
+                    }
+
+                    & .proteus {
+                        @include makeMoon(
+                            400px,
+                            -210px,
+                            0.45,
+                            "http://2.bp.blogspot.com/-NrsDNbSk8TU/VKmLHdOgw0I/AAAAAAAAHvY/dod1Kqv2Ta8/s1600/NereidTxt2.jpg"
+                        );
+                    }
+
+                    & .nereid {
+                        @include makeMoon(
+                            900px,
+                            -70px,
+                            0.4,
+                            "http://4.bp.blogspot.com/-3eyaVs4az74/VKmMpLo6FYI/AAAAAAAAHvs/zK5NTllQYnk/s1600/NereidTxt.jpg"
+                        );
+                    }
+                }
+
+                &.pluto {
+                    & .moon {
+                        h3 {
+                            color: lighten($pluto, 29);
+                        }
+                    }
+                    @include makePlanet(
+                        rgba(241, 130, 75, 0.515),
+                        rgba(234, 205, 199, 0.6),
+                        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6e527eb9-99dc-4554-9ea2-dd0e84e79860/dclugc9-14663f13-30c6-4fe3-8d1a-505571e67232.jpg/v1/fill/w_1264,h_632,q_70,strp/pluto_texture_map_fixed_blur_by_bob3studios_dclugc9-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjA0OCIsInBhdGgiOiJcL2ZcLzZlNTI3ZWI5LTk5ZGMtNDU1NC05ZWEyLWRkMGU4NGU3OTg2MFwvZGNsdWdjOS0xNDY2M2YxMy0zMGM2LTRmZTMtOGQxYS01MDU1NzFlNjcyMzIuanBnIiwid2lkdGgiOiI8PTQwOTYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.LD4_aIXruEkobYZWPfxQZ8D2ytuHE8kzh8qgCz2XqYs"
+                    );
+
+                    & .trajectory.cha {
+                        @include makeTrajectory(1530px, -165px, -150px);
+                    }
+
+                    & .charon {
+                        @include makeMoon(
+                            900px,
+                            -130px,
+                            0.57,
+                            "https://cumbriansky.files.wordpress.com/2015/10/valley.jpg?w=391&h=148&zoom=2"
+                        );
+                    }
+                }
+
+                &.haumea {
+                    @include makePlanet(
+                        rgba(87, 103, 106, 0.78),
+                        rgba(104, 138, 138, 0.673),
+                        "https://www.solarsystemscope.com/textures/download/2k_haumea_fictional.jpg"
+                    );
+                }
+
+                &.makemake {
+                    @include makePlanet(
+                        rgb(205, 93, 80),
+                        rgb(168, 110, 94),
+                        "https://www.solarsystemscope.com/textures/download/2k_makemake_fictional.jpg"
+                    );
+                }
+
+                &.eris {
+                    & .moon {
+                        h3 {
+                            color: lighten($eris, 23);
+                        }
+                    }
+                    @include makePlanet(
+                        rgba(89, 72, 99, 0.756),
+                        rgba(107, 133, 132, 0.718),
+                        "https://www.solarsystemscope.com/textures/download/2k_eris_fictional.jpg"
+                    );
+
+                    & .trajectory.dys {
+                        @include makeTrajectory(1500px, -160px, -160px);
+                    }
+
+                    & .dysnomia {
+                        @include makeMoon(
+                            170px,
+                            -180px,
+                            0.49,
+                            "https://th.bing.com/th/id/OIG.nhttWEWx3.zfaZ.UyW0e?pid=ImgGn"
+                        );
+                    }
+                }
+
+                &.sedna {
+                    @include makePlanet(
+                        rgba(204, 82, 82, 0.749),
+                        rgb(175, 94, 84),
+                        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3ab110bd-6bda-4a70-8ad9-8178149c07c9/dbvwj5e-82f72f77-f7a8-47c9-8dc2-c9639577d445.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNhYjExMGJkLTZiZGEtNGE3MC04YWQ5LTgxNzgxNDljMDdjOVwvZGJ2d2o1ZS04MmY3MmY3Ny1mN2E4LTQ3YzktOGRjMi1jOTYzOTU3N2Q0NDUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.hXOeuH8Yx_43D5TuWUDzKuu7MEYPlOkK0fgEkggYhiY"
+                    );
+                }
+
+                &_description {
+                    width: 620px;
+                    text-align: center;
+                    position: absolute;
+                    margin: auto;
+                    left: 0;
+                    z-index: 2;
+                    right: 0;
+                    color: white;
+                    font-weight: 100;
+                    transition: all 0.4s 0s;
+                    text-transform: uppercase;
+
+                    &.sun {
+                        a {
+                            color: $sun;
+                        }
+
+                        h2 {
+                            color: darken($sun, 100);
+                        }
+                    }
+
+                    &.mercury {
+                        a {
+                            color: $mercury;
+                        }
+
+                        h2 {
+                            color: darken($mercury, 5);
+                        }
+                    }
+
+                    &.venus {
+                        a {
+                            color: $venus;
+                        }
+
+                        h2 {
+                            color: darken($venus, 3);
+                        }
+                    }
+
+                    &.earth {
+                        a {
+                            color: $earth;
+                        }
+
+                        h2 {
+                            color: lighten($earth, 20);
+                        }
+                    }
+
+                    &.mars {
+                        a {
+                            color: $mars;
+                        }
+
+                        h2 {
+                            color: lighten($mars, 20);
+                        }
+                    }
+
+                    &.ceres {
+                        a {
+                            color: $ceres;
+                        }
+
+                        h2 {
+                            color: darken($ceres, 2);
+                        }
+                    }
+
+                    &.jupiter {
+                        a {
+                            color: $jupiter;
+                        }
+
+                        h2 {
+                            color: darken($jupiter, 2);
+                        }
+                    }
+
+                    &.saturn {
+                        a {
+                            color: $saturn;
+                        }
+
+                        h2 {
+                            color: lighten($saturn, 2);
+                        }
+                    }
+
+                    &.uranus {
+                        a {
+                            color: $uranus;
+                        }
+
+                        h2 {
+                            color: lighten($uranus, 2);
+                        }
+                    }
+
+                    &.neptune {
+                        a {
+                            color: $neptune;
+                        }
+
+                        h2 {
+                            color: $neptune;
+                        }
+                    }
+
+                    &.pluto {
+                        a {
+                            color: $pluto;
+                        }
+
+                        h2 {
+                            color: lighten($pluto, 7);
+                        }
+                    }
+
+                    &.haumea {
+                        a {
+                            color: $haumea;
+                        }
+
+                        h2 {
+                            color: lighten($haumea, 3);
+                        }
+                    }
+
+                    &.makemake {
+                        a {
+                            color: $makemake;
+                        }
+
+                        h2 {
+                            color: lighten($makemake, 2);
+                        }
+                    }
+
+                    &.eris {
+                        a {
+                            color: $eris;
+                        }
+
+                        h2 {
+                            color: darken($eris, 11);
+                        }
+                    }
+
+                    &.sedna {
+                        a {
+                            color: $sedna;
+                        }
+
+                        h2 {
+                            color: lighten($sedna, 5);
+                        }
+                    }
+
+                    h1,
+                    h2,
+                    p,
+                    a {
+                        font-weight: 100;
+                        font-size: 10px;
+                        letter-spacing: 5px;
+                        margin: 0;
+                    }
+
+                    h1 {
+                        letter-spacing: 16px;
+                        font-size: 34px;
+                    }
+
+                    h2,
+                    a {
+                        color: #fabfad;
+                    }
+
+                    h2 {
+                        margin-top: 60px;
+                        margin-bottom: 6px;
+                    }
+
+                    p {
+                        line-height: 26px;
+                        margin-top: 14px;
+                        opacity: 0.9;
+                        margin-bottom: 10px;
+                    }
+
+                    a {
+                        color: #fea082;
+                        font-size: 11px;
+                        font-weight: 500;
+                        padding: 0 2px 5px 0px;
+                        border-bottom: 2px solid;
+                        transition: all 0.2s;
+                        position: relative;
+                        left: 0;
+
+                        &:hover {
+                            padding: 0 10px 5px 10px;
+                            left: -1px;
+                        }
+
+                        span {
+                            letter-spacing: 0;
+                            margin-left: -5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .panel {
+        position: absolute;
+        right: -520px;
+        width: 300px;
+        top: 0;
+        height: 100vh;
+        transition: all 0.2s;
+        color: black;
+        background: #a573f5;
+        padding: 10px 60px 0px 60px;
+        overflow: scroll;
+
+        .profile {
+            padding-top: 4px;
+            p {
+                line-height: 10px;
+                span {
+                    font-weight: 600;
+                    color: black;
+                }
+            }
+        }
+
+        img {
+            border-radius: 2px;
+            width: 100%;
+        }
+        h1 {
+            text-transform: uppercase;
+            font-weight: 100;
+            margin: 0 0 0 0;
+            letter-spacing: 3px;
+            top: 0;
+            padding: 49px 0 0 0;
+            width: 100%;
+
+            font-size: 20px;
+            &::after {
+                width: 30px;
+                height: 2px;
+                background: black;
+                display: block;
+                content: "";
+                margin-bottom: 30px;
+                margin-top: 8px;
+            }
+        }
+        h2 {
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 30px;
+
+            &::after {
+                width: 30px;
+                height: 2px;
+                background: black;
+                display: block;
+                content: "";
+                margin-top: 8px;
+            }
+        }
+
+        p {
+            color: #000000;
+            font-size: 12px;
+            line-height: 20px;
+        }
+    }
+}

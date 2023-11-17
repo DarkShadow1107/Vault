@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang = "en" style = "background-color: #a573f5; width: 1521.5px">
+    <head>
+        <title>
+            Dark Flow
+        </title>
+        <style>
+            .subtitle_first
+            {
+                text-decoration: none;
+                font-size: 165%;
+                font-weight: normal;
+            }
+            .subtitle_second
+            {
+                text-decoration: none;
+                font-size: 150%;
+                font-weight: normal;
+            }
+            .subtitle_third
+            {
+                text-decoration: none;
+                font-size: 135%;
+                font-weight: normal;
+            }
+            ::-webkit-scrollbar
+            {
+                width: 15px;
+            }
+            ::-webkit-scrollbar-track
+            {
+                background: #a573f5; 
+            }
+            ::-webkit-scrollbar-corner
+            {
+                background: #a573f5; 
+            }
+            ::-webkit-scrollbar-thumb
+            {
+                background-image: linear-gradient(#400b52, #9a52cb); 
+            }
+            ::-webkit-scrollbar-thumb:hover
+            {
+                background-image: linear-gradient(120deg, #3B0078, #9C0EC9); 
+            }
+            .counter-text
+            {
+                float: right;
+                font-size: 62%;
+                color: black;
+                font-weight: normal;
+            }
+            .website-counter
+            {
+                color: black;
+                font-weight: normal;
+                font-size: 62%;
+                float: right;
+            }
+            div.thumbinner
+            {
+                border: 1px solid #202020;
+                background-color: #a573f5;
+                font-size: 94%;
+                padding: 3px;
+                text-align: left;
+                overflow: hidden;
+            }
+            .thumbinner
+            {
+                min-width: 100px;
+            }
+            div
+            {
+                display: block;
+            }
+            div.tleft
+            {
+                margin: 0.3em 0.3em 1.0em 0;
+            }
+            div.tleft, div.floatleft, table.floatleft
+            {
+                float: left;
+                clear: left;
+            }
+            div.tright
+            {
+                margin: 0.3em 0.4em 1.0em 0;
+            }
+            div.thumb
+            {
+                width: auto;
+                background-color: transparent;
+                margin-bottom: 0.5em;
+            }
+            div.tright, div.floatright, table.floatright
+            {
+                float: right;
+                clear: right;
+            }
+            .thumbcaption
+            {
+                border: 0;
+                font-size: 94%;
+                line-height: 1.4em;
+                padding: 3px;
+            }
+            .mw-content-ltr .thumbcaption
+            {
+                text-align: left;
+            }
+            .magnify
+            {
+                display: block;
+                text-indent: 15px;
+                width: 23px;
+                user-select: none;
+                margin-left: 3px;
+                margin-right: 0;
+                float: right;
+            }
+            .table_border_div
+            {
+                border: 0;
+                width: 100%;
+                font-size: 90%;
+            }
+            table
+            {
+                border: 1px solid black;
+                text-align: left;
+                padding: 8px;
+                font-family: Times New Roman;
+                width: 15%;
+            }
+            body
+            {
+                font-size: 100%;
+            }
+            div.a
+            {
+                text-align: left;
+            }
+            ul.h
+            {
+                list-style-type: none;
+                margin: -8px;
+                padding: 0;
+                overflow: hidden;
+                background-image: linear-gradient(#380a48, #a25ecf);
+                position: sticky;
+                top: 0;
+                z-index: 5;
+            }
+            li.animations
+            {
+                border-left: 2px solid rgb(95, 19, 125);
+            }
+            li
+            {
+                float: right;
+                border-left: 1px solid rgb(156, 50, 233);
+            }
+            li:last-child
+            {
+                border-left: none;
+            }
+            li a
+            {
+                display: block;
+                color: whitesmoke;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            li a:hover
+            {
+                background-image: linear-gradient(120deg, #3B0078, #9C0EC9);
+            }
+            .active3
+            {
+                background-image: linear-gradient(150deg, #54137a, #9146c1, #380a52);
+            }
+            .active2
+            {
+                background-image: linear-gradient(135deg, #792fa6, #511177);
+            }
+            .active
+            {
+                background-image: linear-gradient(250deg, #7831a3, #511177);
+            }
+            .line
+            {
+                width: 100%;
+                height: 0.65%;
+                border-bottom: 1px solid black;
+                position: static;
+            }
+            .afterdiv
+            {
+                font-family: Times New Roman;
+                font-size: 115%;
+                float: left;
+                margin-top: 0.1%;
+                line-height: 150%;
+            }
+            .unselectable
+            {
+                font-size: 0.1%;
+                margin-bottom: -1.1%;
+                color: #a573f5;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            .unselectable_2
+            {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            ol
+            {
+                font-family: Times New Roman;
+                font-size: 100%;
+                float: left;
+                margin-top: 0.1%;
+                line-height: 100%;
+                margin-left: 2%;
+            }
+            .font_color
+            {
+                color:#53d2c7;
+            }
+            .image_container
+            {
+                position: relative;
+                cursor: pointer;
+            }
+            img
+            {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .image_container:before
+            {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: hsl(271, 76%, 53%);
+                transform: scale(0);
+                transition: all 800ms linear;
+                transform-origin: 0 50%;
+                z-index: 2;
+                opacity: 0.3;
+            }
+            .image_container:hover:before
+            {
+                transform: scale(1);
+            }
+            span
+            {
+                position: absolute;
+                opacity: 0;
+                transition: all 800ms linear;
+                z-index: 3;
+            }
+            .title
+            {
+                font-size: 115%;
+                left: 10%;
+                top: 3%;
+            }
+            .description
+            {
+                font-size: 88%;
+                left: 12%;
+                top: 20%;
+                width: 88%;
+            }
+            .image_container:hover span
+            {
+                opacity: 1;
+            }
+            .line1
+            {
+                left: 0;
+                top: 0;
+                position: absolute;
+                background: #53d2c7;
+                transition: all 800ms linear;
+            }
+            .top
+            {
+                width: 3px;
+                height: 0;
+                left: 5%;
+            }
+            .image_container:hover .top
+            {
+                height: 100%;
+            }
+            .left
+            {
+                width: 0;
+                height: 3px;
+                top: 95%;
+            }
+            .image_container:hover .left
+            {
+                width: 100%;
+            }
+            .link
+            {
+                color: #0c4b0c;
+                text-decoration: none;
+            }
+            .link:hover
+            {
+                text-decoration: underline;
+            }
+            a:visited
+            {
+                color: #560909;
+                text-decoration: none;
+            }
+            .center_gif
+            {
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                height: 85.5%;
+                padding-top: 5%;
+            }
+            .lightbox
+            {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 4;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+            }
+            .lightbox:target
+            {
+                display: flex;
+            }
+            .drop
+            {
+                display: flex;
+                background-image: linear-gradient(200deg, #3d0553, #9b4dcb, #320448);
+                flex-direction: row-reverse;
+            }
+            .drop-cont
+            {
+                display: none;
+            }
+            .drop:hover .disappear
+            {
+                display: none;
+            }
+            .drop:hover .drop-cont
+            {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+        </style>
+        <meta charset = "UTF-8">
+    </head>
+    <script>
+        function Visitors()
+        {
+            var visitCount = localStorage.getItem("page_view");
+            if(visitCount)
+            {
+                visitCount = Number(visitCount) + 1;
+                localStorage.setItem("page_view", visitCount);
+            }
+            else
+            {
+                visitCount = 1;
+                localStorage.setItem("page_view", 1);
+            }
+            document.getElementById("demo").innerHTML = visitCount;
+        }
+    </script>
+    <body onload = "Visitors()">
+        <ul class = "h">
+            <li>
+                <a class = "active3" href = "Log In Form.html" style = "color: white">
+                    Sign In
+                </a>
+            </li>
+            <li>
+                <a class = "active" href = "index.html" style = "color: white">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Energy.html" style = "color: white">
+                    Dark Energy
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Matter.html" style = "color: white">
+                    Dark Matter
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Flow.html" style = "color: white">
+                    Dark Flow
+                </a>
+            </li>
+            <li>
+                <a href = "Star.html" style = "color: white">
+                    Star
+                </a>
+            </li>
+            <li class = "animations">
+                <div class = "drop">
+                    <a class = "disappear" style = "color: white; cursor: pointer">
+                        Animations
+                    </a>
+                    <div class = "drop-cont">
+                        <a href = "Solar System/Solar System.html" style = "color: white" target = "_blank">
+                            Solar System
+                        </a>
+                        <a href = "Simple Terra/Simple Terra.html" style = "color: white" target = "_blank">
+                            Terra
+                        </a>
+                        <a href = "Orb/Orb.html" style = "color: white" target = "_blank">
+                            Orb
+                        </a>
+                        <a href = "Night Flower/Night Flower.html" style = "color: white" target = "_blank">
+                            Form of Life
+                        </a>
+                        <a href = "Black Hole Shader/Black Hole Shader.html" style = "color: white" target = "_blank">
+                            Black Hole
+                        </a>
+                        <a href = "Nebula/Nebula.html" style = "color: white" target = "_blank">
+                            Nebula
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li style = "float: left">
+                <a class = "active2" href = "Gallery.html" style = "color: white">
+                    Gallery
+                </a>
+            </li>
+        </ul>
+        <center>
+            <h1 style = "text-decoration: none; color:#070e50; font-size: 260%">
+                Universe Encyclopedia
+            </h1>
+        </center>
+        <br>
+        <br>
+        <h2 style = "text-decoration: none; font-size: 210%; font-weight: normal">
+            Dark Flow
+            <div class = "counter-text unselectable_2">
+                &nbsp;views
+            </div>
+            <div id = "demo" class = "website-counter unselectable_2">
+            </div>
+            <div class = "counter-text unselectable_2">
+                Writer: <i>Alexandru Gabriel</i> | 02-09-2022 |&nbsp;
+            </div>
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 297px">
+                    <a href = "#img1">
+                        <img loading = "lazy" src = "media\Galaxy_cluster_IDCS_J1426.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img1">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Galaxy_cluster_IDCS_J1426.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img1.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img1.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\Galaxy_cluster_IDCS_J1426.jpg">
+                            </div>
+                        </a>
+                        Galaxy cluster IDCS J1426 is located 10 billion light-years from Earth and has the mass of almost 500 trillion suns (multi-wavelength image: X-rays in blue, visible light in green, and infrared light in red).
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 260px">
+                    <a href = "#img2">
+                        <img loading = "lazy" src = "media\1080px-HubbleUltraDeepFieldwithScaleComparison.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img2">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\1080px-HubbleUltraDeepFieldwithScaleComparison.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img2.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img2.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\1080px-HubbleUltraDeepFieldwithScaleComparison.jpg">
+                            </div>
+                        </a>
+                        Hubble Ultra-Deep Field image of a region of the observable Universe (equivalent sky area size shown in bottom left corner), near the constellation Fornax. Each spot is a galaxy, consisting of billions of stars. The light 
+                        from the smallest, most redshifted galaxies originated nearly 14 billion years ago.
+                    </div>
+                </div>
+            </div>
+            In astrophysics, <b>dark flow</b> is a theoretical non-random component of the peculiar velocity of galaxy clusters. The actual measured velocity is the sum of the velocity predicted by Hubble's Law plus a possible small and unexplained 
+            (or <i><b>dark</b></i>) velocity flowing in a common direction.<br>
+            According to standard cosmological models, the motion of galaxy clusters with respect to the cosmic microwave background should be randomly distributed in all directions. However, analyzing the three-year Wilkinson Microwave 
+            Anisotropy Probe (WMAP) data using the kinematic Sunyaev–Zeldovich effect, astronomers Alexander Kashlinsky, Fernando Atrio-Barandela, D. Kocevski and H. Ebeling found evidence of a "surprisingly coherent" 600–1000 km/s flow of 
+            clusters toward a 20-degree patch of sky between the constellations of Centaurus and Vela.<br>
+            The researchers had suggested that the motion may be a remnant of the influence of no-longer-visible regions of the Universe prior to inflation. Telescopes cannot see events earlier than about 380,000 years after the Big Bang, when 
+            the Universe became transparent (the cosmic microwave background); this corresponds to the particle horizon at a distance of about 46 billion (4.6×10<sup>10</sup>) light years. Since the matter causing the net motion in this proposal 
+            is outside this range, it would in a certain sense be outside our visible Universe; however, it would still be in our past light cone.<br>
+            The results appeared in the October 20, 2008, issue of <i><b>Astrophysical Journal Letters</b></i>.<br>
+            In 2013, data from the Planck space telescope showed no evidence of "dark flow" on that sort of scale, discounting the claims of evidence for either gravitational effects reaching beyond the visible Universe or existence of a multiverse. 
+            However, in 2015 Kashlinsky <i><b>et al</b></i>. claim to have found support for its existence using both Planck and WMAP data.
+        </div>
+        <table>
+            <tr>
+                <th style = "font-size: 115%">
+                    <center>Contents</center>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    1. 
+                    <a href = "#Location" class = "link">
+                        Location
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    2. 
+                    <a href = "#Criticisms" class = "link">
+                        Criticisms
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <h2 class = "subtitle_first" id = "Location">
+            Location
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 350px">
+                    <a href = "#img3">
+                        <img loading = "lazy" src = "media\Nasa-dark_flow-large.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img3">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Nasa-dark_flow-large.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img3.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img3.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\Nasa-dark_flow-large.jpg">
+                            </div>
+                        </a>
+                        <b>The dark flow.</b> The colored dots are clusters within one of four distance ranges, with redder colors indicating greater distance. Colored ellipses show the direction of bulk motion for the clusters of the corresponding color. 
+                        Images of representative galaxy clusters in each distance slice are also shown
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 350px">
+                    <a href = "#img4">
+                        <img loading = "lazy" src = "media\2MASS_LSS_chart-NEW_Nasa.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img4">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\2MASS_LSS_chart-NEW_Nasa.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img4.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img4.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\2MASS_LSS_chart-NEW_Nasa.jpg">
+                            </div>
+                        </a>
+                        Panoramic view of galaxies beyond the Milky Way, with the Norma cluster and the Great Attractor shown by a long blue arrow at the bottom-right in image near the disk of the Milky Way
+                    </div>
+                </div>
+            </div>
+            The dark flow was determined to be flowing in the direction of the Centaurus and Hydra constellations. This corresponds with the direction of the Great Attractor, which is a gravitational mystery originally discovered in 1973. However, 
+            the source of the Great Attractor's attraction was thought to originate from a massive cluster of galaxies called the Norma Cluster, located about 250 million light-years away from Earth.<br>
+            In a study from March 2010, Kashlinsky extended his work from 2008, by using the 5-year WMAP results rather than the 3-year results, and doubling the number of galaxy clusters observed from 700. The team also sorted the cluster catalog 
+            into four "slices" representing different distance ranges. They then examined the preferred flow direction for the clusters within each slice. The report concluded that while the size and exact position of this direction display some 
+            variation, the overall trends among the slices exhibit remarkable agreement. "We detect motion along this axis, but right now our data cannot state as strongly as we'd like whether the clusters are coming or going," Kashlinsky said.<br>
+            The team has so far catalogued the effect as far out as 2.5 billion light-years, and hopes to expand its catalog out further still to twice the current distance.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Criticisms">
+            Criticisms
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 386px">
+                    <a href = "#img5">
+                        <img loading = "lazy" src = "media\WMAP_2010.png" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img5">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\WMAP_2010.png">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img5.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img5.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\WMAP_2010.png">
+                            </div>
+                        </a>
+                        WMAP image of the (extremely tiny) anisotropies in the cosmic background radiation
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 332px">
+                    <a href = "#img6">
+                        <img loading = "lazy" src = "media\Plasma-lamp_2.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img6">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Plasma-lamp_2.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img6.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img6.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\Plasma-lamp_2.jpg">
+                            </div>
+                        </a>
+                        A plasma globe displaying the nature of plasmas, in this case, the phenomenon of "filamentation"
+                    </div>
+                </div>
+            </div>
+            Astrophysicist Ned Wright posted an online response to the study arguing that its methods are flawed. The authors of the "dark flow" study released a statement in return, refuting three of Wright's five arguments and identifying the remaining 
+            two as a typo and a technicality that do not affect the measurements and their interpretation.<br>
+            A more recent statistical work done by Ryan Keisler claims to rule out the possibility that the dark flow is a physical phenomenon because Kashlinsky et al. did not consider the primary anisotropies of the cosmic microwave background (CMB) to 
+            be as important as they are.<br>
+            NASA's Goddard Space Flight Center considered that this could be the effect of a sibling Universe or a region of space-time fundamentally different from the observable Universe. Data on more than 1,000 galaxy clusters have been measured, 
+            including some as distant as 3 billion light-years. Alexander Kashlinsky claims these measurements show the Universe's steady flow is clearly not a statistical fluke. Kashlinsky said: "At this point we don't have enough information to see what 
+            it is, or to constrain it. We can only say with certainty that somewhere very far away the world is very different than what we see locally. Whether it's 'another Universe' or a different fabric of space-time we don't know." Laura Mersini-Houghton 
+            and Rich Holman observe that some anisotropy is predicted both by theories involving interaction with another Universe, or when the frame of reference of the CMB does not coincide with that of the Universe's expansion.<br>
+            In 2013, data from the European Space Agency's Planck satellite was claimed to show no statistically significant evidence of existence of dark flow. However, another analysis by a member of the Planck collaboration, Fernando Atrio-Barandela, 
+            suggested the data were consistent with the earlier findings from WMAP. Popular media continued to be interested in the idea, with Mersini-Houghton claiming the Planck results support existence of a multiverse.
+        </div>
+    </body>
+</html>

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang = "en" style = "background-color: #a573f5; width: 1521.5px">
+<head>
+    <meta charset = "UTF-8" />
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1"> 
+    <meta name = "viewport" content = "width = device-width, initial-scale=1.0"> 
+    <title>
+        Gallery
+    </title>
+    <link rel = "stylesheet" href = "css\style.css">
+    <link rel = "stylesheet" href = "css\Download Button.css">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<style>
+        .unselectable
+        {
+            width: 60px;
+            height: auto;
+            opacity: 0;
+            margin-bottom: -1.1%;
+            color: #a573f5;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .unselectable_2
+        {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .subtitle_first
+        {
+            text-decoration: none;
+            font-size: 165%;
+            font-weight: normal;
+        }
+        .subtitle_second
+        {
+            text-decoration: none;
+            font-size: 150%;
+            font-weight: normal;
+        }
+        .subtitle_third
+        {
+            text-decoration: none;
+            font-size: 135%;
+            font-weight: normal;
+        }
+        ::-webkit-scrollbar
+        {
+            width: 15px;
+        }
+        ::-webkit-scrollbar-track
+        {
+            background: #a573f5; 
+        }
+        ::-webkit-scrollbar-corner
+        {
+            background: #a573f5; 
+        }
+        ::-webkit-scrollbar-thumb
+        {
+            background-image: linear-gradient(#400b52, #9a52cb); 
+        }
+        ::-webkit-scrollbar-thumb:hover
+        {
+            background-image: linear-gradient(120deg, #3B0078, #9C0EC9); 
+        }
+        .counter-text
+        {
+            float: right;
+            font-size: 62%;
+            color: black;
+            font-weight: normal;
+        }
+        .website-counter
+        {
+            color: black;
+            font-weight: normal;
+            font-size: 62%;
+            float: right;
+        }
+        div.a
+        {
+            text-align: left;
+        }
+        ul.h
+        {
+            list-style-type: none;
+            margin: -8px;
+            padding: 0;
+            overflow: hidden;
+            background-image: linear-gradient(#380a48, #a25ecf);
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+        li.animations
+        {
+            border-left: 2px solid rgb(95, 19, 125);
+        }
+        li
+        {
+            float: right;
+            border-left: 1px solid rgb(156, 50, 233);
+        }
+        li:last-child
+        {
+            border-left: none;
+        }
+        li a
+        {
+            display: block;
+            font-family: Times New Roman;
+            color: whitesmoke;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover
+        {
+            background-image: linear-gradient(120deg, #3B0078, #9C0EC9);
+        }
+        .active3
+        {
+            background-image: linear-gradient(150deg, #54137a, #9146c1, #380a52);
+        }
+        .active2
+        {
+            background-image: linear-gradient(135deg, #792fa6, #511177);
+        }
+        .active
+        {
+            background-image: linear-gradient(250deg, #7831a3, #511177);
+        }
+        .line
+        {
+            width: 100%;
+            height: 0.65%;
+            border-bottom: 1px solid black;
+            position: static;
+        }
+        a:visited
+        {
+            color: #560909;
+            text-decoration: none;
+        }
+        .drop
+        {
+            display: flex;
+            background-image: linear-gradient(200deg, #3d0553, #9b4dcb, #320448);
+            flex-direction: row-reverse;
+        }
+        .drop-cont
+        {
+            display: none;
+        }
+        .drop:hover .disappear
+        {
+            display: none;
+        }
+        .drop:hover .drop-cont
+        {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+    </style>
+</head>
+<script>
+    function Visitors()
+    {
+        var visitCount = localStorage.getItem("page_view");
+        if(visitCount)
+        {
+            visitCount = Number(visitCount) + 1;
+            localStorage.setItem("page_view", visitCount);
+        }
+        else
+        {
+            visitCount = 1;
+            localStorage.setItem("page_view", 1);
+        }
+        document.getElementById("demo").innerHTML = visitCount;
+    }
+</script>
+<body onload = "Visitors()">
+    <ul class = "h">
+        <li>
+            <a class = "active3" href = "Log In Form.html" style = "color: white">
+                Sign In
+            </a>
+        </li>
+        <li>
+            <a class = "active" href = "index.html" style = "color: white">
+                Home
+            </a>
+        </li>
+        <li>
+            <a href = "Dark Energy.html" style = "color: white">
+                Dark Energy
+            </a>
+        </li>
+        <li>
+            <a href = "Dark Matter.html" style = "color: white">
+                Dark Matter
+            </a>
+        </li>
+        <li>
+            <a href = "Dark Flow.html" style = "color: white">
+                Dark Flow
+            </a>
+        </li>
+        <li>
+            <a href = "Star.html" style = "color: white">
+                Star
+            </a>
+        </li>
+        <li class = "animations">
+            <div class = "drop">
+                <a class = "disappear" style = "color: white; cursor: pointer">
+                    Animations
+                </a>
+                <div class = "drop-cont">
+                    <a href = "Solar System/Solar System.html" style = "color: white" target = "_blank">
+                        Solar System
+                    </a>
+                    <a href = "Simple Terra/Simple Terra.html" style = "color: white" target = "_blank">
+                        Terra
+                    </a>
+                    <a href = "Orb/Orb.html" style = "color: white" target = "_blank">
+                        Orb
+                    </a>
+                    <a href = "Night Flower/Night Flower.html" style = "color: white" target = "_blank">
+                        Form of Life
+                    </a>
+                    <a href = "Black Hole Shader/Black Hole Shader.html" style = "color: white" target = "_blank">
+                        Black Hole
+                    </a>
+                    <a href = "Nebula/Nebula.html" style = "color: white" target = "_blank">
+                        Nebula
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li style = "float: left">
+            <a class = "active2" href = "Gallery.html" style = "color: white">
+                Gallery
+            </a>
+        </li>
+    </ul>
+    <center>
+        <h1 style = "text-decoration: none; color:#070e50; font-size: 260%">
+            Universe Encyclopedia
+        </h1>
+    </center>
+    <br>
+    <br>
+    <h2 style = "text-decoration: none; font-size: 210%; font-weight: normal">
+        Universe
+        <div class = "counter-text unselectable_2">
+            &nbsp;views
+        </div>
+        <div id = "demo" class = "website-counter unselectable_2">
+        </div>
+        <div class = "counter-text unselectable_2">
+            Writer: <i>Alexandru Gabriel</i> | 31-08-2022 |&nbsp;
+        </div>
+        <div class = "line">
+        </div>
+    </h2>
+    <br>
+    <button class = "download_btn">
+        <a href = "Download.html" style = "text-decoration: none" target = "_blank">
+            <span>
+                Download Images
+                &nbsp;
+                <i class = "fa fa-cloud-download-alt">
+                </i>
+            </span>
+        </a>
+    </button>
+    <br>
+    <div class = "container">
+        <a href = "#img1"> 
+            <img loading = "lazy" class = "small" src = "media\3840px-Artist’s_conception_of_a_brown_dwarf_like_2MASSJ22282889-431026.jpg">
+        </a>
+        <a href = "#img2"> 
+            <img loading = "lazy" class = "small" src = "media\3240px-WISE_1828+2650_Brown_dwarf.jpg">
+        </a>
+        <a href = "#img3"> 
+            <img loading = "lazy" class = "small" src = "media\142306_original_3840x2160.jpg">
+        </a>
+        <a href = "#img4"> 
+            <img loading = "lazy" class = "small" src = "media\c213191.jpg">
+        </a>
+        <a href = "#img5"> 
+            <img loading = "lazy" class = "small" src = "media\f60811177.jpg">
+        </a>
+        <a href = "#img6"> 
+            <img loading = "lazy" class = "small" src = "media\144566_original_3840x2160.jpg">
+        </a>
+        <a href = "#img7"> 
+            <img loading = "lazy" class = "small" src = "media\129992_original_9000x6150-min.jpg">
+        </a>
+        <a href = "#img8"> 
+            <img loading = "lazy" class = "small" src = "media\144093_original_3840x2160.jpg">
+        </a>
+        <a href = "#img9">
+            <img loading = "lazy" class = "small" src = "media\136743_original_2302x4000.jpg">
+        </a>
+        <a href = "#img10">
+            <img loading = "lazy" class = "small" src = "media\131058_original_1371x2228.jpg">
+        </a>
+        <a href = "#img11">
+            <img loading = "lazy" class = "small" src = "media\130782_original_3692x2308.jpg">
+        </a>
+        <a href = "#img12">
+            <img loading = "lazy" class = "small" src = "media\2381866.jpg">
+        </a>
+        <a href = "#img13">
+            <img loading = "lazy" class = "small" src = "media\122026_original_4912x3264.jpg">
+        </a>
+        <a href = "#img14">
+            <img loading = "lazy" class = "small" src = "media\138895_original_4000x6000.jpg">
+        </a>
+        <a href = "#img15"> 
+            <img loading = "lazy" class = "small" src = "media\galaxy-space-blue-dakr.jpg">
+        </a>
+        <a href = "#img16">
+            <img loading = "lazy" class = "small" src = "media\122081_original_3840x2400.jpg">
+        </a>
+        <a href = "#img17">
+            <img loading = "lazy" class = "small" src = "media\125401_original_2794x4234.jpg">
+        </a>
+        <a href = "#img18">
+            <img loading = "lazy" class = "small" src = "media\134444_original_2160x3840.jpg">
+        </a>
+        <a href = "#img19">
+            <img loading = "lazy" class = "small" src = "media\133695_original_2810x4000.jpg">
+        </a>
+        <a href = "#img20">
+            <img loading = "lazy" class = "small" src = "media\138249_original_3000x5000.jpg">
+        </a>
+        <a href = "#img21">
+            <img loading = "lazy" class = "small" src = "media\127666_original_3692x2306.jpg">
+        </a>
+        <a href = "#img22"> 
+            <img loading = "lazy" class = "small" src = "media2\Images_release.005-1-e1663058394830-1024x576.jpg">
+        </a>
+        <a href = "#img23">
+            <img loading = "lazy" class = "small" src = "media2\Images_release.006-2-e1663058386539-1024x576.jpg">
+        </a>
+        <a href = "#img24">
+            <img loading = "lazy" class = "small" src = "media2\62280877.jpg">
+        </a>
+        <a href = "#img25">
+            <img loading = "lazy" class = "small" src = "media2\62280879.jpg">
+        </a>
+        <a href = "#img26">
+            <img loading = "lazy" class = "small" src = "media2\082722_kuiper_feat-1440x700.jpg">
+        </a>
+        <a href = "#img27">
+            <img loading = "lazy" class = "small" src = "media2\1255f88987fabb9b894e39a1a422573b.jpg">
+        </a>
+        <a href = "#img28">
+            <img loading = "lazy" class = "small" src = "media2\5fc99568c6dcf10090a295841e15175d.jpg">
+        </a>
+        <a href = "#img29"> 
+            <img loading = "lazy" class = "small" src = "media2\b03d40417631d52547dceb98558685c2.jpg">
+        </a>
+        <a href = "#img30">
+            <img loading = "lazy" class = "small" src = "media2\istockphoto-1183329518-170667a.jpg">
+        </a>
+        <a href = "#img31">
+            <img loading = "lazy" class = "small" src = "media2\HD56414b-exoplanet-artist-concept.jpg">
+        </a>
+        <a href = "#img32">
+            <img loading = "lazy" class = "small" src = "media2\istockphoto-1289799827-612x612.jpg">
+        </a>
+        <a href = "#img33">
+            <img loading = "lazy" class = "small" src = "media2\jpegPIA22085.jpg">
+        </a>
+        <a href = "#img34">
+            <img loading = "lazy" class = "small" src = "media2\jpegPIA23864.jpg">
+        </a>
+        <a href = "#img35">
+            <img loading = "lazy" class = "small" src = "media2\simulating.jpg">
+        </a>
+        <a href = "#img36"> 
+            <img loading = "lazy" class = "small" src = "media2\SUXeNNvtGip4yYpJRWGrda-970-80.jpg">
+        </a>
+        <a href = "#img37">
+            <img loading = "lazy" class = "small" src = "media2\disc_reverb_v2.png">
+        </a>
+        <a href = "#img38">
+            <img loading = "lazy" class = "small" src = "media2\8YfkqzJ5WOf66wTsNNeouBjHgySx8sXULNkfvrUS.webp">
+        </a>
+        <a href = "#img39">
+            <img loading = "lazy" class = "small" src = "media2\76whNPtMNQdtfiCFXn9CTF-970-80.jpg.webp">
+        </a>
+        <a href = "#img40">
+            <img loading = "lazy" class = "small" src = "media2\HsDtpFEHbDpae6wBuW5wQo-970-80.jpg.webp">
+        </a>
+        <a href = "#img41">
+            <img loading = "lazy" class = "small" src = "media2\62280876.jpg">
+        </a>
+        <a href = "#img42">
+            <img loading = "lazy" class = "small" src = "media2\62280724.jpg">
+        </a>
+        <img loading = "lazy" class = "unselectable" src = "media\136743_original_2302x4000.jpg">
+        <a href = "#_" class = "lightbox" id = "img1">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\3840px-Artist’s_conception_of_a_brown_dwarf_like_2MASSJ22282889-431026.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img2">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\3240px-WISE_1828+2650_Brown_dwarf.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img3">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\142306_original_3840x2160.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img4">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\c213191.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img5">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\f60811177.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img6">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\144566_original_3840x2160.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img7">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\129992_original_9000x6150-min.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img8">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\144093_original_3840x2160.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img9">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\136743_original_2302x4000.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img10">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\131058_original_1371x2228.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img11">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\130782_original_3692x2308.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img12">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\2381866.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img13">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\122026_original_4912x3264.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img14">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\138895_original_4000x6000.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img15">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\galaxy-space-blue-dakr.jpg">              
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img16">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\122081_original_3840x2400.jpg"> 
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img17">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\125401_original_2794x4234.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img18">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\134444_original_2160x3840.jpg">                
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img19">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\133695_original_2810x4000.jpg">                
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img20">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\138249_original_3000x5000.jpg">               
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img21">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media\127666_original_3692x2306.jpg">               
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img22">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\Images_release.005-1-e1663058394830-1024x576.jpg">               
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img23">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\Images_release.006-2-e1663058386539-1024x576.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img24">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\62280877.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img25">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\62280879.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img26">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\082722_kuiper_feat-1440x700.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img27">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\1255f88987fabb9b894e39a1a422573b.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img28">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\5fc99568c6dcf10090a295841e15175d.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img29">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\b03d40417631d52547dceb98558685c2.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img30">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\istockphoto-1183329518-170667a.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img31">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\HD56414b-exoplanet-artist-concept.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img32">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\istockphoto-1289799827-612x612.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img33">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\jpegPIA22085.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img34">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\jpegPIA23864.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img35">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\simulating.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img36">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\SUXeNNvtGip4yYpJRWGrda-970-80.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img37">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\disc_reverb_v2.png">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img38">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\8YfkqzJ5WOf66wTsNNeouBjHgySx8sXULNkfvrUS.webp">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img39">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\76whNPtMNQdtfiCFXn9CTF-970-80.jpg.webp">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img40">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\HsDtpFEHbDpae6wBuW5wQo-970-80.jpg.webp">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img41">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\62280876.jpg">       
+            </div>
+        </a>
+        <a href = "#_" class = "lightbox" id = "img42">
+            <div class = "center_gif">
+                <img loading = "lazy" src = "media2\62280724.jpg">       
+            </div>
+        </a>
+    </div>
+</body>
+</html>

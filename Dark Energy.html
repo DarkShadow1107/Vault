@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang = "en" style = "background-color: #a573f5; width: 1521.5px">
+    <head>
+        <title>
+            Dark Energy
+        </title>
+        <style>
+            .center_gif
+            {
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                height: 85.5%;
+                padding-top: 5%;
+            }
+            .lightbox
+            {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 4;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+            }
+            .lightbox:target
+            {
+                display: flex;
+            }
+            .frac
+            {
+                display: inline-block;
+                position: static;
+                vertical-align: middle;
+                letter-spacing: 0.001em;
+                text-align: center;
+                padding: 0.1em;
+            }
+            .bottom
+            {
+                border-top: thin solid black;
+            }
+            .symbol
+            {
+                display: none;
+            }
+            .subtitle_first
+            {
+                text-decoration: none;
+                font-size: 165%;
+                font-weight: normal;
+            }
+            .subtitle_second
+            {
+                text-decoration: none;
+                font-size: 150%;
+                font-weight: normal;
+            }
+            .subtitle_third
+            {
+                text-decoration: none;
+                font-size: 135%;
+                font-weight: normal;
+            }
+            ::-webkit-scrollbar
+            {
+                width: 15px;
+            }
+            ::-webkit-scrollbar-track
+            {
+                background-color: #a573f5; 
+            }
+            ::-webkit-scrollbar-corner
+            {
+                background: #a573f5; 
+            }
+            ::-webkit-scrollbar-thumb
+            {
+                background-image: linear-gradient(#400b52, #9a52cb); 
+            }
+            ::-webkit-scrollbar-thumb:hover
+            {
+                background-image: linear-gradient(120deg, #3B0078, #9C0EC9); 
+            }
+            .counter-text
+            {
+                float: right;
+                font-size: 62%;
+                color: black;
+                font-weight: normal;
+            }
+            .website-counter
+            {
+                color: black;
+                font-weight: normal;
+                font-size: 62%;
+                float: right;
+            }
+            div.thumbinner
+            {
+                border: 1px solid #202020;
+                background-color: #a573f5;
+                font-size: 94%;
+                padding: 3px;
+                text-align: left;
+                overflow: hidden;
+            }
+            .thumbinner
+            {
+                min-width: 100px;
+            }
+            div.tleft
+            {
+                margin: 0.3em 0.3em 1.0em 0;
+            }
+            div.tleft, div.floatleft, table.floatleft
+            {
+                float: left;
+                clear: left;
+            }
+            div.tright
+            {
+                margin: 0.3em 0.4em 1.0em 0;
+            }
+            div.thumb
+            {
+                width: auto;
+                background-color: transparent;
+                margin-bottom: 0.5em;
+            }
+            div.tright, div.floatright, table.floatright
+            {
+                float: right;
+                clear: right;
+            }
+            .thumbcaption
+            {
+                border: 0;
+                font-size: 94%;
+                line-height: 1.4em;
+                padding: 3px;
+            }
+            .mw-content-ltr .thumbcaption
+            {
+                text-align: left;
+            }
+            .magnify
+            {
+                display: block;
+                text-indent: 15px;
+                width: 23px;
+                user-select: none;
+                margin-left: 3px;
+                margin-right: 0;
+                float: right;
+            }
+            .table_border_div
+            {
+                border: 0;
+                width: 100%;
+                font-size: 90%;
+            }
+            table
+            {
+                border: 1px solid black;
+                text-align: left;
+                padding: 8px;
+                font-family: Times New Roman;
+                width: 27%;
+            }
+            body
+            {
+                font-size: 100%;
+            }
+            div.a
+            {
+                text-align: left;
+            }
+            ul.h
+            {
+                list-style-type: none;
+                margin: -8px;
+                padding: 0;
+                overflow: hidden;
+                background-image: linear-gradient(#380a48, #a25ecf);
+                position: sticky;
+                top: 0;
+                z-index: 5;
+            }
+            li.animations
+            {
+                border-left: 2px solid rgb(95, 19, 125);
+            }
+            li
+            {
+                float: right;
+                border-left: 1px solid rgb(156, 50, 233);
+            }
+            li:last-child
+            {
+                border-left: none;
+            }
+            li a
+            {
+                display: block;
+                color: whitesmoke;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            li a:hover
+            {
+                background-image: linear-gradient(120deg, #3B0078, #9C0EC9);
+            }
+            .active3
+            {
+                background-image: linear-gradient(150deg, #54137a, #9146c1, #380a52);
+            }
+            .active2
+            {
+                background-image: linear-gradient(135deg, #792fa6, #511177);
+            }
+            .active
+            {
+                background-image: linear-gradient(250deg, #7831a3, #511177);
+            }
+            .line
+            {
+                width: 100%;
+                height: 0.65%;
+                border-bottom: 1px solid black;
+                position: static;
+            }
+            .afterdiv
+            {
+                font-family: Times New Roman;
+                font-size: 115%;
+                float: left;
+                margin-top: 0.1%;
+                line-height: 150%;
+            }
+            .unselectable
+            {
+                font-size: 0.1%;
+                margin-bottom: -1.1%;
+                color: #a573f5;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            .unselectable_2
+            {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            ol
+            {
+                font-family: Times New Roman;
+                font-size: 100%;
+                float: left;
+                margin-top: 0.1%;
+                line-height: 100%;
+                margin-left: 2%;
+            }
+            .font_color
+            {
+                color:#53d2c7;
+            }
+            .image_container
+            {
+                position: relative;
+                cursor: pointer;
+            }
+            img
+            {
+                width: 100%;
+                height: 100%;
+            }
+            .image_blur:hover img
+            {
+                filter: blur(2.5px);
+                transition: all 700ms linear;
+            }
+            .image_blur:not(:hover) img
+            {
+                transition: all 700ms linear;
+            }
+            .image_container:before
+            {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: hsl(271, 76%, 53%);
+                transform: scale(0);
+                transition: all 800ms linear;
+                transform-origin: 0 50%;
+                z-index: 2;
+                opacity: 0.35;
+            }
+            @supports (-webkit-backdrop-filter: blur(9px) saturate(150%) contrast(45%) brightness(140%)) or (backdrop-filter: blur(9px) saturate(150%) contrast(45%) brightness(140%))
+            {
+                .image_container-b.image_container-reduce
+                {
+                    transition: all 800ms linear;
+                    backdrop-filter: blur(9px) saturate(150%) contrast(45%) brightness(140%);
+                    -webkit-backdrop-filter: blur(9px) saturate(150%) contrast(45%) brightness(140%);
+                }
+            }
+            .image_container:hover:before
+            {
+                transform: scale(1);
+            }
+            span
+            {
+                position: absolute;
+                color: #fff;
+                opacity: 0;
+                transition: all 800ms linear;
+                z-index: 3;
+            }
+            .title
+            {
+                left: 10%;
+                top: 3%;
+            }
+            .description
+            {
+                left: 12%;
+                top: 20%;
+                width: 88%;
+            }
+            .image_container:hover span
+            {
+                opacity: 1;
+            }
+            .line1
+            {
+                left: 0;
+                top: 0;
+                position: absolute;
+                background: #53d2c7;
+                transition: all 800ms linear;
+            }
+            .top
+            {
+                width: 3px;
+                height: 0;
+                left: 5%;
+            }
+            .image_container:hover .top
+            {
+                height: 100%;
+            }
+            .left
+            {
+                width: 0;
+                height: 3px;
+                top: 95%;
+            }
+            .image_container:hover .left
+            {
+                width: 100%;
+            }
+            .link
+            {
+                color: #0c4b0c;
+                text-decoration: none;
+            }
+            .link:hover
+            {
+                text-decoration: underline;
+            }
+            a:visited
+            {
+                color: #560909;
+                text-decoration: none;
+            }
+            .drop
+            {
+                display: flex;
+                background-image: linear-gradient(200deg, #3d0553, #9b4dcb, #320448);
+                flex-direction: row-reverse;
+            }
+            .drop-cont
+            {
+                display: none;
+            }
+            .drop:hover .disappear
+            {
+                display: none;
+            }
+            .drop:hover .drop-cont
+            {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+        </style>
+        <meta charset = "UTF-8">
+    </head>
+    <script>
+        function Visitors()
+        {
+            var visitCount = localStorage.getItem("page_view");
+            if(visitCount)
+            {
+                visitCount = Number(visitCount) + 1;
+                localStorage.setItem("page_view", visitCount);
+            }
+            else
+            {
+                visitCount = 1;
+                localStorage.setItem("page_view", 1);
+            }
+            document.getElementById("demo").innerHTML = visitCount;
+        }
+    </script>
+    <body onload = "Visitors()">
+        <ul class = "h">
+            <li>
+                <a class = "active3" href = "Log In Form.html" style = "color: white">
+                    Sign In
+                </a>
+            </li>
+            <li>
+                <a class = "active" href = "index.html" style = "color: white">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Energy.html" style = "color: white">
+                    Dark Energy
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Matter.html" style = "color: white">
+                    Dark Matter
+                </a>
+            </li>
+            <li>
+                <a href = "Dark Flow.html" style = "color: white">
+                    Dark Flow
+                </a>
+            </li>
+            <li>
+                <a href = "Star.html" style = "color: white">
+                    Star
+                </a>
+            </li>
+            <li class = "animations">
+                <div class = "drop">
+                    <a class = "disappear" style = "color: white; cursor: pointer">
+                        Animations
+                    </a>
+                    <div class = "drop-cont">
+                        <a href = "Solar System/Solar System.html" style = "color: white" target = "_blank">
+                            Solar System
+                        </a>
+                        <a href = "Simple Terra/Simple Terra.html" style = "color: white" target = "_blank">
+                            Terra
+                        </a>
+                        <a href = "Orb/Orb.html" style = "color: white" target = "_blank">
+                            Orb
+                        </a>
+                        <a href = "Night Flower/Night Flower.html" style = "color: white" target = "_blank">
+                            Form of Life
+                        </a>
+                        <a href = "Black Hole Shader/Black Hole Shader.html" style = "color: white" target = "_blank">
+                            Black Hole
+                        </a>
+                        <a href = "Nebula/Nebula.html" style = "color: white" target = "_blank">
+                            Nebula
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li style = "float: left">
+                <a class = "active2" href = "Gallery.html" style = "color: white">
+                    Gallery
+                </a>
+            </li>
+        </ul>
+        <center>
+            <h1 style = "text-decoration: none; color:#070e50; font-size: 260%">
+                Universe Encyclopedia
+            </h1>
+        </center>
+        <br>
+        <br>
+        <h2 style = "text-decoration: none; font-size: 210%; font-weight: normal">
+            Dark Energy
+            <div class = "counter-text unselectable_2">
+                &nbsp;views
+            </div>
+            <div id = "demo" class = "website-counter unselectable_2">
+            </div>
+            <div class = "counter-text unselectable_2">
+                Writer: <i>Alexandru Gabriel</i> | 02-09-2022 |&nbsp;
+            </div>
+            <div class = "line">
+            </div>
+        </h2>
+        <br>
+        <div class = "afterdiv">
+            <a href = "#img1">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 32%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image47.jpeg" style = "float: left; margin-right: 0.4em">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Dark Energy
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Artist's illustration of dark energy
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img1">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image47.jpeg">
+                </div>
+            </a>
+            In physical cosmology and astronomy, <b>dark energy</b> is an unknown form of energy that affects the Universe on the largest scales. The first observational evidence for its existence came from measurements of supernovas, 
+            which showed that the Universe does not expand at a constant rate; rather, the Universe's expansion is accelerating. Understanding the Universe's evolution requires knowledge of its starting conditions and composition. 
+            Before these observations, scientists thought that all forms of matter and energy in the Universe would only cause the expansion to slow down over time. Measurements of the cosmic microwave background (CMB) suggest the 
+            Universe began in a hot Big Bang, from which general relativity explains its evolution and the subsequent large-scale motion. Without introducing a new form of energy, there was no way to explain how scientists could measure 
+            an accelerating Universe. Since the 1990s, dark energy has been the most accepted premise to account for the accelerated expansion.
+            <a href = "#img2">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 30%; float: right; margin-left: 0.4em">
+                        <img loading = "lazy" src = "media\image49.jpg" style = "float: right">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Cosmic Microwave Background
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Dark energy radiation visualization in CMB
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img2">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image49.jpg">
+                </div>
+            </a>
+            As of 2021, there are active areas of cosmology research to understand the fundamental nature of dark energy. Assuming that the lambda-CDM model of cosmology is correct, as of 2013, the best current measurements indicate that 
+            dark energy contributes 68% of the total energy in the present-day observable Universe. The mass–energy of dark matter and ordinary (baryonic) matter contributes 26% and 5%, respectively, 
+            <a href = "#img3">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 27%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image48.jpg" style = "float: left; margin-right: 0.4em">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Big Bang
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The Universe expansion with dark energy
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img3">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image48.jpg">
+                </div>
+            </a>
+            and other components such as neutrinos and photons contribute a very small amount. Dark energy's density is very low (~7×10<sup>-30</sup> g/cm3), much less than the density of ordinary matter or dark matter within galaxies. 
+            However, it dominates the Universe's mass-energy content because it is uniform across space.<br>
+            Two proposed forms of dark energy are the cosmological constant (representing a constant energy density filling space homogeneously) and scalar fields — such as quintessence or moduli — (dynamic quantities having energy 
+            densities that vary in time and space). Contributions from scalar fields that are constant in space are usually also included in the cosmological constant. The cosmological constant can be formulated to be equivalent to the 
+            zero-point radiation of space, i.e., the vacuum energy. However, scalar fields that change in space can be difficult to distinguish from a cosmological constant because the change may be prolonged.<br>
+            Due to the toy model nature of concordance cosmology, some experts believe that a more accurate general relativistic treatment of the structures on all scales in the real Universe may do away with the need to invoke dark energy. 
+            Inhomogeneous cosmologies, which attempt to account for the back-reaction of structure formation on the metric, generally do not acknowledge any dark energy contribution to the Universe's energy density.
+        </div>
+        <table>
+            <tr>
+                <th style = "font-size: 115%">
+                    <center>Contents</center>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    1. 
+                    <a href = "#History of discovery and previous speculation" class = "link">
+                        History of discovery and previous speculation
+                    </a>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            1.1. 
+                            <a href = "#Change in expansion over time" class = "link">
+                                Change in expansion over time
+                            </a>
+                        </td>
+                    </tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    2. 
+                    <a href = "#Nature" class = "link">
+                        Nature
+                    </a>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            2.1. 
+                            <a href = "#Tehnical definition" class = "link">
+                                Technical definition
+                            </a>
+                        </td>
+                    </tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3. 
+                    <a href = "#Evidence of existence" class = "link">
+                        Evidence of existence
+                    </a>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            3.1. 
+                            <a href = "#Supernovae" class = "link">
+                                Supernovae
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            3.2. 
+                            <a href = "#Cosmic microwave background" class = "link">
+                                Cosmic microwave background
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            3.3. 
+                            <a href = "#Large-scale structure" class = "link">
+                                Large-scale structure
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            3.4. 
+                            <a href = "#Late-time integrated Sachs–Wolfe effect" class = "link">
+                                Late-time integrated Sachs–Wolfe effect
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            3.5. 
+                            <a href = "#Observational Hubble constant data" class = "link">
+                                Observational Hubble constant data
+                            </a>
+                        </td>
+                    </tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    4. 
+                    <a href = "#Theories of dark energy" class = "link">
+                        Theories of dark energy
+                    </a>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.1. 
+                            <a href = "#Cosmological constant" class = "link">
+                                Cosmological constant
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.2. 
+                            <a href = "#Quintessence" class = "link">
+                                Quintessence
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.3. 
+                            <a href = "#Interacting dark energy" class = "link">
+                                Interacting dark energy
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            4.4. 
+                            <a href = "#Variable dark energy models" class = "link">
+                                Variable dark energy models
+                            </a>
+                        </td>
+                    </tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    5. 
+                    <a href = "#Other mechanism driving acceleration" class = "link">
+                        Other mechanism driving acceleration
+                    </a>
+                    <tr>
+                        <td style = "padding-left: 7.5%">
+                            5.1. 
+                            <a href = "#Modified gravity" class = "link">
+                                Modified gravity
+                            </a>
+                        </td>
+                    </tr>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    6. 
+                    <a href = "#Implications for the fate of the Universe" class = "link">
+                        Implications for the fate of the Universe
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <h2 class = "subtitle_first" id = "History of discovery and previous speculation">
+            History of discovery and previous speculation
+            <div class = "line">
+            </div>
+        </h2>
+        <h2 class = "subtitle_second" id = "Change in expansion over time">
+            Change in expansion over time
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 303px">
+                    <a href = "#img4">
+                        <img loading = "lazy" src = "media\image50.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img4">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image50.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img4.1" title = "Enlarge">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img4.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image50.jpg">
+                            </div>
+                        </a>
+                        Diagram representing the accelerated expansion of the Universe due to dark energy.
+                    </div>
+                </div>
+            </div>
+            <a href = "#img5">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 30%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\R4.jpeg" style = "float: left; margin-right: 0.4em">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Universe Expansion
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            An Illustration of the expansion of the Universe
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img5">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\R4.jpeg" style = "height: 97%">
+                </div>
+            </a>
+            High-precision measurements of the expansion of the Universe are required to understand how the expansion rate changes over time and space. In general relativity, the evolution of the expansion rate is estimated from the curvature 
+            of the Universe and the cosmological equation of state (the relationship between temperature, pressure, and combined matter, energy, and vacuum energy density for any region of space). Measuring the equation of state for dark energy 
+            is one of the biggest efforts in observational cosmology today. Adding the cosmological constant to cosmology's standard FLRW metric leads to the Lambda-CDM model, which has been referred to as the "<b><i>standard model of cosmology</i></b>" 
+            because of its precise agreement with observations.<br>
+            As of 2013, the Lambda-CDM model is consistent with a series of increasingly rigorous cosmological observations, including the Planck spacecraft and the Supernova Legacy Survey. First results from the SNLS reveal that the average 
+            behavior (i.e., equation of state) of dark energy behaves like Einstein's cosmological constant to a precision of 10%. Recent results from the Hubble Space Telescope Higher-Z Team indicate that dark energy has been present for at least 
+            9 billion years and during the period preceding cosmic acceleration.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Nature">
+            Nature
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img6">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 16%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image52.gif" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Dark matter in Universe
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            <br>
+                            Dark matter's distribution through the Universe
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img6">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image52.gif">
+                </div>
+            </a>
+            <a href = "#img7">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 15%; float: right; margin-left: 0.4em">
+                        <img loading = "lazy" src = "media\image51.gif" style = "float: right">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Drak matter
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            An animation of the dark matter's shape
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img7">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image51.gif">
+                </div>
+            </a>
+            The nature of dark energy is more hypothetical than that of dark matter, and many things about it remain in the realm of speculation.Dark energy is thought to be very homogeneous and not very dense, and is not known to interact through 
+            any of the fundamental forces other than gravity. Since it is quite rarefied and un-massive — roughly 10<sup>-27</sup> kg/m<sup>3</sup> — it is unlikely to be detectable in laboratory experiments. The reason dark energy can have such a 
+            profound effect on the Universe, making up 68% of universal density in spite of being so dilute, is that it uniformly fills otherwise empty space.<br>
+            Independently of its actual nature, dark energy would need to have a strong negative pressure to explain the observed acceleration of the expansion of the Universe. According to general relativity, the pressure within a substance contributes 
+            to its gravitational attraction for other objects just as its mass density does. This happens because the physical quantity that causes matter to generate gravitational effects is the stress–energy tensor, which contains both the energy 
+            (or matter) density of a substance and its pressure. In the Friedmann–Lemaître–Robertson–Walker metric, it can be shown that a strong constant negative pressure (i.e., tension) in all the Universe causes an acceleration in the expansion if 
+            the Universe is already expanding, or a deceleration in contraction if the Universe is already contracting. This accelerating expansion effect is sometimes labeled "gravitational repulsion".
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Technical definition">
+            Technical definition
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img8">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 17.5%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image53.jpeg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 120%">
+                            Dark matter graph
+                        </span>
+                        <span class = "description font_color" style = "font-size: 93%; top: 27%">
+                            The graph of the Universe expansion with dark matter action over it
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img8">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image53.jpeg">
+                </div>
+            </a>
+            In standard cosmology, there are three components of the Universe: matter, radiation, and dark energy. Matter is anything whose energy density scales with the inverse cube of the scale factor, i.e., <i>ρ ∝ a<sup>-3</sup></i>, while radiation 
+            is anything which scales to the inverse fourth power of the scale factor (<i>ρ ∝ a<sup>-4</sup></i>). This can be understood intuitively: for an ordinary particle in a cube-shaped box, doubling the length of an edge of the box decreases the 
+            density (and hence energy density) by a factor of eight (2<sup>3</sup>). For radiation, the decrease in energy density is greater, because an increase in spatial distance also causes a redshift.<br>
+            The final component is dark energy: it is an intrinsic property of space and has a constant energy density, regardless of the dimensions of the volume under consideration (<i>ρ ∝ a<sup>0</sup></i>). Thus, unlike ordinary matter, it is not diluted by the expansion of space.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Evidence of existence">
+            Evidence of existence
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            The evidence for dark energy is indirect but comes from three independent sources:
+            <ol>
+                <li style = "float: left; margin: 0.3%; border: none">
+                    Distance measurements and their relation to redshift, which suggest the Universe has expanded more in the latter half of its life.
+                </li>
+                <li style = "float: left; margin: 0.3%; border: none">
+                    The theoretical need for a type of additional energy that is not matter or dark matter to form the observationally flat Universe (absence of any detectable global curvature).
+                </li>
+                <li style = "float: left; margin: 0.3%; border: none">
+                    Measures of large-scale wave patterns of mass density in the Universe.
+                </li>
+            </ol>
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Supernovae">
+            Supernovae
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 358px">
+                    <a href = "#img9">
+                        <img loading = "lazy" src = "media\image57.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img9">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image57.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img9.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img9.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image57.jpg">
+                            </div>
+                        </a>
+                        SN 1994D (bright spot on the lower left), a type Ia supernova within its host galaxy, NGC 4526
+                    </div>
+                </div>
+            </div>
+            <a href = "#img10">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 33.5%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image55.gif" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Supernova formation
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The formation of a supernova and the graph of the brightness influenced by the dark matter over time
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img10">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image55.gif" style = "height: 87%">
+                </div>
+            </a>
+            In 1998, the High-Z Supernova Search Team published observations of Type Ia ("one-A") supernovae. In 1999, the Supernova Cosmology Project followed by suggesting that the expansion of the Universe is accelerating. The 2011 Nobel Prize in Physics 
+            was awarded to Saul Perlmutter, Brian Paul Schmidt, and Adam Guy Riess for their leadership in the discovery.<br>
+            Since then, these observations have been corroborated by several independent sources. Measurements of the cosmic microwave background, gravitational lensing, and the large-scale structure of the cosmos, as well as improved measurements of supernovae, 
+            have been consistent with the Lambda-CDM model. Some people argue that the only indications for the existence of dark energy are observations of distance measurements and their associated redshifts. Cosmic microwave 
+            <a href = "#img11">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 20%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image56.png" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Observable Universe
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The scale of the Observable Universe
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img11">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image56.png">
+                </div>
+            </a>
+            background anisotropies and baryon acoustic oscillations serve only to demonstrate that distances to a given redshift are larger than would be expected from a "dusty" Friedmann–Lemaître Universe and the local measured Hubble constant.<br>
+            Supernovae are useful for cosmology because they are excellent standard candles across cosmological distances. They allow researchers to measure the expansion history of the Universe by looking at the relationship between the distance to an object 
+            and its redshift, which gives how fast it is receding from us. The relationship is roughly linear, according to Hubble's law. It is relatively easy to measure redshift, but finding the distance to an object is more difficult. Usually, astronomers use 
+            standard candles: objects for which the intrinsic brightness, or absolute magnitude, is known. This allows the object's distance to be measured from its actual observed brightness, or apparent magnitude. Type Ia supernovae are the best-known standard 
+            candles across cosmological distances because of their extreme and consistent luminosity.<br>
+            Recent observations of supernovae are consistent with a Universe made up 71.3% of dark energy and 27.4% of a combination of dark matter and baryonic matter.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Cosmic microwave background">
+            Cosmic microwave background
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 335px">
+                    <a href = "#img12">
+                        <img loading = "lazy" src = "media\image58.png" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img12">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image58.1.png">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img12.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img12.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image58.1.png">
+                            </div>
+                        </a>
+                        Estimated division of total energy in the Universe into matter, dark matter and dark energy based on five years of WMAP data.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 282px">
+                    <a href = "#img13">
+                        <img loading = "lazy" src = "media\image60.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img13">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image60.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img13.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img13.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image60.jpg">
+                            </div>
+                        </a>
+                        WMAP spacecraft diagram
+                    </div>
+                </div>
+            </div>
+            The existence of dark energy, in whatever form, is needed to reconcile the measured geometry of space with the total amount of matter in the Universe. Measurements of cosmic microwave background (CMB) anisotropies indicate that the Universe is close to 
+            flat. For the shape of the Universe to be flat, the mass–energy density of the Universe must be equal to the critical density. The total amount of matter in the Universe (including baryons and dark matter), as measured from the CMB spectrum, accounts 
+            for only about 30% of the critical density. This implies the existence of an additional form of energy to account for the remaining 70%. The Wilkinson Microwave Anisotropy Probe (WMAP) spacecraft seven-year analysis estimated a Universe made up of 72.8% 
+            dark energy, 22.7% dark matter, and 4.5% ordinary matter. Work done in 2013 based on the Planck spacecraft observations of the CMB gave a more accurate estimate of 68.3% dark energy, 26.8% dark matter, and 4.9% ordinary matter.<br>
+            CMB is landmark evidence of the Big Bang origin of the Universe. When the Universe was young, before the formation of stars and planets, it was denser, much hotter, and filled with an opaque fog of hydrogen plasma. As the Universe expanded the plasma 
+            grew cooler and the radiation filling it expanded to longer wavelengths. When the temperature had dropped enough, protons and electrons combined to form neutral hydrogen atoms. 
+            <a href = "#img14">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 18.15%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image59.jpg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Planck spacecraft
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            An illustration of the Planck spacecraft in cosmos
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img14">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image59.jpg">
+                </div>
+            </a>
+            Unlike the plasma, these newly conceived atoms could not scatter the thermal radiation by Thomson scattering, and so the Universe became transparent. Cosmologists refer to the time period when neutral atoms first formed as the <i><b>recombination epoch</b></i>, 
+            and the event shortly afterwards when photons started to travel freely through space is referred to as photon decoupling. The photons that existed at the time of photon decoupling have been propagating ever since, though growing less energetic, since the 
+            expansion of space causes their wavelength to increase over time (and wavelength is inversely proportional to energy according to Planck's relation). This is the source of the alternative term <i><b>relic radiation</b></i>. The <i><b>surface of last scattering</b></i> 
+            refers to the set of points in space at the right distance from us so that we are now receiving photons originally emitted from those points at the time of photon decoupling.<br>
+            According to the Theory of Quantum Fields in Curved Spacetimes the origin of these (thermal) microwave photons is related to redshifted particles created in the early Universe, when the production of particles by the expanding background played a significant role.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Large-scale structure">
+            Large-scale structure
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 282px">
+                    <a href = "#img15">
+                        <img loading = "lazy" src = "media\image62.gif" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img15">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image62.gif">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img15.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img15.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image62.gif">
+                            </div>
+                        </a>
+                        Video of a cosmological simulation of the local Universe, showing large-scale structure of clusters of galaxies and dark matter under the action of dark energy
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 288px">
+                    <a href = "#img16">
+                        <img loading = "lazy" src = "media\image64.jpeg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img16">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image64.jpeg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img16.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img16.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image64.jpeg">
+                            </div>
+                        </a>
+                        Australian Astronomical Observatory
+                    </div>
+                </div>
+            </div>
+            The theory of large-scale structure, which governs the formation of structures in the Universe (stars, quasars, galaxies and galaxy groups and clusters), also suggests that the density of matter in the Universe is only 30% of the critical density.<br>
+            A 2011 survey, the WiggleZ galaxy survey of more than 200,000 galaxies, provided further evidence towards the existence of dark energy, although the exact physics behind it remains unknown. The WiggleZ survey from the Australian Astronomical Observatory scanned 
+            the galaxies to determine their redshift. Then, by exploiting the fact that baryon acoustic oscillations have left voids regularly of ≈150 Mpc diameter, surrounded by the galaxies, the voids were used as standard rulers to estimate distances to galaxies as far as 
+            2,000 Mpc (redshift 0.6), allowing for accurate estimate of the speeds of galaxies from their redshift and distance. The data confirmed cosmic acceleration up to half of the age of the Universe (7 billion years) and constrain its inhomogeneity to 1 part in 10. 
+            This provides a confirmation to cosmic acceleration independent of supernovae.<br>
+            Sky surveys and mappings of the various wavelength bands of electromagnetic radiation (in particular 21-cm emission) have yielded much information on the content and character of the Universe's structure. The organization of structure appears to follow a hierarchical 
+            model with organization up to the scale of superclusters and filaments. Larger than this (at scales between 30 and 200 megaparsecs), there seems to be no continued structure, a phenomenon that has been referred to as the End of Greatness.<br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12882.579036388777!2d151.145111!3d-33.796218!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3d98d19820feb711!2sAustralian%20Astronomical%20Optics%20%E2%80%93%20Macquarie%20University!5e1!3m2!1sro!2sro!4v1663598116810!5m2!1sro!2sro" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Late-time integrated Sachs–Wolfe effect">
+            Late-time integrated Sachs–Wolfe effect
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 310px">
+                    <a href = "#img17">
+                        <img loading = "lazy" src = "media\image65.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img17">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image65.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img17.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img17.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image65.jpg">
+                            </div>
+                        </a>
+                        Plot of a two-dimensional slice of the gravitational potential in and around a uniform spherical body. The inflection points of the cross-section are at the surface of the body.
+                    </div>
+                </div>
+            </div>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 320px">
+                    <a href = "#img18">
+                        <img loading = "lazy" src = "media\Lambda-Cold_Dark_Matter,_Accelerated_Expansion_of_the_Universe,_Big_Bang-Inflation.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img18">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Lambda-Cold_Dark_Matter,_Accelerated_Expansion_of_the_Universe,_Big_Bang-Inflation.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img18.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img18.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\Lambda-Cold_Dark_Matter,_Accelerated_Expansion_of_the_Universe,_Big_Bang-Inflation.jpg">
+                            </div>
+                        </a>
+                        Lambda-CDM, accelerated expansion of the Universe. The timeline in this schematic diagram extends from the Big Bang/inflation era 13.7 billion years ago to the present cosmological time.
+                    </div>
+                </div>
+            </div>
+            The integrated Sachs–Wolfe (ISW) effect is also caused by gravitational redshift, but it occurs between the surface of last scattering and the Earth, so it is not part of the primordial CMB. It occurs when the Universe is dominated in its energy density by something 
+            other than matter. If the Universe is dominated by matter, then large-scale gravitational potential energy wells and hills do not evolve significantly. If the Universe is dominated by radiation, or by dark energy, though, those potentials do evolve, subtly changing the 
+            energy of photons passing through them.<br>
+            There are two contributions to the ISW effect. The "early-time" ISW occurs immediately after the (non-integrated) Sachs–Wolfe effect produces the primordial CMB, as photons course through density fluctuations while there is still enough radiation around to affect the 
+            Universe's expansion. Although it is physically the same as the late-time ISW, for observational purposes it is usually lumped in with the primordial CMB, since the matter fluctuations that cause it are in practice undetectable.<br>
+            The "late-time" ISW effect arises quite recently in cosmic history, as dark energy, or the cosmological constant, starts to govern the Universe's expansion. Unfortunately, the nomenclature is a bit confusing. Often, "late-time ISW" implicitly refers to the late-time 
+            ISW effect to linear/first order in density perturbations. This linear part of the effect entirely vanishes in a flat Universe with only matter, but dominates over the higher-order part of the effect in a Universe with dark energy. The full nonlinear (linear + higher-order) 
+            late-time ISW effect, especially in the case of individual voids and clusters, is sometimes known as the Rees–Sciama effect, since Martin Rees and Dennis Sciama elucidated the following physical picture.<br>
+            Accelerated expansion due to dark energy causes even strong large-scale potential wells (superclusters) and hills (voids) to decay over the time it takes a photon to travel through them. A photon gets a kick of energy going into a potential well (a supercluster), and it keeps 
+            some of that energy after it exits, after the well has been stretched out and shallowed. Similarly, a photon has to expend energy entering a supervoid, but will not get all of it back upon exiting the slightly squashed potential hill.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Observational Hubble constant data">
+            Observational Hubble constant data
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 360px">
+                    <a href = "#img19">
+                        <img loading = "lazy" src = "media\image66.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img19">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image66.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img19.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img19.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image66.jpg">
+                            </div>
+                        </a>
+                        Gravitational redshift by the mass defect under the efect of dark energy
+                    </div>
+                </div>
+            </div>
+            A new approach to test evidence of dark energy through observational Hubble constant data (OHD), also known as cosmic chronometers, has gained significant attention in recent years.<br>
+            The Hubble constant, <i><b>H(z)</b></i>, is measured as a function of cosmological redshift. OHD directly tracks the expansion history of the Universe by taking passively evolving early-type galaxies as "cosmic chronometers". From this point, this approach provides standard clocks 
+            in the Universe. The core of this idea is the measurement of the differential age evolution as a function of redshift of these cosmic chronometers. Thus, it provides a direct estimate of the Hubble parameter<br>
+            <img loading = "lazy" src = "media\image67.png" style = "width: 20%"><br>
+            The reliance on a differential quantity, 
+            <div class = "frac">
+                Δz
+                <div class = "symbol">
+                    /
+                </div>
+                <div class = "bottom">
+                    Δt
+                </div>
+            </div>
+            , brings more information and is appealing for computation: It can minimize many common issues and systematic effects. Analyses of supernovae and baryon acoustic oscillations (BAO) are based on integrals of the Hubble parameter, whereas 
+            <div class = "frac">
+                Δz
+                <div class = "symbol">
+                    /
+                </div>
+                <div class = "bottom">
+                    Δt
+                </div>
+            </div>
+            measures it directly. For these reasons, this method has been widely used to examine the accelerated cosmic expansion and study properties of dark energy.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Theories of dark energy">
+            Theories of dark energy
+            <div class = "line">
+            </div>
+        </h2>
+        <p class = "afterdiv">
+            Dark energy's status as a hypothetical force with unknown properties makes it a very active target of research. The problem is attacked from a great variety of angles, such as modifying the prevailing theory of gravity (general relativity), attempting to pin down the properties of 
+            dark energy, and finding alternative ways to explain the observational data.
+        </p>
+        <h2 class = "subtitle_second" id = "Cosmological constant">
+            Cosmological constant
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 256px">
+                    <a href = "#img20">
+                        <img loading = "lazy" src = "media\image69.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img20">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image69.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img20.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img20.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image69.jpg">
+                            </div>
+                        </a>
+                        The equation of state of Dark Energy for 4 common models by Redshift.<br>
+                        A: CPL Model,<br>
+                        B: Jassal Model,<br>
+                        C: Barboza & Alcaniz Model,<br>
+                        D: Wetterich Model.
+                    </div>
+                </div>
+            </div>
+            <a href = "#img21">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 38.6%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image70.jpg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Black hole
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            The eruption of a black hole making it a quasar
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img21">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image70.jpg" style = "height: 77%">
+                </div>
+            </a>
+            The simplest explanation for dark energy is that it is an intrinsic, fundamental energy of space. This is the cosmological constant, usually represented by the Greek letter Λ (Lambda, hence Lambda-CDM model). Since energy and mass are related according to the equation <i>E = mc<sup>2</sup></i>, 
+            Einstein's theory of general relativity predicts that this energy will have a gravitational effect. It is sometimes called a vacuum energy because it is the energy density of empty space – the vacuum.<br>
+            A major outstanding problem is that the same quantum field theories predict a huge cosmological constant, about 120 orders of magnitude too large. This would need to be almost, but not exactly, cancelled by an equally large term of the opposite sign.<br>
+            Some supersymmetric theories require a cosmological constant that is exactly zero. Also, it is unknown if there is a metastable vacuum state in string theory with a positive cosmological constant, and it has been conjectured by Ulf Danielsson <i><b>et al</b></i>. that no such state exists. 
+            This conjecture would not rule out other models of dark energy, such as quintessence, that could be compatible with string theory.<br>
+            <a href = "#img22">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 23.2%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image71.png" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Dark matter
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Artist's illustration of the dark matter in Universe
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img22">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image71.png">
+                </div>
+            </a>
+            According to quantum field theory (QFT) which underlies modern particle physics, empty space is defined by the vacuum state which is a collection of quantum fields. All these quantum fields exhibit fluctuations in their ground state (lowest energy density) arising from the zero-point energy 
+            present everywhere in space. These zero-point fluctuations should act as a contribution to the cosmological constant Λ, but when calculations are performed these fluctuations give rise to an enormous vacuum energy. The discrepancy between theorized vacuum energy from quantum field theory and 
+            observed vacuum energy from cosmology is a source of major contention, with the values predicted exceeding observation by some 120 orders of magnitude, a discrepancy that has been called "the worst theoretical prediction in the history of physics". This issue is called the cosmological constant 
+            problem and it is one of the greatest mysteries in science with many physicists believing that "the vacuum holds the key to a full understanding of nature".
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Quintessence">
+            Quintessence
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 248px">
+                    <a href = "#img23">
+                        <img loading = "lazy" src = "media\image72.png" width = "108%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img23">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image72.png" style = "height: 108%">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img23.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img23.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image72.png" style = "height: 108%">
+                            </div>
+                        </a>
+                        Estimated distribution of matter and energy in the Universe
+                    </div>
+                </div>
+            </div>
+            <a href = "#img24">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 25.3%; float: left; margin-right: 0.4em">
+                        <img loading = "lazy" src = "media\image75.jpeg" style = "float: left">
+                        <span class = "title font_color" style = "font-size: 130%">
+                            Quintessence
+                        </span>
+                        <span class = "description font_color" style = "font-size: 102%">
+                            Artist's impresion of the quintessence
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img24">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image75.jpeg">
+                </div>
+            </a>
+            In quintessence models of dark energy, the observed acceleration of the scale factor is caused by the potential energy of a dynamical field, referred to as quintessence field. Quintessence differs from the cosmological constant in that it can vary in space and time. In order for it not to clump 
+            and form structure like matter, the field must be very light so that it has a large Compton wavelength. In the simplest scenarios, the quintessence field has a canonical kinetic term, is minimally coupled to gravity, and does not feature higher order operations in its Lagrangian.<br>
+            No evidence of quintessence is yet available, but it has not been ruled out either. It generally predicts a slightly slower acceleration of the expansion of the Universe than the cosmological constant. Some scientists think that the best evidence for quintessence would come from violations of 
+            Einstein's equivalence principle and variation of the fundamental constants in space or time. Scalar fields are predicted by the Standard Model of particle physics and string theory, but an analogous problem to the cosmological constant problem (or the problem of constructing models of cosmological 
+            inflation) occurs: renormalization theory predicts that scalar fields should acquire large masses.<br>
+            <a href = "#img25">
+                <div class = "image_blur">
+                    <div class = "image_container" style = "width: 14.4%; float: right; margin-left: 0.4em">
+                        <img loading = "lazy" src = "media\image77.jpeg" style = "float: right">
+                        <span class = "title font_color" style = "font-size: 120%">
+                            Quintessence
+                        </span>
+                        <span class = "description font_color" style = "font-size: 95%">
+                            Quintessence accumulation
+                        </span>
+                        <span class = "line1 top">
+                        </span>
+                        <span class = "line1 left">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img25">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image77.jpeg">
+                </div>
+            </a>
+            The coincidence problem asks why the acceleration of the Universe began when it did. If acceleration began earlier in the Universe, structures such as galaxies would never have had time to form, and life, at least as we know it, would never have had a chance to exist. Proponents of the anthropic 
+            principle view this as support for their arguments. 
+            <a href = "#img26">
+                <div style = "width: 30.6%; float: left; margin-right: 0.4em">
+                    <img loading = "lazy" src = "media\image74.jpg" style = "float: left">
+                    <span class = "title font_color" style = "font-size: 130%">
+                        Neutron star eruption
+                    </span>
+                    <span class = "description font_color" style = "font-size: 102%">
+                        Accretion disc of a gamma rays eruption of a neutron star
+                    </span>
+                    <span class = "line1 top">
+                    </span>
+                    <span class = "line1 left">
+                    </span>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img26">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image74.jpg">
+                </div>
+            </a>
+            However, many models of quintessence have a so-called "tracker" behavior, which solves this problem. In these models, the quintessence field has a density which closely tracks (but is less than) the radiation density until matter–radiation equality, which triggers quintessence to start behaving as 
+            dark energy, eventually dominating the Universe. This naturally sets the low energy scale of the dark energy.<br>
+            In 2004, when scientists fit the evolution of dark energy with the cosmological data, they found that the equation of state had possibly crossed the cosmological constant boundary (w = −1) from above to below. A no-go theorem has been proved that this scenario requires models with at least two types 
+            of quintessence. This scenario is the so-called Quintom scenario.<br>
+            Some special cases of quintessence are phantom energy, in which the energy density of quintessence actually increases with time, and k-essence (short for kinetic quintessence) which has a non-standard form of kinetic energy such as a negative kinetic energy. They can have unusual properties: phantom 
+            energy, for example, can cause a Big Rip.<br>
+            A group of researchers argued in 2021 that observations of the Hubble tension may imply that only quintessence models with a nonzero coupling constant are viable.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Interacting dark energy">
+            Interacting dark energy
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img27">
+                <div style = "width: 19%; float: left; margin-right: 0.4em">
+                    <img loading = "lazy" src = "media\image79.jpeg" style = "float: left">
+                    <span class = "title font_color" style = "font-size: 130%">
+                        Neutron star eruption
+                    </span>
+                    <span class = "description font_color" style = "font-size: 102%">
+                        Accretion disc of a gamma rays eruption of a neutron star
+                    </span>
+                    <span class = "line1 top">
+                    </span>
+                    <span class = "line1 left">
+                    </span>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img27">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image79.jpeg">
+                </div>
+            </a>
+            This class of theories attempts to come up with an all-encompassing theory of both dark matter and dark energy as a single phenomenon that modifies the laws of gravity at various scales. This could, for example, treat dark energy and dark matter as different facets of the same unknown substance, or postulate 
+            that cold dark matter decays into dark energy. Another class of theories that unifies dark matter and dark energy are suggested to be covariant theories of modified gravities. These theories alter the dynamics of the spacetime such that the modified dynamics stems to what have been assigned to the presence 
+            of dark energy and dark matter. Dark energy could in principle interact not only with the rest of the dark sector, but also with ordinary matter. However, cosmology alone is not sufficient to effectively constrain the strength of the coupling between dark energy and baryons, so that other indirect techniques 
+            or laboratory searches have to be adopted. A recent proposal speculates that the currently unexplained excess observed in the XENON1T detector in Italy may have been caused by a chameleon model of dark energy. In July 2022 a new analysis by XENONnT discarded the excess.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_second" id = "Variable dark energy models">
+            Variable dark energy models
+        </h2>
+        <div class = "afterdiv">
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 235px">
+                    <a href = "#img28">
+                        <img loading = "lazy" src = "media\image80.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img28">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\image80.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img28.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img28.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\image80.jpg">
+                            </div>
+                        </a>
+                        The formation of clusters and large-scale filaments in the cold dark matter model with dark energy. The frames show the evolution of structures in a 43 million parsecs (or 140 million light-years) box from redshift of 30 to the present epoch (upper left z=30 to lower right z=0).
+                    </div>
+                </div>
+            </div>
+            <a href = "#img29">
+                <div style = "width: 22.3%; float: left; margin-right: 0.4em">
+                    <img loading = "lazy" src = "media\image81.jpg" style = "float: left">
+                    <span class = "title font_color" style = "font-size: 130%">
+                        Neutron star eruption
+                    </span>
+                    <span class = "description font_color" style = "font-size: 102%">
+                        Accretion disc of a gamma rays eruption of a neutron star
+                    </span>
+                    <span class = "line1 top">
+                    </span>
+                    <span class = "line1 left">
+                    </span>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img29">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image81.jpg">
+                </div>
+            </a>
+            The density of the dark energy might have varied in time during the history of the Universe. Modern observational data allow us to estimate the present density of the dark energy. Using baryon acoustic oscillations, it is possible to investigate the effect of dark energy in the history of the Universe, and 
+            constrain parameters of the equation of state of dark energy. To that end, several models have been proposed. One of the most popular models is the Chevallier–Polarski–Linder model (CPL). Some other common models are, (Barboza & Alcaniz. 2008), (Jassal et al. 2005), (Wetterich. 2004), (Oztas et al. 2018).<br>
+            In cosmology, baryon acoustic oscillations (BAO) are fluctuations in the density of the visible baryonic matter (normal matter) of the Universe, caused by acoustic density waves in the primordial plasma of the early Universe. In the same way that supernovae provide a "standard candle" for astronomical 
+            observations, BAO matter clustering provides a "standard ruler" for length scale in cosmology. The length of this standard ruler is given by the maximum distance the acoustic waves could travel in the primordial plasma before the plasma cooled to the point where it became neutral atoms (the epoch of recombination), 
+            which stopped the expansion of the plasma density waves, "freezing" them into place. The length of this standard ruler (≈490 million light years in today's Universe) can be measured by looking at the large scale structure of matter using astronomical surveys. BAO measurements help cosmologists understand more about 
+            the nature of dark energy (which causes the accelerating expansion of the Universe) by constraining cosmological parameters.<br>
+            In physics, chemistry, and thermodynamics, an equation of state is a thermodynamic equation relating state variables, which describe the state of matter under a given set of physical conditions, such as pressure, volume, temperature, or internal energy. Most modern equations of state are formulated in the Helmholtz 
+            free energy. Equations of state are useful in describing the properties of pure substances and mixtures in liquids, gases, and solid states as well as the state of matter in the interior of stars.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Other mechanism driving acceleration">
+            Other mechanism driving acceleration
+            <div class = "line">
+            </div>
+        </h2>
+        <h2 class = "subtitle_second" id = "Modified gravity">
+            Modified gravity
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img30">
+                <div style = "width: 15.6%; float: left; margin-right: 0.4em">
+                    <img loading = "lazy" src = "media\image83.jpg" style = "float: left">
+                    <span class = "title font_color" style = "font-size: 130%">
+                        Neutron star eruption
+                    </span>
+                    <span class = "description font_color" style = "font-size: 102%">
+                        Accretion disc of a gamma rays eruption of a neutron star
+                    </span>
+                    <span class = "line1 top">
+                    </span>
+                    <span class = "line1 left">
+                    </span>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img30">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image83.jpg">
+                </div>
+            </a>
+            <a href = "#img31">
+                <div style = "width: 18%; float: right; margin-left: 0.4em">
+                    <img loading = "lazy" src = "media\image82.jpg" style = "float: right">
+                    <span class = "title font_color" style = "font-size: 130%">
+                        Neutron star eruption
+                    </span>
+                    <span class = "description font_color" style = "font-size: 102%">
+                        Accretion disc of a gamma rays eruption of a neutron star
+                    </span>
+                    <span class = "line1 top">
+                    </span>
+                    <span class = "line1 left">
+                    </span>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img31">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image82.jpg">
+                </div>
+            </a>
+            The evidence for dark energy is heavily dependent on the theory of general relativity. Therefore, it is conceivable that a modification to general relativity also eliminates the need for dark energy. There are very many such theories, and research is ongoing. The measurement of the speed of gravity in the first 
+            gravitational wave measured by non-gravitational means (GW170817) ruled out many modified gravity theories as explanations to dark energy.<br>
+            Astrophysicist Ethan Siegel states that, while such alternatives gain a lot of mainstream press coverage, almost all professional astrophysicists are confident that dark energy exists, and that none of the competing theories successfully explain observations to the same level of precision as standard dark energy.<br>
+            In theoretical physics, <b>massive gravity</b> is a theory of gravity that modifies general relativity by endowing the graviton with a nonzero mass. In the classical theory, this means that gravitational waves obey a massive wave equation and hence travel at speeds below the speed of light.<br>
+            As a response to Freund–Maheshwari–Schonberg <i><b>finite-range gravity</b></i> model, and around the same time as the vDVZ discontinuity and Vainshtein mechanism were discovered, David Boulware and Stanley Deser found in 1972 that generic nonlinear extensions of the Fierz–Pauli theory reintroduced the dangerous ghost 
+            mode; the tuning <i><b>a = -b</b></i> which ensured this mode's absence at quadratic order was, they found, generally broken at cubic and higher orders, reintroducing the ghost at those orders. As a result, this <i><b>Boulware–Deser ghost</b></i> would be present around, for example, highly inhomogeneous backgrounds.
+        </div>
+        <p class = "unselectable">
+            .
+        </p>
+        <h2 class = "subtitle_first" id = "Implications for the fate of the Universe">
+            Implications for the fate of the Universe
+            <div class = "line">
+            </div>
+        </h2>
+        <div class = "afterdiv">
+            <a href = "#img32">
+                <div style = "width: 22.2%; float: left; margin-right: 0.4em">
+                    <img loading = "lazy" src = "media\image85.gif" style = "float: left">
+                    <span class = "title font_color" style = "font-size: 130%">
+                        Neutron star eruption
+                    </span>
+                    <span class = "description font_color" style = "font-size: 102%">
+                        Accretion disc of a gamma rays eruption of a neutron star
+                    </span>
+                    <span class = "line1 top">
+                    </span>
+                    <span class = "line1 left">
+                    </span>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img32">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\image85.gif">
+                </div>
+            </a>
+            Cosmologists estimate that the acceleration began roughly 5 billion years ago. Before that, it is thought that the expansion was decelerating, due to the attractive influence of matter. The density of dark matter in an expanding Universe decreases more quickly than dark energy, and eventually the dark energy dominates. 
+            Specifically, when the volume of the Universe doubles, the density of dark matter is halved, but the density of dark energy is nearly unchanged (it is exactly constant in the case of a cosmological constant).<br>
+            <a href = "#img33">
+                <div style = "width: 20%; float: right; margin-left: 0.4em">
+                    <img loading = "lazy" src = "media\output_kbDMbl.gif" style = "float: right">
+                    <span class = "title font_color" style = "font-size: 130%">
+                        Neutron star eruption
+                    </span>
+                    <span class = "description font_color" style = "font-size: 102%">
+                        Accretion disc of a gamma rays eruption of a neutron star
+                    </span>
+                    <span class = "line1 top">
+                    </span>
+                    <span class = "line1 left">
+                    </span>
+                </div>
+            </a>
+            <a href = "#_" class = "lightbox" id = "img33">
+                <div class = "center_gif">
+                    <img loading = "lazy" src = "media\output_kbDMbl.gif">
+                </div>
+            </a>
+            Projections into the future can differ radically for different models of dark energy. For a cosmological constant, or any other model that predicts that the acceleration will continue indefinitely, the ultimate result will be that galaxies outside the Local Group will have a line-of-sight velocity that continually increases 
+            with time, eventually far exceeding the speed of light. This is not a violation of special relativity because the notion of "velocity" used here is different from that of velocity in a local inertial frame of reference, which is still constrained to be less than the speed of light for any massive object. Because the Hubble 
+            parameter is decreasing with time, there can actually be cases where a galaxy that is receding from us faster than light does manage to emit a signal which reaches us eventually.<br>
+            <div class = "thumb tleft">
+                <div class = "thumbinner" style = "width: 267px">
+                    <a href = "#img34">
+                        <img loading = "lazy" src = "media\Big_rip.jpg" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img34">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Big_rip.jpg">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img34.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img34.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\Big_rip.jpg">
+                            </div>
+                        </a>
+                        In this author's example of Big Rip it is proposed that the galaxies would be dismembered first, then the planetary systems, then the planets and stars, then the atoms and lastly spacetime itself would be torn apart.
+                    </div>
+                </div>
+            </div>
+            However, because of the accelerating expansion, it is projected that most galaxies will eventually cross a type of cosmological event horizon where any light they emit past that point will never be able to reach us at any time in the infinite future because the light never reaches a point where its "peculiar velocity" toward 
+            us exceeds the expansion velocity away from us (these two notions of velocity are also discussed in Uses of the proper distance). Assuming the dark energy is constant (a cosmological constant), the current distance to this cosmological event horizon is about 16 billion light years, meaning that a signal from an event happening 
+            <i><b>at present</b></i> would eventually be able to reach us in the future if the event were less than 16 billion light years away, but the signal would never reach us if the event were more than 16 billion light years away.<br>
+            <div class = "thumb tright">
+                <div class = "thumbinner" style = "width: 267px">
+                    <a href = "#img35">
+                        <img loading = "lazy" src = "media\Big_Crunch.gif" width = "100%">
+                    </a>
+                    <a href = "#_" class = "lightbox" id = "img35">
+                        <div class = "center_gif">
+                            <img loading = "lazy" src = "media\Big_Crunch.gif">
+                        </div>
+                    </a>
+                    <div class = "thumbcaption">
+                        <a href = "#img35.1">
+                            <img loading = "lazy" src = "media\untitled.png" class = "magnify">
+                        </a>
+                        <a href = "#_" class = "lightbox" id = "img35.1">
+                            <div class = "center_gif">
+                                <img loading = "lazy" src = "media\Big_Crunch.gif">
+                            </div>
+                        </a>
+                        An animation of the expected behavior of a Big Crunch
+                    </div>
+                </div>
+            </div>
+            As galaxies approach the point of crossing this cosmological event horizon, the light from them will become more and more redshifted, to the point where the wavelength becomes too large to detect in practice and the galaxies appear to vanish completely. Planet Earth, the Milky Way, and the Local Group of which the Milky Way is 
+            a part, would all remain virtually undisturbed as the rest of the Universe recedes and disappears from view. In this scenario, the Local Group would ultimately suffer heat death, just as was hypothesized for the flat, matter-dominated Universe before measurements of cosmic acceleration.<br>
+            There are other, more speculative ideas about the future of the Universe. The phantom energy model of dark energy results in divergent expansion, which would imply that the effective force of dark energy continues growing until it dominates all other forces in the Universe. Under this scenario, dark energy would ultimately tear 
+            apart all gravitationally bound structures, including galaxies and solar systems, and eventually overcome the electrical and nuclear forces to tear apart atoms themselves, ending the Universe in a "Big Rip". On the other hand, dark energy might dissipate with time or even become attractive. Such uncertainties leave open the 
+            possibility of gravity eventually prevailing and lead to a Universe that contracts in on itself in a "Big Crunch", or that there may even be a dark energy cycle, which implies a cyclic model of the Universe in which every iteration (Big Bang then eventually a Big Crunch) takes about a trillion (10<sup>12</sup>) years. While none 
+            of these are supported by observations, they are not ruled out.
+        </div>
+    </body> 
+</html>

@@ -1,0 +1,33 @@
+.download_btn
+{
+    display: flex;
+    align-items: center;
+    padding: 22px 40px 22px 40px;
+    overflow: visible;
+    background: #430c63;
+    border: 0;
+    border-radius: 15px;
+    z-index: 3;
+}
+.download_btn span
+{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 29px;
+    line-height: 44px;
+    color: #ffffff;
+    margin-right: 15px;
+}
+.download_btn i, .download_btn span, .download_btn
+{
+    transition: all 670ms ease-in-out;
+}
+.download_btn:hover
+{
+    background: #792fa6;
+}
+.download_btn:hover i
+{
+    transform: scale(1.37);
+}

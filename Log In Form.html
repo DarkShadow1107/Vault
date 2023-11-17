@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" style = "width: 1521.5px">
+    <head>
+        <title>
+            Account
+        </title>
+        <link rel = "preconnect" href = "https://fonts.gstatic.com">
+        <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href = "https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel = "stylesheet">
+        <link rel = "stylesheet" href = "https://www.w3schools.com/w3css/4/w3.css">
+        <style media = "screen">
+        *,
+        *:before,*:after
+        {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body
+        {
+            background-image: url("media/LEGACY OF THE XEL'NAGA.jpg");
+            z-index: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+        form
+        {
+            z-index: 3;
+            height: 620px;
+            width: 400px;
+            background-color: rgba(255,255,255,0.13);
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 49%;
+            left: 50%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 40px rgba(8,7,16,0.6);
+            padding: 10px 35px;
+        }
+        form *
+        {
+            font-family: 'Poppins', sans-serif;
+            color: #c4a3f9;
+            letter-spacing: 0.5px;
+            outline: none;
+            border: none;
+        }
+        form h3
+        {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 42px;
+            text-align: center;
+        }
+        label
+        {
+            display: block;
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        input
+        {
+            display: block;
+            height: 50px;
+            width: 100%;
+            background-color: rgba(255,255,255,0.07);
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+        ::placeholder
+        {
+            color: #c4a3f9;
+        }
+        .button_log
+        {
+            margin-top: 50px;
+            width: 100%;
+            background-color: #a573f5;
+            color: hwb(247 3% 94%);
+            padding: 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 725ms ease-in-out;
+        }
+        .button_log:hover
+        {
+            background-color: rgb(126, 85, 193);
+            -webkit-box-shadow: 10px 10px 99px 6px rgba(126, 85, 193, 1);
+            -moz-box-shadow: 10px 10px 99px 6px rgba(126, 85, 193, 1);
+            box-shadow: 10px 10px 99px 6px rgba(126, 85, 193, 1);
+        }
+        .social
+        {
+            margin-top: 30px;
+            display: flex;
+            cursor: pointer;
+        }
+        .social div
+        {
+            width: 150px;
+            border-radius: 3px;
+            padding: 5px 10px 10px 5px;
+            background-color: rgba(255, 255, 255, 0.149);
+            color: #c4a3f9;
+            text-align: center;
+            transition: all 665ms ease-in-out;
+        }
+        .social div:hover
+        {
+            background-color: rgb(87, 50, 146);
+            -webkit-box-shadow: 10px 10px 99px 6px rgba(87, 50, 146, 1);
+            -moz-box-shadow: 10px 10px 99px 6px rgba(87, 50, 146, 1);
+            box-shadow: 10px 10px 99px 6px rgba(87, 50, 146, 1);
+        }
+        .social .ms
+        {
+            margin-left: 25px;
+        }
+        .social i
+        {
+            margin-right: 4px;
+        }
+        .close
+        {
+            float: right;
+            cursor: pointer;
+            font-size: 200%;
+            transition: all 435ms ease-in-out;
+        }
+        .close:hover
+        {
+            transform: scale(1.35);
+        }
+        </style>
+        <meta charset = "UTF-8">
+    </head>
+    <script type = "text/javascript">
+        function displayRandomImages () 
+        {
+            var imageArray = [
+            { 
+                src: "media/DRAWING OF THE WEB.jpg",
+                width: "1534",
+                height: "745"
+            }, 
+            {
+                src: "media/DARK ORIGIN.jpg",
+                width: "1534",
+                height: "745"
+            }, 
+            {
+                src: "media/EMPEROR'S FALL (BIRDS OF WAR).jpg",
+                width: "1534",
+                height: "745"
+            },
+            {
+                src: "media/TO SLAY THE BEAST.jpg",
+                width: "1534",
+                height: "745"
+            },
+            {
+                src: "media/PATRIOT'S BLOOD.jpg",
+                width: "1534",
+                height: "745"
+            } ];
+            var arrayLength = imageArray.length;
+            var newArray = [];
+            for (var i = 0; i < arrayLength; i ++)
+            {
+                newArray [i] = new Image ();
+                newArray [i].src = imageArray [i].src;
+                newArray [i].width = imageArray [i].width;
+                newArray [i].height = imageArray [i].height;
+            }
+            function getRandomNum (min, max) 
+            {
+                imgNo = Math.floor (Math.random () * (max - min + 1)) + min;
+                return newArray [imgNo];
+            }  
+            var newImage = getRandomNum (0, newArray.length - 1);
+            var images = document.getElementsByTagName ('img');
+            var length = images.length;
+            for (var p = 0; p < length; p ++)
+            {
+                images [0].parentNode.removeChild (images [0]);
+            }
+            document.body.appendChild (newImage);
+        }
+        function redirectFunc ()
+        {
+            window.location.replace ("index.html");
+        }
+        function Mail (string)
+        {
+            let number = 0;
+            let length = string.length;
+            for (let i = 0; i < length && number < 2; i ++)
+                if (string [i] === "@")
+                    number ++;
+            if (number === 1)
+                return true;
+            return false;
+        }
+        function containsSpecialChars_password (string)
+        {
+            const specialChars = /[`!@#$%^&*()_+\- =\[\]{};':"\\|,.<>\/?~]/;
+            return specialChars.test (string);
+        }
+        function containsSpecialChars_email (string)
+        {
+            const specialChars = /[`!#$%^&*()+\-=\[\]{};':"\\|,<>\/?~]/;
+            return specialChars.test (string);
+        }
+        function Nick_Name ()
+        {
+            displayRandomImages ();
+            let Nickname = document.getElementById ("username").value;
+            let E_mail = document.getElementById ("e-mail").value;
+            let Password = document.getElementById ("password").value;
+            if (containsSpecialChars_email (E_mail) === false)
+                if ((E_mail.slice (- 10) === "@gmail.com" || E_mail.slice (- 12) === "@outlook.com" || E_mail.slice (- 10) === "@yahoo.com") && Nickname !== "" && Mail (E_mail))
+                    if (Password !== "")
+                        if (Password.length < 10)
+                            alert ("Your password is too short, it must contains at least 10 characters!");
+                        else
+                            if (containsSpecialChars_password (Password) === false)
+                                alert ("Your password is weak, it must contains special characters as well!");
+                            else
+                                alert ("Welcome " + Nickname + ", your e-mail address was registered with the following address " + E_mail);
+                    else
+                        alert ("Please insert a strong password!");
+                else
+                    alert ("Invalid e-mail address or empty username, please insert a valid e-mail address and an username!");
+            else
+            {
+                alert ("Your e-mail address must not contains special characters!");
+                alert ("BUT some special charcters are allowed, like following characters: @_.");
+            }
+        }
+        function Google ()
+        {
+            displayRandomImages ();
+            var E_mail = prompt ("Please insert your Google account!");
+            if (E_mail.slice (- 10) === "@gmail.com" && Mail (E_mail) && containsSpecialChars_email (E_mail) === false)
+                alert ("You are connected with the following Google account: " + E_mail);
+            else
+                alert ("Insert a valid Google account!");
+        }
+        function Microsoft ()
+        {
+            displayRandomImages ();
+            var E_mail = prompt ("Please insert your Microsoft account!");
+            if ((E_mail.slice (- 10) === "@gmail.com" || E_mail.slice (- 12) === "@outlook.com") && Mail (E_mail) && containsSpecialChars_email (E_mail) === false)
+                alert ("You are connected with the following Microsoft account: " + E_mail);
+            else
+                alert ("Insert a valid Microsoft account!");
+        }
+    </script>
+    <body>
+        <form>
+            <div class = "close" onclick = "redirectFunc ()" title = "Click to exit the form!">
+                <i class = "far fa-times-circle" style = "color: #b08fe5">
+                </i>
+            </div>
+            <br>
+            <h3>
+                Login Here
+            </h3>
+            <label for = "username">
+                Username
+            </label>
+            <input type = "text" placeholder = "Enter your nickname" id = "username">
+            <label for = "e-mail">
+                E-mail
+            </label>
+            <input type = "text" placeholder = "Enter your e-mail" id = "e-mail">
+            <label for = "password">
+                Password
+            </label>
+            <input type = "password" placeholder = "Enter your password" id = "password">
+            <div class = "button_log" onclick = "Nick_Name ()">
+                Log In
+            </div>
+            <div class = "social">
+                <div class = "go" onclick = "Google ()">
+                    <i class = "fab fa-google">
+                    </i>
+                    Google
+                </div>
+                <div class = "ms" onclick = "Microsoft ()">
+                    <i class = "fab fa-microsoft">
+                    </i>
+                    Microsoft
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

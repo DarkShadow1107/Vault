@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>
+            Download
+        </title>
+        <link rel = "stylesheet" href = "css\Diagonal Color Gradients.css">
+        <style>
+            body
+            {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                min-height: 100vh;
+                justify-content: center;
+                align-items: center;
+                font-family: arial;
+            }
+            .container
+            {
+                width: 65.1%;
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            .card
+            {
+                position: relative;
+            }
+            .face
+            {
+                width:300px;
+                height: 200px;
+                transition:.4s;
+            }
+            .face1
+            {
+                position: relative;
+                background: #a573f5;
+                display: flex;
+                justify-content: center;
+                align-content:center;
+                align-items: center;
+                z-index: 1;
+                transform: translateY(100px);
+            }
+            .card:hover .face.face1
+            {
+                transform: translateY(0);
+                box-shadow: inset 0 0 60px #a573f5,
+                            inset 20px 0 80px rgb(184, 0, 255),
+                            inset -20px 0 80px rgb(71, 243, 255),
+                            inset 20px 0 300px rgb(184, 0, 255),
+                            inset -20px 0 300px rgb(71, 243, 255),
+                            0 0 50px #fff,
+                            -10px 0 80px rgb(184, 0, 255),
+                            10px 0 80px rgb(71, 243, 255);
+            }
+            .face.face1 .content
+            {
+                opacity: 0.45;
+                transition: 650ms;
+                text-align: center;
+            }
+            .card:hover .face.face1 .content
+            {
+                opacity: 1;
+            }
+            .face.face1 .content i
+            {
+                font-size: 3em;
+                color: rgb(120, 252, 252);
+                display: inline-block;
+            }
+            .face.face1 .content h3
+            {
+                font-size: 1em;
+                color: rgb(120, 252, 252);
+                text-align: center;
+            }
+            .face.face1 .content a
+            {
+                transition: .5s;
+            }
+            .face.face2
+            {
+                position: relative;
+                background: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                box-sizing: border-box;
+                box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+                transform: translateY(-100px);
+            }
+            .card:hover .face.face2
+            {
+                transform: translateY(0);
+            }
+            p, a
+            {
+                font-size: 12pt;
+                margin: 0 ;
+                padding: 0;
+                color:whitesmoke;
+            }
+            a
+            {
+                text-decoration:none;
+                color: azure;
+                box-sizing: border-box;
+                outline : 1px dashed aquamarine;
+                padding: 10px;
+                margin: 15px 0 0;
+                display: inline-block;
+            }
+            a:hover
+            {
+                background: #2456a1 ;
+                color: whitesmoke;
+                box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+            }
+        </style>
+    </head>
+    <body>
+        <div class = "container">
+            <div class = "card">
+                <div class = "face face1">
+                    <div class = "content">
+                        <i class = "fab fa-windows">
+                        </i>
+                        <h3>Windows</h3>
+                    </div>
+                </div>
+                <div class = "face face2">
+                    <div class = "content">
+                        <p>
+                            Here you can download the archive of the gallery.
+                        </p>
+                        <a href = "Download/Media.rar" type = "button">
+                            Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class = "card">
+                <div class = "face face1">
+                    <div class = "content">
+                        <i class = "fab fa-android">
+                        </i>
+                        <h3>
+                            Android
+                        </h3>
+                    </div>
+                </div>
+                <div class = "face face2">
+                    <div class = "content">
+                        <p>
+                            Here you can download the archive of the gallery.
+                        </p>
+                        <a href = "Download/Media.rar" type = "button">
+                            Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class = "card">
+                <div class = "card face face1">
+                    <div class = "content">
+                        <i class = "fab fa-apple">
+                        </i>
+                        <h3>
+                            Apple
+                        </h3>
+                    </div>
+                </div>
+                <div class = "face face2">
+                    <div class = "content">
+                        <p>
+                            Here you can download the archive of the gallery.
+                        </p>
+                        <a href = "Download/Media.rar" type = "button">
+                            Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src = "https://kit.fontawesome.com/95a02bd20d.js">
+        </script>
+    </body>
+</html>
