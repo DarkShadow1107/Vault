@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Coded by Incnis Mrsi 2012, GFDL, attribution required.
+-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="448" height="448" style="shape-rendering:geometricPrecision;" viewBox="-56 -56 112 112" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+   circle {stroke:none}
+   text {stroke:#FF0000; stroke-width:0.5px; fill:#FFFFFF; font-size:12px; font-family;serif}
+   ]]>
+  </style>
+  <radialGradient id="u_">
+    <stop offset="82%" stop-color="#CCCCCC" stop-opacity="1"/>
+    <stop offset="100%" stop-color="#CCCCCC" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="c,t">
+    <stop offset="0%" stop-color="#66FFFF" />
+    <stop offset="100%" stop-color="#000000" />
+  </radialGradient>
+  <radialGradient id="d,s,b">
+    <stop offset="0%" stop-color="#66FF00" />
+    <stop offset="100%" stop-color="#000000" />
+  </radialGradient>
+  <radialGradient id="p_">
+    <stop offset="0%" stop-color="#FFFFFF"/>
+    <stop offset="100%" stop-color="#000000"/>
+  </radialGradient>
+ </defs>
+
+<g id="t">
+	<circle cx="0" cy="0" r="55.710" style="fill:url(#c,t)"/>
+	<text x="-2" y="3">t</text>
+</g>
+<g id="b">
+	<circle cx="0" cy="30" r="16.122" style="fill:url(#d,s,b)"/>
+	<text x="-2" y="33">b</text>
+</g>
+
+<g id="c">
+	<circle cx="15" cy="-30" r="10.885" style="fill:url(#c,t)"/>
+	<text x="13" y="-27">c</text>
+</g>
+<g id="s">
+	<circle cx="15" cy="-14" r="4.642" style="fill:url(#d,s,b)"/>
+	<text x="20" y="-9">s</text>
+</g>
+
+<g id="u">
+	<circle cx="-30" cy="-30" r="1.458" style="fill:url(#u_)"/>
+	<text x="-29" y="-30">u</text>
+</g>
+<g id="d">
+	<circle cx="-30" cy="-26" r="1.698" style="fill:url(#d,s,b)"/>
+	<text x="-30" y="-17">d</text>
+</g>
+
+<circle id="p" cx="-47" cy="46" r="9.790" style="fill:url(#p_)"/>
+<circle id="e" cx="-47" cy="44" r="0.800" style="fill:#FF0000"/>
+
+</svg>
